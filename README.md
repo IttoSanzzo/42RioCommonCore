@@ -8,7 +8,7 @@
 	> Realizado até..: 0 Rank
 
 ## Rank 0
-	> libft		| Ainda não realizado.
+	> Libft		| Ainda não realizado.
 
 ## Rank 1
 	> ft_printf	| Ainda não realizado.

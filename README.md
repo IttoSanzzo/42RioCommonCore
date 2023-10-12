@@ -8,19 +8,19 @@
 	+ Realizado até..: 0 Rank
 
 ## Rank 0
-	> libft		| Ainda não realizado.
+	+ libft		| Ainda não realizado.
 
 ## Rank 1
-	> ft_printf	| Ainda não realizado.
-	> get_next_line	| Ainda não realizado.
-	> Born2beroot	| Ainda não realizado.
+	+ ft_printf	| Ainda não realizado.
+	+ get_next_line	| Ainda não realizado.
+	+ Born2beroot	| Ainda não realizado.
 
 ## Exams
-	> Exam Rank 02	| Ainda não realizado.
-	> Exam Rank 03	| Ainda não realizado.
-	> Exam Rank 04	| Ainda não realizado.
-	> Exam Rank 05	| Ainda não realizado.
-	> Exam Rank 06	| Ainda não realizado.
+	+ Exam Rank 02	| Ainda não realizado.
+	+ Exam Rank 03	| Ainda não realizado.
+	+ Exam Rank 04	| Ainda não realizado.
+	+ Exam Rank 05	| Ainda não realizado.
+	+ Exam Rank 06	| Ainda não realizado.
 
 ## Extras
-	> sastantua	| Realizado, mas não entregue
+	+ sastantua	| Realizado, mas não entregue

@@ -8,10 +8,10 @@
 	> Realizado ate..: 0 Rank
 
 ## Rank 0
-	> Libft			| Ainda nao realizado.
+	> Libft		| Ainda nao realizado.
 
 ## Rank 1
-	> ft_printf		| Ainda nao realizado.
+	> ft_printf	| Ainda nao realizado.
 	> get_next_line	| Ainda nao realizado.
 	> Born2beroot	| Ainda nao realizado.
 
@@ -23,5 +23,5 @@
 	> Exam Rank 06	| Ainda nao realizado.
 
 ## Extras
-	> sastantua		| Realizado, mas nao entregue
+	> sastantua	| Realizado, mas nao entregue
 	> ten_queens	| Realizado, mas nao entregue

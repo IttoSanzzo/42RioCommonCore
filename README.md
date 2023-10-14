@@ -1,4 +1,4 @@
-#    By: marcosv2 <marcosv2@student.42.rio>
+#	 By: marcosv2 <marcosv2@student.42.rio>
 
 # 42RioCommonCore
 
@@ -23,4 +23,5 @@
 	> Exam Rank 06	| Ainda não realizado.
 
 ## Extras
-	> sastantua	| Realizado, mas não entregue
+	> sastantua		| Realizado, mas não entregue
+	> ten_queens	| Realizado, mas n�o entregue

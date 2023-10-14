@@ -2,26 +2,26 @@
 
 # 42RioCommonCore
 
-+ Esse repositório existe exclusivamente para armazenar meus projetos, realizados durante a formação do CommonCore, na 42.
++ Esse repositorio existe exclusivamente para armazenar meus projetos, realizados durante a formacao do CommonCore, na 42.
 
-+ Data atual de atualização..: 12-10-2023
-	> Realizado até..: 0 Rank
++ Data atual de atualizacao..: 12-10-2023
+	> Realizado ate..: 0 Rank
 
 ## Rank 0
-	> Libft		| Ainda não realizado.
+	> Libft			| Ainda nao realizado.
 
 ## Rank 1
-	> ft_printf	| Ainda não realizado.
-	> get_next_line	| Ainda não realizado.
-	> Born2beroot	| Ainda não realizado.
+	> ft_printf		| Ainda nao realizado.
+	> get_next_line	| Ainda nao realizado.
+	> Born2beroot	| Ainda nao realizado.
 
 ## Exams
-	> Exam Rank 02	| Ainda não realizado.
-	> Exam Rank 03	| Ainda não realizado.
-	> Exam Rank 04	| Ainda não realizado.
-	> Exam Rank 05	| Ainda não realizado.
-	> Exam Rank 06	| Ainda não realizado.
+	> Exam Rank 02	| Ainda nao realizado.
+	> Exam Rank 03	| Ainda nao realizado.
+	> Exam Rank 04	| Ainda nao realizado.
+	> Exam Rank 05	| Ainda nao realizado.
+	> Exam Rank 06	| Ainda nao realizado.
 
 ## Extras
-	> sastantua		| Realizado, mas não entregue
-	> ten_queens	| Realizado, mas n�o entregue
+	> sastantua		| Realizado, mas nao entregue
+	> ten_queens	| Realizado, mas nao entregue

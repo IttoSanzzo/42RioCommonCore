@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/13 00:01:56 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/14 16:41:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/15 00:57:04 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -19,28 +19,29 @@
 
 //// Libft Basic Function
 // ft_basic_one
-void	tt_ft_aisdigit(void);
-void	tt_ft_aisalnum(void);
-void	tt_ft_aisascii(void);
-void	tt_ft_aisprint(void);
-void	tt_ft_astrlen(void);
-void	tt_ft_amemset(void);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+size_t	ft_strlen(const char *str);
+void	*ft_memset(void *str, int c, size_t n);
 // ft_basic_two
-void	tt_ft_abzero(void);
-void	tt_ft_amemcpy(void);
-void	tt_ft_amemmove(void);
-void	tt_ft_astrlcpy(void);
-void	tt_ft_astrlcat(void);
-void	tt_ft_atoupper(void);
+void	ft_bzero(void *str, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t n);
+size_t	ft_strlcat(char *dst, const char *src, size_t n);
+void	ft_toupper(void);
 // ft_basic_three
-void	tt_ft_atolower(void);
-void	tt_ft_astrchr(void);
-void	tt_ft_astrrchr(void);
-void	tt_ft_astrncmp(void);
-void	tt_ft_amemchr(void);
+void	ft_tolower(void);
+void	ft_strchr(void);
+void	ft_strrchr(void);
+void	ft_strncmp(void);
+void	ft_memchr(void);
 // ft_basic_four
-void	tt_ft_amemcmp(void);
-void	tt_ft_astrnstr(void);
+void	ft_memcmp(void);
+void	ft_strnstr(void);
 void	tt_ft_atoi(void);
 void	tt_ft_calloc(void);
 char	*ft_strdup(char *src);

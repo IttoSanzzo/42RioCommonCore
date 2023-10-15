@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/10/12 17:59:51 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/10/14 16:35:15 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/10/15 00:36:51 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -21,25 +21,25 @@ D_HDRS	= ./
 F_HDRS	= libft.h
 
 N_SRCS	=	ft_isalpha.c		\
-		ft_aisdigit.c		\
-		ft_aisalnum.c		\
-		ft_aisascii.c		\
-		ft_aisprint.c		\
-		ft_astrlen.c		\
-		ft_amemset.c		\
-		ft_abzero.c		\
-		ft_amemcpy.c		\
-		ft_amemmove.c		\
-		ft_astrlcpy.c		\
-		ft_astrlcat.c		\
-		ft_atoupper.c		\
-		ft_atolower.c		\
-		ft_astrchr.c		\
-		ft_astrrchr.c		\
-		ft_astrncmp.c		\
-		ft_amemchr.c		\
-		ft_amemcmp.c		\
-		ft_astrnstr.c		\
+		ft_isdigit.c		\
+		ft_isalnum.c		\
+		ft_isascii.c		\
+		ft_isprint.c		\
+		ft_strlen.c		\
+		ft_memset.c		\
+		ft_bzero.c		\
+		ft_memcpy.c		\
+		ft_memmove.c		\
+		ft_strlcpy.c		\
+		ft_strlcat.c		\
+		ft_toupper.c		\
+		ft_tolower.c		\
+		ft_strchr.c		\
+		ft_strrchr.c		\
+		ft_strncmp.c		\
+		ft_memchr.c		\
+		ft_memcmp.c		\
+		ft_strnstr.c		\
 		ft_atoi.c		\
 		ft_calloc.c		\
 		ft_strdup.c		\
@@ -70,7 +70,7 @@ D_OBJS	= ./
 F_OBJS	= ${F_SRCS:.c=.o}
 
 .c.o	:
-	${C_COMP} ${C_FLAGS} -I ${D_HDRS} -c $< -o ${$<:.c=.o}
+	${C_COMP} ${C_FLAGS} -I ${D_HDRS} -c $< -o ${<:.c=.o}
 
 ${NAME}	: ${F_OBJS}
 	${C_ARRC} ${NAME} ${F_OBJS}

@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/10/12 17:59:51 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/10/15 00:36:51 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/10/15 22:56:06 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -53,16 +53,16 @@ N_SRCS	=	ft_isalpha.c		\
 		ft_putchar_fd.c		\
 		ft_putstr_fd.c		\
 		ft_putendl_fd.c		\
-		ft_putnbr_fd.c		\
-		ft_lstnew.c		\
-		ft_lstadd_front.c	\
-		ft_lstsize.c		\
-		ft_lstlast.c		\
-		ft_lstadd_back.c	\
-		ft_lstdelone.c		\
-		ft_lstclear.c		\
-		ft_lstiter.c		\
-		ft_lstmap
+		ft_putnbr_fd.c
+#		ft_lstnew.c		\
+#		ft_lstadd_front.c	\
+#		ft_lstsize.c		\
+#		ft_lstlast.c		\
+#		ft_lstadd_back.c	\
+#		ft_lstdelone.c		\
+#		ft_lstclear.c		\
+#		ft_lstiter.c		\
+#		ft_lstmap
 D_SRCS	=	./
 F_SRCS	= $(addprefix ${D_SRCS}, ${N_SRCS})
 

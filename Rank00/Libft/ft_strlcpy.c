@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/14 23:49:22 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 00:55:02 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/16 00:53:28 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 {
+	size_t	src_len;
 	size_t	i;
 
 	if (!dst || !src)
 		return (0);
+	src_len = ft_strlen(src);
 	i = -1;
-	while (++i < n - 1 && src[i])
-		dst[i] = src[i];
-	if (i < n)
-		dst[i] = 0;
-	while (src[i])
-		i++;
-	return (i);
+	if (n != 0)
+	{
+		while (src[++i] && i < (n - 1))
+			dst[i] = src[i];
+		dst[i] = '\0';
+	}
+	return (src_len);
 }

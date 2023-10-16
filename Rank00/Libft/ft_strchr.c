@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/15 17:31:31 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 18:01:03 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/16 00:49:23 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c && *s)
+	while (*s != '\0' && *s != (unsigned char)c)
 		s++;
-	if (*s == c)
+	if (*s == (unsigned char)c)
 		return ((char *)s);
 	return (NULL);
 }

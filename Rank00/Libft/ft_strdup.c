@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/12 18:26:53 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/14 16:41:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/16 01:56:25 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ char	*ft_strdup(char *src)
 	int		i;
 	char	*dest;
 
-	i = 0;
-	while (src[i])
-		i++;
-	dest = (char *)malloc(sizeof(char) * (i + 1));
+	dest = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (!(dest))
 		return (NULL);
 	i = -1;

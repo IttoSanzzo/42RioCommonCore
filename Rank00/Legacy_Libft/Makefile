@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/10/12 17:59:51 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/10/17 13:30:50 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/10/17 20:26:07 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME	= libft.a
 C_COMP	= cc
 C_FLAGS	= -Wall -Wextra -Werror
 C_ARRC	= ar rcs
-
-D_HDRS	= ./
+C_REMO	= rm -rf
 
 N_SRCS	=	ft_isalpha.c		\
 		ft_isdigit.c		\
@@ -52,25 +51,23 @@ N_SRCS	=	ft_isalpha.c		\
 		ft_putstr_fd.c		\
 		ft_putendl_fd.c		\
 		ft_putnbr_fd.c
-D_SRCS	=	./
-F_SRCS	= $(addprefix ${D_SRCS}, ${N_SRCS})
+F_SRCS	= ${N_SRCS}
 
-D_OBJS	= ./
 F_OBJS	= ${F_SRCS:.c=.o}
 
-.c.o	:
-	${C_COMP} ${C_FLAGS} -I ${D_HDRS} -c $< -o ${<:.c=.o}
+%.o	: %.c
+	${C_COMP} ${C_FLAGS} -c $< -o $@
 
 ${NAME}	: ${F_OBJS}
-	${C_ARRC} ${NAME} ${F_OBJS}
+	${C_ARRC} $@ $^
 
 all	: ${NAME}
 
 clean	:
-	rm -f ${F_OBJS}
+	${C_REMO} ${F_OBJS}
 
 fclean	: clean
-	rm -f ${NAME}
+	${C_REMO} ${NAME}
 
 re	: fclean all
 

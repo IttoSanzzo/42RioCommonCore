@@ -5,92 +5,67 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 20:04:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/16 15:13:39 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:36:13 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:36:22 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_wc(char *s, char c)
+static int	ft_lensubstring(char const *str, int start, char c)
 {
-	int	i;
-	int	wc;
+	int	length;
 
-	wc = 0;
-	i = 0;
-	if (s[0] == 0)
+	length = 0;
+	while (str[start] != c && str[start] != '\0')
+	{
+		start++;
+		length++;
+	}
+	return (length);
+}
+
+static int	ft_countsubstring(char const *str, char c)
+{
+	int	indice;
+	int	count;
+
+	count = 0;
+	indice = 0;
+	while (str[indice] != '\0')
+	{
+		while (str[indice] == c && str[indice] != '\0')
+			indice++;
+		if (str[indice])
+			count++;
+		while (str[indice] != c && str[indice])
+			indice++;
+	}
+	return (count);
+}
+
+char	**ft_split(char const *str, char c)
+{
+	int		start;
+	int		indice;
+	int		sublen;
+	int		subnumber;
+	char	**ptrbox;
+
+	if (!str)
 		return (0);
-	if (s[i] && s[i] != c)
-		wc++;
-	while (s[++i])
-		if (s[i - 1] == c && s[i] != c)
-			wc++;
-	return (wc);
-}
-
-static char	*ft_wl(char *s, char c)
-{
-	int		i;
-	int		temp;
-	int		len;
-	char	*ret;
-
-	i = 0;
-	len = 0;
-	while (s[i])
+	subnumber = ft_countsubstring(str, c);
+	ptrbox = (char **)ft_calloc((subnumber + 1), sizeof(char *));
+	start = 0;
+	indice = 0;
+	while (indice < subnumber)
 	{
-		temp = 0;
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i++] != c)
-			temp++;
-		if (temp > len)
-			len = temp;
+		while (str[start] && str[start] == c)
+			start++;
+		sublen = ft_lensubstring(str, start, c);
+		ptrbox[indice] = ft_substr(str, start, sublen);
+		start = start + sublen;
+		indice++;
 	}
-	ret = (char *)malloc(sizeof (char) * len + 1);
-	if (!ret)
-		return (NULL);
-	return (ret);
-}
-
-static char	**ft_split_up(char **tab, char *s, char c, int wc)
-{
-	int		i;
-	int		y;
-	int		w;
-	char	*temp;
-
-	temp = ft_wl(s, c);
-	w = 0;
-	i = 0;
-	while (w < wc)
-	{
-		y = 0;
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i] != c)
-			temp[y++] = s[i++];
-		temp[y] = 0;
-		tab[w] = ft_strdup(temp);
-		w++;
-	}
-	free(temp);
-	tab[w] = 0;
-	return (tab);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		wc;
-	char	**tab;
-
-	if (!s)
-		return (NULL);
-	wc = ft_wc((char *)s, c);
-	tab = (char **)malloc(sizeof(char *) * (wc + 1));
-	if (!tab)
-		return (NULL);
-	tab = ft_split_up(tab, (char *)s, c, wc);
-	return (tab);
+	return (ptrbox);
 }

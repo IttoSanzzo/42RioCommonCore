@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 19:10:01 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/16 01:46:48 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:43:50 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:43:53 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = ft_strlen(s + start);
 	str = (char *)malloc(len + 1);
 	if (!str)
+	{
 		return (NULL);
+	}
 	ft_strlcpy(str, s + start, len + 1);
 	return (str);
 }

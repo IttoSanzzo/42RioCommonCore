@@ -5,21 +5,26 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/14 23:14:37 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/16 01:01:05 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:32:32 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:32:35 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	size_t	index;
 
-	if (!dst && !src)
+	if (!dest && !src)
+	{
 		return (0);
-	i = -1;
-	while (++i < n)
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-	return (dst);
+	}
+	index = 0;
+	while (index < n)
+	{
+		((unsigned char *)dest)[index] = ((unsigned char *)src)[index];
+		index++;
+	}
+	return (dest);
 }

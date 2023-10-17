@@ -5,29 +5,33 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 18:32:45 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/16 00:53:05 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:42:33 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:42:37 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	h;
-	size_t	n;
+	size_t	index;
+	size_t	sup;
 
-	h = -1;
-	if (needle[0] == '\0')
-		return ((char *)haystack);
-	while (haystack[++h] != '\0')
+	if (ft_strlen(little) == 0)
 	{
-		n = -1;
-		while ((h + ++n) < len && haystack[h + n] == needle[n])
-			if (haystack[h + n] == '\0' && needle[n] == '\0')
-				return ((char *)&haystack[h]);
-		if (needle[n] == '\0')
-			return ((char *)haystack + h);
+		return ((char *)big);
 	}
-	return (0);
+	index = 0;
+	while (big[index] != '\0' && index < len)
+	{
+		sup = 0;
+		while ((big[index + sup] == little[sup]) && (index + sup) < len)
+		{
+			if (little[sup + 1] == '\0')
+				return ((char *)&big[index]);
+			sup++;
+		}
+		index++;
+	}
+	return (NULL);
 }

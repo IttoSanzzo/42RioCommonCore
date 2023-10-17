@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 22:29:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 22:33:21 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:38:09 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:38:13 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
+	unsigned int	indice;
 
-	i = -1;
-	while (s[++i] != '\0')
-		f(i, s + i);
+	indice = 0;
+	while (s[indice] != '\0')
+	{
+		(*f)(indice, &s[indice]);
+		indice++;
+	}
 }

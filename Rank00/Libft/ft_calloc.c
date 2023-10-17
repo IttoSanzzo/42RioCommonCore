@@ -5,22 +5,20 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 19:00:07 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/16 18:36:54 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:26:49 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:31:04 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	void	*dst;
+	void	*ptr;
 
-	if (count * size == 0 || count > 2147483647 / size)
+	ptr = malloc(nitems * size);
+	if (!ptr)
 		return (NULL);
-	dst = malloc(count * size);
-	if (!dst)
-		return (NULL);
-	ft_bzero(dst, count * size);
-	return (dst);
+	ft_bzero(ptr, nitems * size);
+	return (ptr);
 }

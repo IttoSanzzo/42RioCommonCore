@@ -5,19 +5,21 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/14 22:26:53 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/14 22:37:27 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:40:22 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:41:43 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	int	index;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	index = 0;
+	while (s[index] != '\0')
+	{
+		index++;
+	}
+	return (index);
 }

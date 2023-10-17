@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 22:35:49 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 22:55:30 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:35:10 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:35:12 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	nbr;
+	long	number;
 
-	if (n == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (n < 0)
+	number = n;
+	if (number < 0)
 	{
-		n = -n;
-		write(fd, "-", 1);
+		ft_putchar_fd('-', fd);
+		number = -number;
 	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	if (n >= 0)
+	if (number >= 10)
 	{
-		nbr = (char)(n % 10 + 48);
-		write(fd, &nbr, 1);
+		ft_putnbr_fd(number / 10, fd);
+		ft_putchar_fd((number % 10) + '0', fd);
+	}
+	else
+	{
+		ft_putchar_fd(number + '0', fd);
 	}
 }

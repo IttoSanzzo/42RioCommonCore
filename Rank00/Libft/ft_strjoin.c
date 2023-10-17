@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 19:38:32 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/16 01:13:24 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:38:40 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:38:44 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		j;
-	char	*dst;
+	char	*str;
+	size_t	len_s1;
+	size_t	len_s2;
 
-	if (!s1 || !s2)
-		return (NULL);
-	dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!dst)
-		return (NULL);
-	j = 0;
-	i = -1;
-	while (s1[++i] != 0)
-		dst[j++] = s1[i];
-	i = -1;
-	while (s2[++i] != 0)
-		dst[j++] = s2[i];
-	dst[j] = 0;
-	return (dst);
+	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (0);
+	len_s1 = 0;
+	while (s1[len_s1] != '\0')
+	{
+		str[len_s1] = s1[len_s1];
+		len_s1++;
+	}
+	len_s2 = 0;
+	while (s2[len_s2] != '\0')
+	{
+		str[len_s1 + len_s2] = s2[len_s2];
+		len_s2++;
+	}
+	str[len_s1 + len_s2] = '\0';
+	return (str);
 }

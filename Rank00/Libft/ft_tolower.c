@@ -5,16 +5,21 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 17:24:16 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 17:30:42 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:44:10 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:44:12 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+int     ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+        if ((c >= 65) && (c <= 90))
+        {
+                return (c + 32);
+        }
+        else
+        {
+                return (c);
+        }
 }

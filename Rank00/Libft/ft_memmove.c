@@ -5,28 +5,37 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/14 23:23:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 00:49:15 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:32:56 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:32:59 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	int	i;
+	char	*source;
+	char	*destiny;
+	size_t	index;
 
-	if (!dst || !src)
-		return (NULL);
-	i = -1;
-	if (dst > src)
+	source = (char *)src;
+	destiny = (char *)dest;
+	index = 0;
+	if (source > destiny)
 	{
-		i = n;
-		while (--i >= 0)
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		while (index < len)
+		{
+			destiny[index] = source[index];
+			index++;
+		}
 	}
 	else
-		while (++i < (int)n)
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-	return (dst);
+	{
+		while (index != len)
+		{
+			destiny[len - index - 1] = source[len - index - 1];
+			index++;
+		}
+	}
+	return (dest);
 }

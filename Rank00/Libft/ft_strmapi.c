@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/15 21:58:52 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 22:32:36 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/17 14:41:33 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/17 14:41:36 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*dst;
+	unsigned int	indice;
+	unsigned int	length;
+	char			*str;
 
-	if (!s || !f)
-		return (NULL);
-	dst = ft_strdup((char *)s);
-	if (!dst)
-		return (NULL);
-	i = -1;
-	while (dst[++i])
-		dst[i] = f(i, dst[i]);
-	return (dst);
+	length = ft_strlen(s);
+	str = (char *)ft_calloc(length + 1, sizeof(char));
+	if (!str)
+		return (0);
+	indice = 0;
+	while (s[indice] != '\0')
+	{
+		str[indice] = (*f)(indice, s[indice]);
+		indice++;
+	}
+	return (str);
 }

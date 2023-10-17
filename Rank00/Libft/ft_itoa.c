@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/15 20:55:58 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/15 22:21:50 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:01:41 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 static int	ft_nbrlen(int n)
 {
 	if (!(n / 10))
-	{
-		if (n < 0)
-			return (2);
-		return (1);
-	}
+		return (1 + 1 * (n < 0));
 	return (1 + ft_nbrlen(n / 10));
 }
 

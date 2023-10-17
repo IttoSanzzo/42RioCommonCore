@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/15 20:04:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/16 01:56:09 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:13:39 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ static int	ft_wc(char *s, char c)
 
 	wc = 0;
 	i = 0;
-	if (s[i] != c && s[i] != 0)
+	if (s[0] == 0)
+		return (0);
+	if (s[i] && s[i] != c)
 		wc++;
 	while (s[++i])
 		if (s[i - 1] == c && s[i] != c)

@@ -1,19 +1,14 @@
 # **************************************************************************** #
 #									       #
 #							  :::	   ::::::::    #
-#    .gitignore                                         :+:      :+:    :+:    #
+#    compile.sh                                         :+:      :+:    :+:    #
 #						      +:+ +:+	      +:+      #
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
-#    Created: 2023/10/12 17:54:20 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/10/17 21:24:39 by marcosv2         ###   ########.fr        #
+#    Created: 2023/10/17 20:41:10 by marcosv2	       #+#    #+#	       #
+#    Updated: 2023/10/17 20:43:56 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
-Documents
-*.swp
-*.swo
-*Zone.Identifier
-*.o
-*.a
-*.out
+#!/bin/bash
+	cc -Wall -Wextra -Werror ./main.c ../Legacy_Libft/libft.a -o COMPILADO.out

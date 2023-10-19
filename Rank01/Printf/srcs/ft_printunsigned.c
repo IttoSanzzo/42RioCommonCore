@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printunsigned.c                                 :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 17:31:07 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/19 15:08:46 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/19 14:56:53 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/19 15:15:43 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_lputchar(int c, int *len)
+int	ft_printunsigned(unsigned int nb)
 {
-	write(1, &c, 1);
-	*len += 1;
-}
+	int		len;
+	char	nbr;
 
-int	ft_nbrlen(int nb)
-{
+	if (nb > 9)
+		len = ft_printnbr(nb / 10);
+	nbr = nb % 10 + 48;
+	write(1, &nbr, 1);
 	if (!(nb / 10))
-		return (1 + 1 * (nb < 0));
-	return (1 + ft_nbrlen(nb / 10));
+		return (1);
+	return (1 + len);
 }

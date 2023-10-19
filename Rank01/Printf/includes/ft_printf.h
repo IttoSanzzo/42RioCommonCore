@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/17 16:22:52 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 17:30:38 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/19 15:52:42 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 # define FT_PRINTF_H
 
 //// LIBS
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# include <stdint.h>
 
 //// Prototypes
 // Core Functions
@@ -34,5 +36,6 @@ int		ft_printpointer(unsigned long long ptr);
 
 // Utils Functions
 void	ft_lputchar(int c, int *len);
+int		ft_nbrlen(int nb);
 
 #endif

@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:42:03 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:42:05 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:45:56 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:46:03 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	index;
+	size_t	count;
 
-	index = 0;
-	if (n == 0)
-	{
+	count = 0;
+	if (n <= 0)
 		return (0);
-	}
-	while ((s1[index] != '\0' && s2[index] != '\0')
-		&& s1[index] == s2[index] && index < n - 1)
-	{
-		index++;
-	}
-	return ((unsigned char)s1[index] - (unsigned char)s2[index]);
+	while (s1[count] && (s1[count] == s2[count]) && count < (n - 1))
+		count++;
+	return ((unsigned char)s1[count] - (unsigned char)s2[count]);
 }

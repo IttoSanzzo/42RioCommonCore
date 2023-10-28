@@ -5,67 +5,75 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:36:13 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:36:22 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:40:28 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:40:38 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_lensubstring(char const *str, int start, char c)
+static int	count_words(char const *str, char c)
 {
-	int	length;
-
-	length = 0;
-	while (str[start] != c && str[start] != '\0')
-	{
-		start++;
-		length++;
-	}
-	return (length);
-}
-
-static int	ft_countsubstring(char const *str, char c)
-{
-	int	indice;
 	int	count;
+	int	flag;
+	int	str_count;
 
 	count = 0;
-	indice = 0;
-	while (str[indice] != '\0')
-	{
-		while (str[indice] == c && str[indice] != '\0')
-			indice++;
-		if (str[indice])
-			count++;
-		while (str[indice] != c && str[indice])
-			indice++;
-	}
-	return (count);
-}
-
-char	**ft_split(char const *str, char c)
-{
-	int		start;
-	int		indice;
-	int		sublen;
-	int		subnumber;
-	char	**ptrbox;
-
+	flag = 1;
+	str_count = 0;
 	if (!str)
 		return (0);
-	subnumber = ft_countsubstring(str, c);
-	ptrbox = (char **)ft_calloc((subnumber + 1), sizeof(char *));
-	start = 0;
-	indice = 0;
-	while (indice < subnumber)
+	while (str[count] != '\0')
 	{
-		while (str[start] && str[start] == c)
-			start++;
-		sublen = ft_lensubstring(str, start, c);
-		ptrbox[indice] = ft_substr(str, start, sublen);
-		start = start + sublen;
-		indice++;
+		if (str[count] == c)
+			flag = 1;
+		else if (str[count] && flag == 1 && ++str_count)
+			flag = 0;
+		count++;
 	}
-	return (ptrbox);
+	return (str_count);
+}
+
+static char	*ft_newstring(char const *str, int count, int start, char c)
+{
+	char		*temp_string;
+	int			count2;
+
+	count2 = 0;
+	temp_string = (char *)malloc(sizeof(char) * (count - start + 1));
+	if (!temp_string)
+		return (NULL);
+	while (str[start] != c && str[start])
+		temp_string[count2++] = str[start++];
+	temp_string[count2] = '\0';
+	return (temp_string);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**array;
+	int		count;
+	int		array_count;
+	int		start;
+
+	if (!s)
+		return (NULL);
+	count = 0;
+	array_count = 0;
+	array = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!array)
+		return (NULL);
+	while (array_count < count_words(s, c))
+	{
+		if (s[count] != c && s[count])
+		{
+			start = count;
+			while (s[count] != c && s[count])
+				count++;
+			array[array_count++] = ft_newstring(s, count, start, c);
+		}
+		count++;
+	}
+	array[array_count] = NULL;
+	return (array);
 }

@@ -5,21 +5,16 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:38:09 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:38:13 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:42:56 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:43:08 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	indice;
+	unsigned int	i;
 
-	indice = 0;
-	while (s[indice] != '\0')
-	{
-		(*f)(indice, &s[indice]);
-		indice++;
-	}
+	i = 0;
+	while (*s)
+		f(i++, s++);
 }

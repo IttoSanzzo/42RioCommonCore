@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:37:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:37:43 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:41:05 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:41:51 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != (unsigned char)c)
-	{
-		s++;
-	}
-	if (*s == (unsigned char) c)
-	{
-		return ((char *)s);
-	}
+	char	*s_ptr;
+
+	s_ptr = (char *) s;
+	while (*s_ptr && *s_ptr != (char)c)
+		s_ptr++;
+	if (*s_ptr == (char)c)
+		return (s_ptr);
 	return (NULL);
 }

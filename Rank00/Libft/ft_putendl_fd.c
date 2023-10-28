@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:34:40 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:34:43 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:33:11 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:33:24 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	index;
-
-	index = 0;
-	while (s[index] != '\0')
-	{
-		write(fd, &s[index], 1);
-		index++;
-	}
-	write(fd, "\n", 1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

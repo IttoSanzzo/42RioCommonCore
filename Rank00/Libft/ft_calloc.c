@@ -5,20 +5,24 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:26:49 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:31:04 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:09:52 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:11:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nitems, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*ptr;
+	void	*mem;
+	int		i;
 
-	ptr = malloc(nitems * size);
-	if (!ptr)
+	i = nmemb * size;
+	if (nmemb && i && i / nmemb != size)
 		return (NULL);
-	ft_bzero(ptr, nitems * size);
-	return (ptr);
+	mem = (void *) malloc(nmemb * size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, (nmemb * size));
+	return (mem);
 }

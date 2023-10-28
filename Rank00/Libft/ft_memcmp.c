@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:31:58 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:32:15 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:28:37 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:28:58 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*s_s1;
-	const unsigned char	*s_s2;
-	size_t				index;
+	unsigned char	*s1_ptr;
+	unsigned char	*s2_ptr;
+	size_t			i;
 
-	index = 0;
-	s_s1 = (const unsigned char *)s1;
-	s_s2 = (const unsigned char *)s2;
-	while (index < n)
+	i = 0;
+	s1_ptr = (unsigned char *)s1;
+	s2_ptr = (unsigned char *)s2;
+	while (i < n)
 	{
-		if (s_s1[index] != s_s2[index])
-		{
-			return (s_s1[index] - s_s2[index]);
-		}
-		index++;
+		if (s1_ptr[i] != s2_ptr[i])
+			return (s1_ptr[i] - s2_ptr[i]);
+		i++;
 	}
 	return (0);
 }

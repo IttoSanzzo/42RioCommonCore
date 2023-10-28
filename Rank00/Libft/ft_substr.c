@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:43:50 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:43:53 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:47:45 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:50:02 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
+	char	*substr;
+	size_t	i;
 
 	if (!s)
-		return (NULL);
-	if (ft_strlen(s) < start)
-	{
-		str = (char *)malloc(sizeof(*s));
-		str[0] = '\0';
-		return (str);
-	}
-	if (ft_strlen(s) < start)
-		len = 0;
+		return (0);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
 	if (ft_strlen(s + start) < len)
 		len = ft_strlen(s + start);
-	str = (char *)malloc(len + 1);
-	if (!str)
+	substr = (char *)malloc(sizeof(char) * len + 1);
+	if (!substr)
+		return (0);
+	i = 0;
+	while (s[start] && i < len)
 	{
-		return (NULL);
+		substr[i] = s[start];
+		i++;
+		start++;
 	}
-	ft_strlcpy(str, s + start, len + 1);
-	return (str);
+	substr[i] = '\0';
+	return (substr);
 }

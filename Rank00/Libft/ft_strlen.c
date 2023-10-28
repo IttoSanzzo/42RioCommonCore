@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:40:22 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:41:43 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:45:04 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:45:07 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	index;
+	size_t	size;
 
-	index = 0;
-	while (s[index] != '\0')
-	{
-		index++;
-	}
-	return (index);
+	size = 0;
+	while (s[size])
+		size++;
+	return (size);
 }

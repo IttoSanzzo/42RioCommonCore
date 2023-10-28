@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:39:35 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:40:00 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:44:43 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:44:46 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	index;
-	size_t	len_src;
+	size_t	i;
 
-	len_src = ft_strlen(src);
+	i = 0;
 	if (size == 0)
+		return (ft_strlen(src));
+	while (i < (size - 1) && src[i])
 	{
-		return (len_src);
+		dst[i] = src[i];
+		i++;
 	}
-	index = 0;
-	while (index < (size - 1) && src[index] != '\0')
-	{
-		dst[index] = src[index];
-		index++;
-	}
-	dst[index] = '\0';
-	return (len_src);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

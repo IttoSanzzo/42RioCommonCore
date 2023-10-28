@@ -5,36 +5,30 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:32:56 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:32:59 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:31:36 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:31:48 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*source;
-	char	*destiny;
-	size_t	index;
+	char	*dest_ptr;
+	char	*src_ptr;
 
-	source = (char *)src;
-	destiny = (char *)dest;
-	index = 0;
-	if (source > destiny)
-	{
-		while (index < len)
-		{
-			destiny[index] = source[index];
-			index++;
-		}
-	}
+	dest_ptr = (char *) dest;
+	src_ptr = (char *) src;
+	if (dest_ptr == src_ptr)
+		return (dest);
+	if (dest < src)
+		ft_memcpy(dest, src, n);
 	else
 	{
-		while (index != len)
+		while (n > 0)
 		{
-			destiny[len - index - 1] = source[len - index - 1];
-			index++;
+			dest_ptr[n - 1] = src_ptr[n - 1];
+			n--;
 		}
 	}
 	return (dest);

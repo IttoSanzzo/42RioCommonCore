@@ -5,59 +5,50 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/10/17 14:30:05 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 14:31:15 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:21:57 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/10/27 20:27:10 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_itoa_neg(int n);
-static int	ft_itoa_len(int n);
+static int	ft_countdigits(int nb)
+{
+	int	count;
+
+	if (nb == 0)
+		return (1);
+	count = 0;
+	while (nb > 0 && ++count)
+		nb /= 10;
+	return (count);
+}
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	int				signal;
-	int				len;
-	unsigned int	num;
+	int		n_size;
+	int		is_negative;
+	int		overflow;
+	char	*string;
 
-	signal = ft_itoa_neg(n);
-	num = n * signal;
-	len = ft_itoa_len(num);
-	if (signal == -1)
-		len++;
-	str = (char *)ft_calloc(len + 1, sizeof(char));
-	if (!str)
-		return (0);
-	len--;
-	if (!num)
-		str[0] = '0';
-	if (signal == -1)
-		str[0] = '-';
-	while (num)
+	overflow = 0;
+	is_negative = 0;
+	if (n == -2147483648 && ++overflow)
+		n++;
+	if (n < 0 && ++is_negative)
+		n *= -1;
+	n_size = ft_countdigits(n) + is_negative;
+	string = (char *)malloc(sizeof(char) * (n_size) + 1);
+	if (!string)
+		return (NULL);
+	if (is_negative)
+		string[0] = '-';
+	string[n_size] = '\0';
+	while (n_size-- > (0 + is_negative))
 	{
-		str[len] = (num % 10) + '0';
-		num = num / 10;
-		len--;
+		string[n_size] = ((n % 10) + '0' + overflow);
+		overflow = 0;
+		n /= 10;
 	}
-	return (str);
-}
-
-static int	ft_itoa_len(int n)
-{
-	if (!(n / 10))
-	{
-		return (1);
-	}
-	return (1 + ft_itoa_len(n / 10));
-}
-
-static int	ft_itoa_neg(int n)
-{
-	if (n < 0)
-	{
-		return (-1);
-	}
-	return (1);
+	return (string);
 }

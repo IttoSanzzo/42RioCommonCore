@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 20:43:52 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/27 20:44:23 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:49:57 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	count;
-	size_t	src_len;
-	size_t	dst_len;
-	size_t	result;
+	size_t	d;
+	size_t	i;
+	size_t	total;
 
-	count = 0;
-	if (size <= 0 && !src)
-		return (0);
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (size <= dst_len)
-		return (size + src_len);
-	result = dst_len + src_len;
-	while (src[count] && dst_len < size - 1)
+	if (size == 0)
+		return (ft_strlen(src));
+	if (size <= ft_strlen(dst))
+		return (size + ft_strlen(src));
+	d = ft_strlen(dst);
+	total = d + ft_strlen(src);
+	i = 0;
+	while (src[i] != '\0' && d < (size - 1))
 	{
-		dst[dst_len] = src[count];
-		count++;
-		dst_len++;
+		dst[d] = src[i];
+		d++;
+		i++;
 	}
-	dst[dst_len] = '\0';
-	return (result);
+	dst[d] = '\0';
+	return (total);
 }

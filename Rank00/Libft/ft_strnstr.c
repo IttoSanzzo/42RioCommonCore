@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 20:46:23 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/27 20:46:25 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:50:54 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	v;
 	size_t	i;
-	size_t	little_len;
-	char	*big_ptr;
+	size_t	j;
 
-	little_len = ft_strlen(little);
-	big_ptr = (char *)big;
-	if (big == little || little_len == 0)
-		return ((char *)big);
 	i = 0;
-	while (big[i] && i < len)
+	j = 0;
+	if (little[i] == '\0')
+		return ((char *)big);
+	while ((i < len) && (big[i] != '\0'))
 	{
-		v = 0;
-		while (big[i + v] == little[v] && little[v]
-			&& big[i + v] && i + v < len)
-			v++;
-		if (v == little_len)
-			return (big_ptr + i);
+		if (big[i] == little[j])
+		{
+			while (little[j] != '\0' && big[j + i] && (j + i) < len)
+			{
+				if (big[j + i] == little[j])
+					j++;
+				else
+					break ;
+			}
+			if (little[j] == '\0')
+				return ((char *)big + i);
+			j = 0;
+		}
 		i++;
 	}
 	return (NULL);

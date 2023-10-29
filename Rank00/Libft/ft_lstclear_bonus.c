@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:34:24 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/27 19:34:31 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:55:24 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*temp_el;
+	t_list	*temp;
 
-	while (*lst && del)
+	if (lst && del)
 	{
-		temp_el = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		(*lst) = temp_el;
+		while (*lst)
+		{
+			temp = (*lst)->next;
+			del((*lst)->content);
+			free(*lst);
+			*lst = temp;
+		}
 	}
+	lst = NULL;
 }

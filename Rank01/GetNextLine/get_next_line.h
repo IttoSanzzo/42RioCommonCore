@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/23 19:07:19 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/23 21:32:22 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:20:09 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ char	*get_next_line(int fd);
 
 /// get_next_line_utils
 char	*ft_strdup(const char *src);
-
 
 #endif

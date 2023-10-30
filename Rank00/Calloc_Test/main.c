@@ -6,10 +6,10 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/17 17:38:58 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/17 20:42:16 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:18:41 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
-
+/*
 #include "../Legacy_Libft/libft.h"
 #include <stdlib.h>
 
@@ -36,3 +36,4 @@ int	main(int argc, char *argv[])
 	}
 	return (0);
 }
+*/

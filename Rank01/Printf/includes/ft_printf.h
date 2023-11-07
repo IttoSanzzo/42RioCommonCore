@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/17 16:22:52 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/19 15:52:42 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:21:26 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-
 # include <stdint.h>
 
 //// Prototypes

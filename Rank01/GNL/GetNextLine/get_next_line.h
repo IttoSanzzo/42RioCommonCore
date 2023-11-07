@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/23 19:07:19 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/30 13:20:09 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:09:45 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 char	*get_next_line(int fd);
 
 /// get_next_line_utils
-char	*ft_strdup(const char *src);
+void	ft_bzero(void *s, size_t n);
+size_t	ft_strlen(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif

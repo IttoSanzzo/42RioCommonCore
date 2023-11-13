@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/07 10:04:17 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/07 10:04:40 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:14:53 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ char	*read_first_line(int fd, char *text)
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free (text);
-			free (buffer);
+			free(text);
+			free(buffer);
 			return (NULL);
 		}
 		buffer[bytes_read] = 0;
@@ -46,11 +46,11 @@ char	*read_first_line(int fd, char *text)
 		if (ft_strchr(text, '\n'))
 			break ;
 	}
-	free (buffer);
+	free(buffer);
 	return (text);
 }
 
-char	*get_liner(char *text)
+char	*ft_get_fl(char *text)
 {
 	int		i;
 	char	*str;
@@ -72,7 +72,7 @@ char	*get_liner(char *text)
 	return (str);
 }
 
-char	*clean_first_line(char *text)
+char	*ft_cls_sl(char *text)
 {
 	int		i;
 	int		j;
@@ -84,7 +84,7 @@ char	*clean_first_line(char *text)
 		i++;
 	if (!text[i])
 	{
-		free (text);
+		free(text);
 		return (NULL);
 	}
 	str = ft_calloc((ft_strlen(text) - i + 1), sizeof(*text));
@@ -93,36 +93,21 @@ char	*clean_first_line(char *text)
 	while (text[++i])
 		str[j++] = text[i];
 	str[j] = '\0';
-	free (text);
+	free(text);
 	return (str);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*output_text;
-	static char	*text;
+	char		*ftext;
+	static char	*ltext;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	text = read_first_line(fd, text);
-	if (!text)
+	ltext = read_first_line(fd, ltext);
+	if (!ltext)
 		return (NULL);
-	output_text = get_liner(text);
-	text = clean_first_line(text);
-	return (output_text);
+	ftext = ft_get_fl(ltext);
+	ltext = ft_cls_sl(ltext);
+	return (ftext);
 }
-
-/* int main()
-{
-	int fd = open("a.txt", O_RDONLY);
-	char *a;
-
-	while ((a = get_next_line(fd)))
-	{
-		printf("%s", a);
-	}
-
-	// printf("%s", get_next_line(fd));
-
-	return 0;
-} */

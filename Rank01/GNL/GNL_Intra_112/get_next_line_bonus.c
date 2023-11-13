@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/07 10:04:17 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/13 10:43:23 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:29:37 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_join_and_free(char *text, char *buffer)
 {
@@ -21,7 +21,7 @@ char	*ft_join_and_free(char *text, char *buffer)
 	return (temp);
 }
 
-char	*ft_get_nl(int fd, char *text)
+char	*read_first_line(int fd, char *text)
 {
 	char	*buffer;
 	int		bytes_read;
@@ -104,7 +104,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ltext = ft_get_nl(fd, ltext);
+	ltext = read_first_line(fd, ltext);
 	if (!ltext)
 		return (NULL);
 	ftext = ft_get_fl(ltext);

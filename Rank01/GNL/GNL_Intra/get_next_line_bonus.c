@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/11/07 10:04:17 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/07 20:29:37 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/11/13 10:47:57 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/11/13 11:05:39 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -21,24 +21,24 @@ char	*ft_join_and_free(char *text, char *buffer)
 	return (temp);
 }
 
-char	*read_first_line(int fd, char *text)
+char	*ft_get_nl(int fd, char *text)
 {
 	char	*buffer;
 	int		bytes_read;
 
 	if (!text)
 		text = ft_calloc(1, 1);
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
-	while (bytes_read > 0)
+	while (!ft_strchr(text, '\n') && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free(text);
-			free(buffer);
+			free (text);
+			free (buffer);
 			return (NULL);
 		}
 		buffer[bytes_read] = 0;
@@ -46,7 +46,7 @@ char	*read_first_line(int fd, char *text)
 		if (ft_strchr(text, '\n'))
 			break ;
 	}
-	free(buffer);
+	free (buffer);
 	return (text);
 }
 
@@ -84,7 +84,7 @@ char	*ft_cls_sl(char *text)
 		i++;
 	if (!text[i])
 	{
-		free(text);
+		free (text);
 		return (NULL);
 	}
 	str = ft_calloc((ft_strlen(text) - i + 1), sizeof(*text));
@@ -93,21 +93,21 @@ char	*ft_cls_sl(char *text)
 	while (text[++i])
 		str[j++] = text[i];
 	str[j] = '\0';
-	free(text);
+	free (text);
 	return (str);
 }
 
 char	*get_next_line(int fd)
 {
 	char		*ftext;
-	static char	*ltext;
+	static char	*ltext[FOPEN_MAX];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd > FOPEN_MAX)
 		return (NULL);
-	ltext = read_first_line(fd, ltext);
-	if (!ltext)
+	ltext[fd] = ft_get_nl(fd, ltext[fd]);
+	if (!ltext[fd])
 		return (NULL);
-	ftext = ft_get_fl(ltext);
-	ltext = ft_cls_sl(ltext);
+	ftext = ft_get_fl(ltext[fd]);
+	ltext[fd] = ft_cls_sl(ltext[fd]);
 	return (ftext);
 }

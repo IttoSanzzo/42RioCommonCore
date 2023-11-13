@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/11/13 10:48:39 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/13 11:01:23 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/11/07 10:05:24 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/11/07 20:30:24 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*start;
 	char	*str;
 
-	if (!s1)
+	if (!s1 || !s2)
 		return (NULL);
 	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!str)
@@ -55,44 +55,22 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (start);
 }
 
+void	ft_bzero(void *s, unsigned int n)
+{
+	unsigned char	*p;
+
+	p = s;
+	while (n--)
+		*p++ = '\0';
+}
+
 void	*ft_calloc(unsigned int count, unsigned int size)
 {
-	void			*pointer;
-	unsigned char	*p;
-	unsigned int	n;
+	void	*pointer;
 
 	pointer = malloc(count * size);
 	if (!pointer)
 		return (NULL);
-	p = pointer;
-	n = size * count;
-	while (n--)
-		*p++ = '\0';
+	ft_bzero(pointer, size * count);
 	return (pointer);
-}
-
-char	*ft_itoa(int n)
-{
-	char		*str;
-	int			i;
-	long int	nb;
-
-	nb = n;
-	i = 0;
-	while (nb > 0)
-	{
-		nb /= 10;
-		i++;
-	}
-	nb = n;
-	str = ft_calloc(i + 1, sizeof(char));
-	if (!str)
-		return (0);
-	str[i--] = 0;
-	while (nb > 0)
-	{
-		str[i--] = nb % 10 + '0';
-		nb /= 10;
-	}
-	return (str);
 }

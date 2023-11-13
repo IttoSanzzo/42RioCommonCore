@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/11/13 10:49:38 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/13 11:01:58 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/11/07 10:04:57 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/11/07 20:30:05 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_cls_sl(char *text);
 int		ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
+void	ft_bzero(void *s, unsigned int n);
 void	*ft_calloc(unsigned int count, unsigned int size);
-char	*ft_itoa(int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/13 10:49:38 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/13 11:01:58 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/13 11:19:44 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /// Includes
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 /// Pre-Processors
 # ifndef BUFFER_SIZE

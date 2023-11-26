@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/26 19:36:13 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/26 19:42:05 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ D_HDRS	= -I ./includes/
 D_SRCS	= srcs/
 D_OBJS	= objs/
 
-N_SRCD	= main.c	\
+N_SRCS	= main.c	\
 
 F_SRCS	= $(addprefix $(D_SRCS), $(N_SRCS))
 

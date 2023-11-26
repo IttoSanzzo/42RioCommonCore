@@ -6,14 +6,12 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 19:38:35 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/26 19:39:22 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/26 19:43:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	printf("hello World!");
+
 	return (0);
 }

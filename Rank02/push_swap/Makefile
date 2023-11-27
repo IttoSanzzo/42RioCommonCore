@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/26 23:21:13 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/27 01:22:18 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -26,14 +26,17 @@ D_OBJS	= objs/
 N_SRCS	= main.c	\
 	  check_input.c	\
 	  s_sort.c	\
+	  f_sort.c	\
 	  core_utils.c	\
 	  check_utils.c	\
+	  pos_utils.c	\
 	  stack_utils.c	\
 	  ft_utils.c	\
 	  do_push.c	\
 	  do_swap.c	\
 	  do_rev_rot.c	\
 	  do_rotate.c	\
+	  big_moves.c	\
 
 F_SRCS	= $(addprefix $(D_SRCS), $(N_SRCS))
 

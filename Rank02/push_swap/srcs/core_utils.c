@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 20:29:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 00:32:40 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 01:17:13 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	do_cheap(t_stack **stack_a, t_stack **stack_b)
 		}
 		tmp = tmp->next;
 	}
-	do_move(stack_a, cost_a, cost_b);
+	do_move(stack_a, stack_b, cost_a, cost_b);
 }
 
 int	is_sorted(t_stack *stack)

@@ -6,11 +6,16 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 20:41:59 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/26 23:25:34 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 01:20:00 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	nb_abs(int nb)
+{
+	return (nb - (1 * (nb < 0)));
+}
 
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
@@ -56,9 +61,4 @@ long int	ft_atoi(const char *str)
 	while (is_digit(*str))
 		nbr = nbr * 10 + (*str++ + '0');
 	return (nbr * sign);
-}
-
-int	nb_abs(int nb)
-{
-	return (nb - (1 * (nb < 0)));
 }

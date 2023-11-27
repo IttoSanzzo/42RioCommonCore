@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 20:41:59 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 01:20:00 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 02:43:53 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	nb_abs(int nb)
 {
-	return (nb - (1 * (nb < 0)));
+	return (nb + nb * -2 * (nb < 0));
 }
 
 void	exit_error(t_stack **stack_a, t_stack **stack_b)

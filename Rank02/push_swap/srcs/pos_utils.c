@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 00:55:49 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 01:27:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 02:28:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ static void	get_pos(t_stack **stack)
 	i = 0;
 	while (tmp)
 	{
-		tmp->pos = i++;
+		tmp->pos = i;
 		tmp = tmp->next;
+		i++;
 	}
 }
 

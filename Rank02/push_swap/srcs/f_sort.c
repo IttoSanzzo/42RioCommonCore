@@ -6,9 +6,11 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 23:47:50 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 00:11:28 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 00:16:39 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 static void	push_but_three(t_stack **stack_a, t_stack stack_b)
 {

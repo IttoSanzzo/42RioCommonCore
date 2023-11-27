@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:05:18 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 19:57:56 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 20:46:44 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ typedef struct s_fractal
 {
 	int		quality;
 	char	*name;
-	double	julia_x;
-	double	julia_y;
+	double	cus_x;
+	double	cus_y;
 	double	scp_value;
 	double	shift_x;
 	double	shift_y;
@@ -100,6 +100,7 @@ void	fractal_render(t_fractal *fractal);
 int		close_handler(t_fractal *fractal);
 int		key_handler(int keysym, t_fractal *fractal);
 int		mouse_handler(int button, int x, int y, t_fractal *fractal);
+int		mouse_track(int x, int y, t_fractal *fractal);
 
 /// Util Function Files..:
 // ft_math_utils.c

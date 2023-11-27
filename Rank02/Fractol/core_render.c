@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 16:46:53 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 20:27:21 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 20:42:38 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	switch_fractal(t_cnu *z, t_cnu *c, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
-		c->x = fractal->julia_x;
-		c->y = fractal->julia_y;
+		c->x = fractal->cus_x;
+		c->y = fractal->cus_y;
 	}
 	else if (!ft_strncmp(fractal->name, "mandelbrot", 10))
 	{

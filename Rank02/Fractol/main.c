@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:18:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 20:28:32 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 20:42:20 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void	get_julia(int argc, char **argv, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
-		fractal->julia_x = atodbl(argv[2]);
-		fractal->julia_y = atodbl(argv[3]);
+		fractal->cus_x = atodbl(argv[2]);
+		fractal->cus_y = atodbl(argv[3]);
 	}
 }
 

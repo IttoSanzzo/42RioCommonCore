@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 19:38:35 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/26 23:18:56 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:41:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		do_sa(stack_a);
 	else if (stack_size == 3)
 		s_sort(stack_a);
-//	else if (stack_size > 3 && !is_sorted(*stack_a))
-//		f_sort(stack_a, stack_b);
-	(void) stack_b;
+	else if (stack_size > 3 && !is_sorted(*stack_a))
+		f_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char *argv[])

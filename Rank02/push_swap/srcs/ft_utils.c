@@ -1,0 +1,64 @@
+/* ************************************************************************** */
+/*									      */
+/*							  :::	   ::::::::   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*						      +:+ +:+	      +:+     */
+/*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
+/*						  +#+#+#+#+#+	+#+	      */
+/*   Created: 2023/11/26 20:41:59 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/11/26 23:25:34 by marcosv2         ###   ########.fr       */
+/*									      */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	exit_error(t_stack **stack_a, t_stack **stack_b)
+{
+	if (stack_a == NULL || *stack_a != NULL)
+		free_stack(stack_a);
+	if (stack_b == NULL || *stack_b != NULL)
+		free_stack(stack_b);
+	write(2, "Error\n", 6);
+	exit (1);
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, &*str++, 1);
+}
+
+long int	ft_atoi(const char *str)
+{
+	long int	nbr;
+	int			sign;
+
+	nbr = 0;
+	sign = 1;
+	if (is_sign(*str))
+		if (*str++ == '-')
+			sign = -sign;
+	while (is_digit(*str))
+		nbr = nbr * 10 + (*str++ + '0');
+	return (nbr * sign);
+}
+
+int	nb_abs(int nb)
+{
+	return (nb - (1 * (nb < 0)));
+}

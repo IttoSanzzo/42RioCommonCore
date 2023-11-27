@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/26 19:42:05 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/26 23:21:13 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -24,6 +24,16 @@ D_SRCS	= srcs/
 D_OBJS	= objs/
 
 N_SRCS	= main.c	\
+	  check_input.c	\
+	  s_sort.c	\
+	  core_utils.c	\
+	  check_utils.c	\
+	  stack_utils.c	\
+	  ft_utils.c	\
+	  do_push.c	\
+	  do_swap.c	\
+	  do_rev_rot.c	\
+	  do_rotate.c	\
 
 F_SRCS	= $(addprefix $(D_SRCS), $(N_SRCS))
 
@@ -55,37 +65,37 @@ re		: fclean all
 
 test2		:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-100 -n 2))
-				./push_swap $(ARG) | ./checker_linux $(ARG)
+				./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
 test3		:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-100 -n 3))
-				./push_swap $(ARG) | ./checker_linux $(ARG)
+				./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
 test5		:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-5000 -n 5))
-				./push_swap $(ARG) | ./checker_linux $(ARG)
+				./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
 test100		:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-5000 -n 100))
-				./push_swap $(ARG) | ./checker_linux $(ARG)
+				./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
 test500		:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-5000 -n 500))
-				./push_swap $(ARG) | ./checker_linux $(ARG)
+				./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
 test1000	:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-5000 -n 1000))
-				./push_swap $(ARG) | ./checker_linux $(ARG)
+				./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 

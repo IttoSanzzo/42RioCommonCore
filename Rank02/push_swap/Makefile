@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/27 01:33:11 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/27 02:57:59 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ F_OBJS	= $(addprefix $(D_OBJS), $(N_OBJS))
 
 # Mandatory Rules
 
-all		: $(D_OBJS) $(NAME) 
+all		: $(NAME) 
 
 $(D_OBJS)%.o	: $(D_SRCS)%.c
 	$(C_COMP) $(C_FLAG) -c $< -o $@ $(D_HDRS)
@@ -53,7 +53,7 @@ $(D_OBJS)%.o	: $(D_SRCS)%.c
 $(D_OBJS)	:
 	mkdir $(D_OBJS)
 
-$(NAME)		: $(F_OBJS)
+$(NAME)		: $(D_OBJS) $(F_OBJS)
 	$(C_COMP) $(C_FLAG) $(F_OBJS) -o $(NAME)
 
 clean		:

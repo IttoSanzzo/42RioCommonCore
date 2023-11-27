@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 20:41:59 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 02:43:53 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 03:32:46 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ long int	ft_atoi(const char *str)
 		if (*str++ == '-')
 			sign = -sign;
 	while (is_digit(*str))
-		nbr = nbr * 10 + (*str++ + '0');
+		nbr = nbr * 10 + (*str++ - '0');
 	return (nbr * sign);
 }

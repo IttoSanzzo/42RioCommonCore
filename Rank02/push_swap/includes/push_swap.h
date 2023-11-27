@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 19:44:58 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 01:19:29 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 01:26:03 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int			is_digit(int c);
 int			is_sign(int c);
 // pos_utils.c		(2 static)
 int			get_lowest_index_pos(t_stack **stack);
-void		get_target_pos(t_stack **a, t_stack **b);
+void		get_tpos(t_stack **a, t_stack **b);
 // stack_utils.c
 t_stack		*stack_new(int value);
 t_stack		*get_stack_bottom(t_stack *stack);

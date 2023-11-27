@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 00:55:49 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 01:14:57 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 01:27:59 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ static int	get_target(t_stack **a, int b_idx, int trgt_idx, int trgt_pos)
 	{
 		if (tmp_a->index > b_idx && tmp_a->index < trgt_idx)
 		{
-			target_idx = tmp_a->index;
-			target_pos = tmp_a->pos;
+			trgt_idx = tmp_a->index;
+			trgt_pos = tmp_a->pos;
 		}
 		tmp_a = tmp_a->next;
 	}
-	if (trgt_idx !_ INT_MAX)
-		return (target_pos);
-	tmp_a = a;
+	if (trgt_idx != INT_MAX)
+		return (trgt_pos);
+	tmp_a = *a;
 	while (tmp_a)
 	{
 		if (tmp_a->index < trgt_idx)
@@ -74,10 +74,10 @@ static int	get_target(t_stack **a, int b_idx, int trgt_idx, int trgt_pos)
 		}
 		tmp_a = tmp_a->next;
 	}
-	return (target_pos);
+	return (trgt_pos);
 }
 
-void	get_target_pos(t_stack **a, t_stack **b)
+void	get_tpos(t_stack **a, t_stack **b)
 {
 	int		target_pos;
 	t_stack	*tmp_b;

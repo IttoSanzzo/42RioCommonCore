@@ -6,30 +6,36 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 23:47:50 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 00:16:39 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 01:32:12 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_but_three(t_stack **stack_a, t_stack stack_b)
+static void	push_but_three(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
 	int	pushed;
 	int	i;
 
-	stack_stack = get_stack_size(*stack_a);
+	stack_size = get_stack_size(*stack_a);
 	pushed = 0;
 	i = -1;
 	while (stack_size > 6 && --i < stack_size && pushed < stack_size / 2)
 	{
-		if ((*stack_a)->index <= stack_size / 2 && ++pushed)
+		if ((*stack_a)->index <= stack_size / 2)
+		{
 			do_pb(stack_a, stack_b);
+			pushed++;
+		}
 		else
 			do_ra(stack_a);
 	}
-	while (stack_size - pushed++ > 3)
+	while (stack_size - pushed > 3)
+	{
 		do_pb(stack_a, stack_b);
+		pushed++;
+	}
 }
 
 static void	f_shift(t_stack **stack_a)
@@ -38,7 +44,7 @@ static void	f_shift(t_stack **stack_a)
 	int	stack_size;
 
 	stack_size = get_stack_size(*stack_a);
-	lowest_pos = get_lowest_index_position(stack_a);
+	lowest_pos = get_lowest_index_pos(stack_a);
 	if (lowest_pos > stack_size / 2)
 		while (lowest_pos++ < stack_size)
 			do_rra(stack_a);

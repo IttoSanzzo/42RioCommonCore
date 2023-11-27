@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/26 20:29:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 01:17:13 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 01:36:17 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	get_cost(t_stack **stack_a, t_stack **stack_b)
 	while (tmp_b)
 	{
 		tmp_b->cost_b = tmp_b->pos;
-		if (tmp_b->cost_b > size_b / 2)
+		if (tmp_b->pos > size_b / 2)
 			tmp_b->cost_b = (size_b - tmp_b->pos) * -1;
 		tmp_b->cost_a = tmp_b->target_pos;
 		if (tmp_b->target_pos > size_a / 2)

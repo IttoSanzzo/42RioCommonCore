@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/27 01:22:18 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/27 01:33:11 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -86,19 +86,19 @@ test5		:	$(NAME)
 
 test100		:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-5000 -n 100))
-				./push_swap $(ARG) | ../checker_linux $(ARG)
+				@./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
 test500		:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-5000 -n 500))
-				./push_swap $(ARG) | ../checker_linux $(ARG)
+				@./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 
 test1000	:	$(NAME)	
 				$(eval ARG = $(shell shuf -i 0-5000 -n 1000))
-				./push_swap $(ARG) | ../checker_linux $(ARG)
+				@./push_swap $(ARG) | ../checker_linux $(ARG)
 				@echo -n "Instructions: "
 				@./push_swap $(ARG) | wc -l
 

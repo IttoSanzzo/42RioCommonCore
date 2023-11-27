@@ -6,9 +6,11 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 00:34:41 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 00:53:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/27 01:53:25 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 static void	do_rr_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
@@ -26,7 +28,7 @@ static void	do_r_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	{
 		(*cost_a)--;
 		(*cost_b)--;
-		do_rrr(a, b);
+		do_rr(a, b);
 	}
 }
 

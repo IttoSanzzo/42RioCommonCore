@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   core_render.c                                      :+:      :+:    :+:   */
+/*   core_render_bonus.c                                :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 16:46:53 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:34:27 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 02:27:57 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 static void	ft_putppixel(int x, int y, t_img *img, int color)
 {
@@ -22,7 +22,8 @@ static void	ft_putppixel(int x, int y, t_img *img, int color)
 
 static void	switch_fractal(t_cnu *z, t_cnu *c, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 5)
+		|| (!ft_strncmp(fractal->name, FR_MYN, FR_MYL)))
 	{
 		c->x = fractal->cus_x;
 		c->y = fractal->cus_y;
@@ -47,7 +48,10 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	switch_fractal(&z, &c, fractal);
 	while (++i < fractal->quality)
 	{
-		z = sum_c(sqr_c(z, 0), c);
+		if (!ft_strncmp(fractal->name, FR_MYN, FR_MYL))
+			z = sum_c(sqr_c(z, 1), c);
+		else
+			z = sum_c(sqr_c(z, 0), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->scp_value)
 		{
 			color = scale_map(i, BLACK, WHITE, fractal->quality);

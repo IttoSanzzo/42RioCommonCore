@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:05:18 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:35:05 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 02:38:00 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 // Includes..:
 # include <stdio.h>
@@ -27,9 +27,12 @@
 # define ERR_MAL		"Errors with malloc"
 # define ERR_MAN		"Please, enter..:\n\t\"./fractol mandelbrot\"\n"
 # define ERR_JUL		"or\n\t\"./fractol julia <value_1> <value_2>\"\n"
+# define ERR_PCV		"or\n\t\"./fractol psyclover\"\n"
 # define STD_ERR		2
 # define ERR_COD		1
 # define SCC_COD		0
+# define FR_MYN			"psyclover"
+# define FR_MYL			9
 // Window Tweaking
 # define HIGH			800
 # define WIDE			800

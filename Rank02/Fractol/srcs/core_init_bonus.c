@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   core_init.c                                        :+:      :+:    :+:   */
+/*   core_init_bonus.c                                  :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 16:11:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:33:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 02:27:49 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	malloc_error(void)
 {
@@ -20,6 +20,11 @@ void	malloc_error(void)
 
 static void	data_init(t_fractal *fractal)
 {
+	if (!ft_strncmp(fractal->name, FR_MYN, FR_MYL))
+	{
+		fractal->cus_x = 0.38;
+		fractal->cus_y = -0.58;
+	}
 	fractal->scp_value = 4;
 	fractal->zoom = INIT_ZOOM;
 	fractal->quality = FRACTAL_QUALITY;

@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/28 02:03:14 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/28 02:26:01 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -31,10 +31,19 @@ N_SRCS	= main.c		\
 	  ft_math_utils.c	\
 	  ft_string_utils.c	\
 
+B_SRCS	= main_bonus.c			\
+	  core_init_bonus.c		\
+	  core_render_bonus.c		\
+	  ft_events_bonus.c		\
+	  ft_math_utils_bonus.c		\
+	  ft_string_utils_bonus.c	\
+
 F_SRCS	= $(addprefix $(D_SRCS), $(N_SRCS))
 
 N_OBJS	= $(N_SRCS:.c=.o)
+N_BOBJ	= $(B_SRCS:.c=.o)
 F_OBJS	= $(addprefix $(D_OBJS), $(N_OBJS))
+B_OBJS	= $(addprefix $(D_OBJS), $(N_BOBJ))
 
 # Mandatory Rules
 
@@ -45,6 +54,9 @@ $(D_OBJS)%.o	: $(D_SRCS)%.c
 
 $(D_OBJS)	:
 	mkdir $(D_OBJS)
+
+bonus		: $(D_OBJS) $(B_OBJS)
+	$(C_COMP) $(C_FLAG) $(B_OBJS) ${C_LIBX} -o $(NAME)
 
 $(NAME)		: $(D_OBJS) $(F_OBJS)
 	$(C_COMP) $(C_FLAG) $(F_OBJS) ${C_LIBX} -o $(NAME)
@@ -73,25 +85,25 @@ rmvlib		:
 
 # Test Rules
 
-test_0		:	$(NAME)	
+test_0		:
 				@echo "Wiki with Mandelbrot..: https://pt.wikipedia.org/wiki/Conjunto_de_Mandelbrot"
 				./${NAME} mandelbrot
 
-test_1		:	$(NAME)	
+test_1		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
 				./${NAME} julia 0.45 0.1428
 
-test_2		:	$(NAME)	
+test_2		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
 				./${NAME} julia 0.285 0
 
-test_3		:	$(NAME)	
+test_3		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
 				./${NAME} julia -0.70176 -0.3842
 
-test_b		:	$(NAME)	
+test_b		:
 				@echo "Kudos!"
 				./${NAME} psyclover
 # Phony
 
-.PHONY: all clean fclean re setlib rmvlib test_0 test_1 test_2 test_3 test_b
+.PHONY: all clean fclean re bonus setlib rmvlib test_0 test_1 test_2 test_3 test_b

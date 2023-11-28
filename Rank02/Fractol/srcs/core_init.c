@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 16:11:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 20:39:25 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 01:58:19 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	malloc_error(void)
 
 static void	data_init(t_fractal *fractal)
 {
+	if (!ft_strncmp(fractal->name, FR_MYN, FR_MYL))
+	{
+		fractal->cus_x = 0.38;
+		fractal->cus_y = -0.58;
+	}
 	fractal->scp_value = 4;
 	fractal->zoom = INIT_ZOOM;
 	fractal->quality = FRACTAL_QUALITY;
@@ -31,10 +36,9 @@ static void	events_init(t_fractal *fractal)
 {
 	mlx_hook(fractal->mlx_window, KeyPress, KeyPressMask, key_handler, fractal);
 	mlx_hook(fractal->mlx_window, ButtonPress,
-				ButtonPressMask, mouse_handler, fractal);
+		ButtonPressMask, mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify,
-			StructureNotifyMask, close_handler, fractal);
-	mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask, mouse_track, fractal);
+		StructureNotifyMask, close_handler, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 16:46:53 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 20:42:38 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 01:55:38 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ static void	ft_putppixel(int x, int y, t_img *img, int color)
 
 static void	switch_fractal(t_cnu *z, t_cnu *c, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 5)
+		|| (!ft_strncmp(fractal->name, FR_MYN, FR_MYL)))
 	{
 		c->x = fractal->cus_x;
 		c->y = fractal->cus_y;
 	}
-	else if (!ft_strncmp(fractal->name, "mandelbrot", 10))
+	else
 	{
 		c->x = z->x;
 		c->y = z->y;
@@ -42,12 +43,15 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	t_cnu	c;
 
 	i = -1;
-	z.x = (scale_map(x, -2, +2, WIDE) * fractal->zoom) + fractal->shift_x;
-	z.y = (scale_map(y, +2, -2, HIGH) * fractal->zoom) + fractal->shift_y;
+	z.x = (scale_map(x, -2, +2, WIDE - 1) * fractal->zoom) + fractal->shift_x;
+	z.y = (scale_map(y, +2, -2, HIGH - 1) * fractal->zoom) + fractal->shift_y;
 	switch_fractal(&z, &c, fractal);
 	while (++i < fractal->quality)
 	{
-		z = sum_c(sqr_c(z), c);
+		if (!ft_strncmp(fractal->name, FR_MYN, FR_MYL))
+			z = sum_c(sqr_c(z, 1), c);
+		else
+			z = sum_c(sqr_c(z, 0), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->scp_value)
 		{
 			color = scale_map(i, BLACK, WHITE, fractal->quality);
@@ -71,5 +75,5 @@ void	fractal_render(t_fractal *fractal)
 			handle_pixel(x, y, fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window,
-			fractal->img.img_ptr, 0, 0);
+		fractal->img.img_ptr, 0, 0);
 }

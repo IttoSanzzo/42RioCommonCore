@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 18:13:39 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 20:49:52 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 01:58:59 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -43,21 +43,12 @@ int	key_handler(int keysym, t_fractal *fractal)
 
 int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
+	(void) x;
+	(void) y;
 	if (button == Button5)
 		fractal->zoom *= ZOOM_MSO;
 	else if (button == Button4)
 		fractal->zoom *= ZOOM_MSI;
 	fractal_render(fractal);
-	return (0);
-}
-
-int	mouse_track(int x, int y, t_fractal *fractal)
-{
-	if (!ft_strncmp(fractal->name, "julia", 5))
-	{
-		fractal->cus_x = scale_map(x, -2, +2, WIDE) * fractal->zoom + fractal->shift_x;
-		fractal->cus_y = scale_map(y, +2, -2, HIGH) * fractal->zoom + fractal->shift_y;
-		fractal_render(fractal);
-	}
 	return (0);
 }

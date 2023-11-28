@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:33:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 20:30:16 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 01:57:41 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putstr_fd(char *str, int fd)
 
 double	atodbl(char *s)
 {
-	int	sign;
+	int		sign;
 	long	int_p;
 	double	frc_p;
 	double	pwr;

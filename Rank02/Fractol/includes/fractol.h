@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:05:18 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/27 20:46:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 01:59:41 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 //// Macros..:
 // Common Macros
@@ -30,6 +30,8 @@
 # define STD_ERR		2
 # define ERR_COD		1
 # define SCC_COD		0
+# define FR_MYN			"psyclover"
+# define FR_MYL			9
 // Window Tweaking
 # define HIGH			800
 # define WIDE			800
@@ -100,13 +102,12 @@ void	fractal_render(t_fractal *fractal);
 int		close_handler(t_fractal *fractal);
 int		key_handler(int keysym, t_fractal *fractal);
 int		mouse_handler(int button, int x, int y, t_fractal *fractal);
-int		mouse_track(int x, int y, t_fractal *fractal);
 
 /// Util Function Files..:
 // ft_math_utils.c
 double	scale_map(double u_num, double n_min, double n_max, double o_max);
 t_cnu	sum_c(t_cnu z1, t_cnu z2);
-t_cnu	sqr_c(t_cnu z1);
+t_cnu	sqr_c(t_cnu z1, int abs);
 
 // ft_string_utils.c
 void	ft_putstr_fd(char *str, int fd);

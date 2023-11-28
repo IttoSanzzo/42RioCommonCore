@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 18:13:39 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 01:58:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:24:54 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -25,19 +25,6 @@ int	key_handler(int keysym, t_fractal *fractal)
 {
 	if (keysym == XK_Escape)
 		close_handler(fractal);
-	else if (keysym == XK_Left)
-		fractal->shift_x -= (MOVE_X * fractal->zoom);
-	else if (keysym == XK_Right)
-		fractal->shift_x += (MOVE_X * fractal->zoom);
-	else if (keysym == XK_Down)
-		fractal->shift_y -= (MOVE_Y * fractal->zoom);
-	else if (keysym == XK_Up)
-		fractal->shift_y += (MOVE_Y * fractal->zoom);
-	else if (keysym == XK_equal)
-		fractal->quality += ZOOM_KY;
-	else if (keysym == XK_minus)
-		fractal->quality -= ZOOM_KY;
-	fractal_render(fractal);
 	return (0);
 }
 

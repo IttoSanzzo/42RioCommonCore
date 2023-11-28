@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 16:11:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:27:49 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 11:26:59 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	data_init(t_fractal *fractal)
 	fractal->scp_value = 4;
 	fractal->zoom = INIT_ZOOM;
 	fractal->quality = FRACTAL_QUALITY;
+	fractal->loc_zoom_x = 0;
+	fractal->loc_zoom_y = 0;
 	fractal->shift_x = 0;
 	fractal->shift_y = 0;
 }
@@ -39,6 +41,8 @@ static void	events_init(t_fractal *fractal)
 		ButtonPressMask, mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify,
 		StructureNotifyMask, close_handler, fractal);
+	mlx_hook(fractal->mlx_window, MotionNotify,
+		PointerMotionMask, mouse_track, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)

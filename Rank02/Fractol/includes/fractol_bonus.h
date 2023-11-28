@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:05:18 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:38:00 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:20:20 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@
 # define WIDE			800
 # define INIT_ZOOM		1.0
 # define FRACTAL_QUALITY	42
-# define ZOOM_KY		2
+# define ZOOM_KY		2.0
 # define ZOOM_MSO		1.05
 # define ZOOM_MSI		0.95
 # define MOVE_X			0.5
 # define MOVE_Y			0.5
+# define MOVE_CURSOR		0.075
 // Color Macros
 # define BLACK			0x000000
 # define WHITE			0xFFFFFF
@@ -85,6 +86,8 @@ typedef struct s_fractal
 	double	scp_value;
 	double	shift_x;
 	double	shift_y;
+	double	loc_zoom_x;
+	double	loc_zoom_y;
 	double	zoom;
 	void	*mlx_connection;
 	void	*mlx_window;
@@ -103,6 +106,7 @@ void	fractal_render(t_fractal *fractal);
 int		close_handler(t_fractal *fractal);
 int		key_handler(int keysym, t_fractal *fractal);
 int		mouse_handler(int button, int x, int y, t_fractal *fractal);
+int		mouse_track(int x, int y, t_fractal *fractal);
 
 /// Util Function Files..:
 // ft_math_utils.c

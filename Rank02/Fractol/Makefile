@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/28 02:26:01 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/28 12:28:50 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -101,9 +101,13 @@ test_3		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
 				./${NAME} julia -0.70176 -0.3842
 
+test_4		:
+				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
+				./${NAME} julia 0.38 -0.58
+
 test_b		:
 				@echo "Kudos!"
 				./${NAME} psyclover
 # Phony
 
-.PHONY: all clean fclean re bonus setlib rmvlib test_0 test_1 test_2 test_3 test_b
+.PHONY: all clean fclean re bonus setlib rmvlib test_0 test_1 test_2 test_3 test_4 test_b

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 16:46:53 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:27:57 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:48:28 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_putppixel(int x, int y, t_img *img, int color)
 
 static void	switch_fractal(t_cnu *z, t_cnu *c, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5)
+	if (!ft_strncmp(fractal->name, DEF_JUL, 5)
 		|| (!ft_strncmp(fractal->name, FR_MYN, FR_MYL)))
 	{
 		c->x = fractal->cus_x;

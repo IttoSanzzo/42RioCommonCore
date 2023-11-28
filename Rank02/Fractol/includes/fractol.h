@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:05:18 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:35:05 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:45:07 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@
 
 //// Macros..:
 // Common Macros
+# define DEF_MAN		"Mandelbrot"
+# define DEF_JUL		"Julia"
 # define ERR_MAL		"Errors with malloc"
-# define ERR_MAN		"Please, enter..:\n\t\"./fractol mandelbrot\"\n"
-# define ERR_JUL		"or\n\t\"./fractol julia <value_1> <value_2>\"\n"
+# define ERR_MAN		"Please, enter..:\n\t\"./fractol Mandelbrot\"\n"
+# define ERR_JUL		"or\n\t\"./fractol Julia <value_1> <value_2>\"\n"
 # define STD_ERR		2
 # define ERR_COD		1
 # define SCC_COD		0

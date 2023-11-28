@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/28 12:28:50 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/28 16:14:20 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -72,7 +72,6 @@ re		: fclean all
 # Personal Rule
 
 setlib		:
-				@cp ~/Downloads/minilibx-linux.tgz ./
 				@tar zxvf minilibx-linux.tgz
 				@${C_REMO} minilibx-linux.tgz
 				@make --no-print-directory -C ./minilibx-linux/
@@ -87,27 +86,27 @@ rmvlib		:
 
 test_0		:
 				@echo "Wiki with Mandelbrot..: https://pt.wikipedia.org/wiki/Conjunto_de_Mandelbrot"
-				./${NAME} mandelbrot
+				./${NAME} Mandelbrot
 
 test_1		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
-				./${NAME} julia 0.45 0.1428
+				./${NAME} Julia 0.45 0.1428
 
 test_2		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
-				./${NAME} julia 0.285 0
+				./${NAME} Julia 0.285 0
 
 test_3		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
-				./${NAME} julia -0.70176 -0.3842
+				./${NAME} Julia -0.70176 -0.3842
 
 test_4		:
 				@echo "Wiki with Julia Sets..: https://pt.wikipedia.org/wiki/Conjunto_de_Julia"
-				./${NAME} julia 0.38 -0.58
+				./${NAME} Julia 0.38 -0.58
 
 test_b		:
 				@echo "Kudos!"
-				./${NAME} psyclover
+				./${NAME} Psyclover
 # Phony
 
 .PHONY: all clean fclean re bonus setlib rmvlib test_0 test_1 test_2 test_3 test_4 test_b

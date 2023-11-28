@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/27 15:18:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/11/28 02:40:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:47:38 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	exit_error(void)
 
 static void	get_julia(char **argv, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, DEF_JUL, 5))
 	{
 		fractal->cus_x = atodbl(argv[2]);
 		fractal->cus_y = atodbl(argv[3]);
@@ -33,8 +33,8 @@ int	main(int argc, char *argv[])
 {
 	t_fractal	fractal;
 
-	if (!((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
-			|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+	if (!((argc == 2 && !ft_strncmp(argv[1], DEF_MAN, 10))
+			|| (argc == 4 && !ft_strncmp(argv[1], DEF_JUL, 5))
 			|| (argc == 2 && !ft_strncmp(argv[1], FR_MYN, FR_MYL))))
 		exit_error();
 	fractal.name = argv[1];

@@ -6,11 +6,11 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/17 17:31:07 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/19 15:08:46 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:50:19 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_lputchar(int c, int *len)
 {

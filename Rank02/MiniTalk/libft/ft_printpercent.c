@@ -6,11 +6,11 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/19 14:44:56 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/19 14:46:47 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:51:05 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_printpercent(void)
 {

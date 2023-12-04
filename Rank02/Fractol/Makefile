@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/11/28 16:14:20 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/28 17:34:19 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ re		: fclean all
 # Personal Rule
 
 setlib		:
+				@cp ~/Downloads/minilibx-linux.tgz ./
 				@tar zxvf minilibx-linux.tgz
 				@${C_REMO} minilibx-linux.tgz
 				@make --no-print-directory -C ./minilibx-linux/

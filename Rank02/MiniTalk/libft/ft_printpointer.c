@@ -6,11 +6,11 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/19 15:34:02 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/19 17:39:15 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:51:17 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_ptrlen(uintptr_t num)
 {

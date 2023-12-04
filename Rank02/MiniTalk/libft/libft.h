@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:08:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/28 00:24:07 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:10:32 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define LIBFT_H
 
 // Lib Includes
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 // Struct Define
 typedef struct s_list
@@ -76,5 +78,22 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+//// Printf
+// Core Functions
+int		ft_printf(const char *str, ...);
+int		ft_ftypes(va_list args, const char format);
+
+// Print Functions
+int		ft_printpercent(void);
+int		ft_printchar(int c);
+int		ft_printstr(char *str);
+int		ft_printnbr(int nb);
+int		ft_printunsigned(unsigned int nb);
+int		ft_printhex(int nb, const char format);
+int		ft_printpointer(unsigned long long ptr);
+
+// Utils Functions
+void	ft_lputchar(int c, int *len);
+int		ft_nbrlen(int nb);
 
 #endif

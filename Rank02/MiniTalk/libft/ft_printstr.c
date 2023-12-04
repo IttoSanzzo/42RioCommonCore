@@ -6,11 +6,11 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/19 14:55:03 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/19 16:31:52 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:51:32 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_printstr(char *str)
 {

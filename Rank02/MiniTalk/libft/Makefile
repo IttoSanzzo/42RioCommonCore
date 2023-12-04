@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/10/27 18:27:44 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/10/27 20:07:10 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/11/28 16:52:41 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -51,8 +51,7 @@ F_SRCS	= ft_isalpha.c		\
 	ft_putstr_fd.c		\
 	ft_putendl_fd.c		\
 	ft_putnbr_fd.c		\
-
-B_SRCS	= ft_lstnew_bonus.c	\
+	ft_lstnew_bonus.c	\
 	ft_lstadd_front_bonus.c	\
 	ft_lstsize_bonus.c	\
 	ft_lstlast_bonus.c	\
@@ -61,6 +60,17 @@ B_SRCS	= ft_lstnew_bonus.c	\
 	ft_lstclear_bonus.c	\
 	ft_lstiter_bonus.c	\
 	ft_lstmap_bonus.c	\
+	ft_printf.c		\
+	ft_ftypes.c		\
+	ft_printpercent.c	\
+	ft_printchar.c		\
+	ft_printstr.c		\
+	ft_printnbr.c		\
+	ft_printunsigned.c	\
+	ft_printhex.c		\
+	ft_printpointer.c	\
+	ft_printf_utils.c	\
+	
 
 F_OBJS	= $(F_SRCS:.c=.o)
 B_OBJS	= $(B_SRCS:.c=.o)

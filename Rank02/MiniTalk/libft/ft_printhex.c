@@ -6,11 +6,11 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/19 15:32:54 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/19 17:35:06 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:50:33 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_hexlen(unsigned int nb)
 {

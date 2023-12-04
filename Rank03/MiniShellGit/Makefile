@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#									       #
+#							  :::	   ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#						      +:+ +:+	      +:+      #
+#    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
+#						  +#+#+#+#+#+	+#+	       #
+#    Created: 2023/12/04 16:53:25 by marcosv2	       #+#    #+#	       #
+#    Updated: 2023/12/04 17:36:33 by marcosv2         ###   ########.fr        #
+#									       #
+# **************************************************************************** #
+
 NAME = minishell
 
 CC = clang
@@ -39,7 +51,7 @@ $(NAME): $(OBJ)
 	@echo "\n\033[0mDone !"
 
 %.o: %.c
-	@printf "\033[0;33mGenerating minishell objects... %-33.33s\r" $@
+	@printf "\t\033[0;33mGenerating minishell objects... %-33.33s" $@
 	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:

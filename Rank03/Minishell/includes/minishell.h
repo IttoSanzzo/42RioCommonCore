@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/04 14:54:05 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:05:09 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 // Pre-processors
+# define PROMPT "Mari$ "
+
+# define STDIN 0
+# define STDOUT 1
+# define STDERR 2
+
 # define EXT_SUC 0
 
 // Structs

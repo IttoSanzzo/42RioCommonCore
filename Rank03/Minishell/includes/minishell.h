@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/04 18:05:09 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:22:05 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define EXT_SUC 0
 
 // Structs
+typedef struct s_mini
+{
+	char	**env;
+}	t_mini;
 
 //// Functions per Archive
 // main.c

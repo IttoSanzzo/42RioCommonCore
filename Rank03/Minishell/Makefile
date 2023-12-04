@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/04 15:07:11 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/04 15:09:11 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -55,8 +55,9 @@ clean		:
 	$(MAKE) clean -C $(D_LBFT)
 	${C_REMO} $(D_OBJS)
 
-fclean		: clean
+fclean		:
 	$(MAKE) fclean -C $(D_LBFT)
+	${C_REMO} $(D_OBJS)
 	${C_REMO} $(NAME)
 
 re		: fclean all

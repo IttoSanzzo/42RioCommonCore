@@ -6,13 +6,13 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/04 13:42:45 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/04 15:07:11 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
 # Comamad Miscs
 
-NAME	= push_swap
+NAME	= minishell
 LIBFT	= libft
 C_COMP	= cc
 C_FLAG	= -Wall -Werror -Wextra
@@ -21,24 +21,12 @@ C_REMO	= rm -rf
 # Sources & Objects
 
 D_HDRS	= -I ./includes/
-D_LBFT	= libft/
-D_SRCS	= srcs/
+D_LBFT	= ./libft/
+D_SRCS	= src/
 D_OBJS	= objs/
 
-N_SRCS	= main.c	\
-	  check_input.c	\
-	  s_sort.c	\
-	  f_sort.c	\
-	  core_utils.c	\
-	  check_utils.c	\
-	  pos_utils.c	\
-	  stack_utils.c	\
-	  ft_utils.c	\
-	  do_push.c	\
-	  do_swap.c	\
-	  do_rev_rot.c	\
-	  do_rotate.c	\
-	  big_moves.c	\
+N_ROOT	= $(shell ls src/main | grep -E ".+\.c")
+N_BLTN	= $(shell ls src/builtins | grep -E ".+\.c")
 
 F_SRCS	= $(addprefix $(D_SRCS), $(N_SRCS))
 N_OBJS	= $(N_SRCS:.c=.o)
@@ -57,59 +45,22 @@ $(D_OBJS)%.o	: $(D_SRCS)%.c
 $(D_OBJS)	:
 	mkdir $(D_OBJS)
 
-$(NAME)		: $(LIBFT) $(D_OBJS) $(F_OBJS)
-	$(C_COMP) $(C_FLAG) $(F_OBJS) $(F_LBFT) -o $(NAME)
+$(NAME)		: $(F_LBFT) $(D_OBJS) $(F_OBJS)
+	$(C_COMP) $(C_FLAG) $(F_OBJS) $(F_LBFT) -o $@
 
-$(LIBFT)	:
+$(F_LBFT)	:
 	$(MAKE) --no-print-directory -C $(D_LBFT)
 
 clean		:
-	$(MAKE) fclean -C $(D_LBFT)
+	$(MAKE) clean -C $(D_LBFT)
 	${C_REMO} $(D_OBJS)
 
 fclean		: clean
+	$(MAKE) fclean -C $(D_LBFT)
 	${C_REMO} $(NAME)
 
 re		: fclean all
 
-# Test Rules
-
-test2		:	$(NAME)	
-				$(eval ARG = $(shell shuf -i 0-100 -n 2))
-				./push_swap $(ARG) | ../checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-
-test3		:	$(NAME)	
-				$(eval ARG = $(shell shuf -i 0-100 -n 3))
-				./push_swap $(ARG) | ../checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-
-test5		:	$(NAME)	
-				$(eval ARG = $(shell shuf -i 0-5000 -n 5))
-				./push_swap $(ARG) | ../checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-
-test100		:	$(NAME)	
-				$(eval ARG = $(shell shuf -i 0-5000 -n 100))
-				@./push_swap $(ARG) | ../checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-
-test500		:	$(NAME)	
-				$(eval ARG = $(shell shuf -i 0-5000 -n 500))
-				@./push_swap $(ARG) | ../checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-
-test1000	:	$(NAME)	
-				$(eval ARG = $(shell shuf -i 0-5000 -n 1000))
-				@./push_swap $(ARG) | ../checker_linux $(ARG)
-				@echo -n "Instructions: "
-				@./push_swap $(ARG) | wc -l
-
 # Phony
 
-.PHONY: all clean fclean re test2 test3 test5 test100 test500 test1000
+.PHONY: all clean fclean re

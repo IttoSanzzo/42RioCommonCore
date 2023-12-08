@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/04 18:13:16 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/08 09:51:46 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ P_GREEN	= \033[38;5;40m
 
 all		: $(NAME) 
 
-$(NAME)		: $(F_LBFT) s_mess $(D_OBJS) $(F_OBJS)
+$(NAME)		: $(F_LBFT) $(D_OBJS) $(F_OBJS)
 	@echo "\n\t$(P_NCYAN)Finishing binary..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
 	@$(C_COMP) $(C_FLAG) -o $@ $(F_OBJS) $(F_LBFT)
 	@echo "$(P_GREEN)Done!$(P_WHITE)"
@@ -66,6 +66,7 @@ $(D_OBJS)%.o	: $(D_SRCS)/*/%.c
 	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@
 
 $(D_OBJS)	:
+	@echo "$(P_LBLUE)Starting $(NAME) compilation...$(P_WHITE)"
 	@echo "\n\t$(P_DBLUE)Creating $(NAME) objects directory...$(P_WHITE)"
 	@mkdir $(D_OBJS)
 
@@ -86,9 +87,6 @@ fclean		:
 
 re		: fclean all
 
-s_mess		:
-	@echo "$(P_LBLUE)Starting $(NAME) compilation...$(P_WHITE)"
-
 # Phony
 
-.PHONY: all clean fclean re s_mess
+.PHONY: all clean fclean re

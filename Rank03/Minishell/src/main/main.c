@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/08 16:03:10 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:51:01 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	minishell(t_mini *ms)
 	while (1)
 	{
 		get_cmd(ms);
-		if (!ft_strncmp(ms->cmd[0], "exit", 5))
+		if (ms->cmd[0] && !ft_strncmp(ms->cmd[0], "exit", 5))
 			ms_exit(ms);
 	}
 }

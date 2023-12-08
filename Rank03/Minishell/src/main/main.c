@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/04 18:30:08 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/08 07:06:27 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	mini_init(t_mini *mini, char **envp)
 int	main(int argc, char **argv, char **envp)
 {
 	t_mini	mini;
-	static int	i;
 
 	(void) argc;
 	(void) argv;

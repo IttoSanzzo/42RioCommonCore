@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/08 14:14:19 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:03:10 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -24,6 +24,18 @@ void	mini_init(t_mini *ms, char **envp)
 	ms->env = envp;
 	ms->line = ft_calloc(1, 1);
 	ms->cmd = NULL;
+	ms->exit = 0;
+	ms->ret= 0;
+}
+
+void	minishell(t_mini *ms)
+{
+	while (1)
+	{
+		get_cmd(ms);
+		if (!ft_strncmp(ms->cmd[0], "exit", 5))
+			ms_exit(ms);
+	}
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -33,11 +45,17 @@ int	main(int argc, char **argv, char **envp)
 	(void) argc;
 	(void) argv;
 	mini_init(&ms, envp);
-	while (1)
+	while (ms.exit == 0)
 	{
-		get_cmd(&ms);
-		if (!ft_strncmp(ms.cmd[0], "exit", 5))
-			ms_exit(&ms);
+		sig_init(&ms);
+//		parse(&ms);
+//		if (ms.start != NULL && check_line(&ms, ms.start))
+//		signal(SIGINT, &ms_sigint);
+//		signal(SIGQUIT, &ms_sigquit);
+		minishell(&ms);
+//		free_token(ms.start);
 	}
-	return (0);
+//	ms_free_env();
+//	ms_free_env();
+	return (ms.ret);
 }

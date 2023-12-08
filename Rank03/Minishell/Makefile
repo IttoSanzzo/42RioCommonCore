@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/08 10:11:20 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/08 15:19:47 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ $(D_OBJS)	:
 	@mkdir $(D_OBJS)
 
 $(F_LBFT)	:
+	@clear
 	@$(MAKE) --no-print-directory -C $(D_LBFT)
 
 clean		:
@@ -87,6 +88,11 @@ fclean		:
 
 re		: fclean all
 
+# Test
+
+test		:
+	@valgrind --leak-check=full --show-leak-kinds=all ./minishell
+
 # Phony
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test

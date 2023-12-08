@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:08:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/08 09:16:40 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:03:45 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -99,6 +99,9 @@ int		ft_nbrlen(int nb);
 //// Personal
 // utils
 void	ft_putstr(char *s);
+
+// mem
+void	*ft_memdel(void *ptr);
 
 // ft_readline.c
 char	*ft_readline(char *prompt);

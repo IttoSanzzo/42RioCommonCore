@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/08 15:19:47 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/12 16:52:20 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -90,9 +90,9 @@ re		: fclean all
 
 # Test
 
-test		:
+val		:
 	@valgrind --leak-check=full --show-leak-kinds=all ./minishell
 
 # Phony
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re val

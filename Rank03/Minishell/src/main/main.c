@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/08 19:51:01 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:50:07 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -16,16 +16,32 @@ void	get_cmd(t_mini *ms)
 {
 	ms_free_cmd(ms);
 	ms->line = ft_readline(PROMPT);
-	ms->cmd = ft_split(ms->line, ' ');
+	ms->cmdl = ft_split(ms->line, ' ');
 }
 
-void	mini_init(t_mini *ms, char **envp)
+void	mini_init(t_mini *ms, char **ep)
 {
-	ms->env = envp;
+	ms->rt.ep = ep;
 	ms->line = ft_calloc(1, 1);
-	ms->cmd = NULL;
+	ms->ex.path = ft_calloc(1, 1);
+	ms->cmdl = NULL;
 	ms->exit = 0;
-	ms->ret= 0;
+	ms->ret = 0;
+}
+
+
+
+/*void	ms_pop_exec(t_mini *ms)
+{
+	
+}*/
+
+void	mstester(t_mini *ms)
+{
+	free(ms->ex.path);
+	ms->ex.path = ft_strjoin(ms_getpwd(ms), "/");
+	ms->ex.path = ft_rejoin(ms->ex.path, ms->cmdl[0]);
+	execve(ms->ex.path, ms->ex.av, ms->ex.ep);
 }
 
 void	minishell(t_mini *ms)
@@ -33,18 +49,21 @@ void	minishell(t_mini *ms)
 	while (1)
 	{
 		get_cmd(ms);
-		if (ms->cmd[0] && !ft_strncmp(ms->cmd[0], "exit", 5))
-			ms_exit(ms);
+		if (!ms_builtins(ms))
+			continue ;
+		mstester(ms);
 	}
 }
 
-int	main(int argc, char **argv, char **envp)
+int	main(int ac, char **av, char **ep)
 {
 	t_mini	ms;
 
-	(void) argc;
-	(void) argv;
-	mini_init(&ms, envp);
+	(void) ac;
+	(void) av;
+	ms.ex.av = av;
+	ms.ex.ep = ep;
+	mini_init(&ms, ep);
 	while (ms.exit == 0)
 	{
 		sig_init(&ms);

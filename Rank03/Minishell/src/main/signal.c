@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 14:26:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/08 15:05:30 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:15:55 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ void	ms_sigint(t_mini *ms)
 	}
 	ms->sig.sigint = 1;
 }
+
 void	ms_sigquit(t_mini *ms)
 {
 	char	*nbr;
 
 	nbr = ft_itoa(ms->sig.code);
-	if(ms->sig.pid != 0)
+	if (ms->sig.pid != 0)
 	{
 		ft_putstr_fd("Quit: ", STDERR);
 		ft_putendl_fd(nbr, STDERR);

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_rejoin.c                                        :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 16:35:59 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/12 16:36:54 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/12 16:32:12 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/12 16:44:51 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memdel(void *ptr)
+char	*ft_rejoin(char	*s1, char *s2)
 {
-	if (ptr)
-	{
-		free(ptr);
-		ptr = NULL;
-	}
-	return (NULL);
+	char	*rejoin;
+
+	rejoin = ft_strjoin(s1, s2);
+	if (s1)
+		free(s1);
+	return (rejoin);
 }

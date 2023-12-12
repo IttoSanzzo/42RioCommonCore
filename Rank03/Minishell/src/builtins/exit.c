@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/08 14:38:51 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:49:47 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	ms_free_cmd(t_mini *ms)
 
 	i = -1;
 	free(ms->line);
-	if (ms->cmd)
+	if (ms->cmdl)
 	{
-		while (ms->cmd[++i])
-			free(ms->cmd[i]);
-		free(ms->cmd);
+		while (ms->cmdl[++i])
+			free(ms->cmdl[i]);
+		free(ms->cmdl);
 	}
 }
 
@@ -30,5 +30,6 @@ void	ms_exit(t_mini *ms)
 {
 	ft_putstr(EXT_MSS);
 	ms_free_cmd(ms);
+	free(ms->ex.path);
 	exit(EXT_SUC);
 }

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:08:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/12 19:41:29 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 20:07:40 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int		ft_nbrlen(int nb);
 void	ft_putstr(char *s);
 void	*ft_memdel(void *ptr);
 char	*ft_rejoin(char *s1, char *s2);
+char	*ft_strrep(char *body, char *news);
 
 // ft_readline.c
 char	*ft_readline(char *prompt);

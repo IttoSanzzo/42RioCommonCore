@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/12 15:48:15 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:39:36 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@
 # include "../libft/includes/libft.h"
 # include "signal.h"
 # include <stdio.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
 // Pre-processors
-# define PROMPT "\033[0;35mmari\033[38;5;220m$\033[0m "
-# define EXT_MSS "\033[38;5;43mExiting now...\n\033[0m"
+# define WHITE "\033[0m"
+# define PURPLE "\033[0;35m"
+# define GOLDEN "\033[38;5;220m"
 
+# define EXT_MSS "\033[38;5;43mExiting now...\n\033[0m"
 # define STDIN 0
 # define STDOUT 1
 # define STDERR 2
@@ -42,6 +45,7 @@ typedef struct s_sig
 
 typedef struct s_vars
 {
+	int		ac;
 	char	*path;
 	char	**av;
 	char	**ep;
@@ -49,12 +53,14 @@ typedef struct s_vars
 
 typedef struct s_mini
 {
-	struct s_vars	rt;
-	struct s_vars	ex;
 	char			**cmdl;
+	char			*homepath;
+	char			*prompt;
 	char			*line;
 	int				exit;
 	int				ret;
+	struct s_vars	rt;
+	struct s_vars	ex;
 	struct s_sig	sig;
 }	t_mini;
 
@@ -67,13 +73,14 @@ void	ms_sigint(t_mini *ms);
 void	ms_sigquit(t_mini *ms);
 
 // ft_utils.c
-
 /// Builtins
 // ms_builtins.c
 int		ms_builtins(t_mini *ms);
 // pwd.c
 int		ms_printpwd(t_mini *ms);
 char	*ms_getpwd(t_mini *ms);
+// cat.c
+int	ms_cat(t_mini *ms);
 // exit.c
 void	ms_free_cmd(t_mini *ms);
 void	ms_exit(t_mini *ms);

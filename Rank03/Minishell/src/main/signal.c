@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 14:26:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/12 13:15:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:16:56 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ms_sigint(t_mini *ms)
 	{
 		ft_putstr_fd("\b\b  ", STDERR);
 		ft_putstr_fd("\n", STDERR);
-		ft_putstr_fd(PROMPT, STDERR);
+		ft_putstr_fd(ms->prompt, STDERR);
 		ms->sig.exit_status = 1;
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 14:43:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/12 14:59:35 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:07:33 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ms_builtins(t_mini *ms)
 			ms_exit(ms);
 		if (!ft_strncmp(ms->cmdl[0], "pwd", 4))
 			return (ms_printpwd(ms));
+		if (!ft_strncmp(ms->cmdl[0], "cat", 4))
+			return (ms_cat(ms));
 	}
 	return (1);
 }

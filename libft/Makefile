@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/08 09:32:30 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/12 16:37:14 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -79,6 +79,8 @@ N_SRCS	= ft_isalpha.c		\
 	ft_printf_utils.c	\
 	ft_putstr.c		\
 	ft_readline.c		\
+	ft_memdel.c		\
+	ft_rejoin.c		\
 
 F_SRCS	= $(addprefix $(D_SRCS), $(N_SRCS))
 

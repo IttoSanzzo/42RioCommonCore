@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_rejoin.c                                        :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 16:32:12 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/12 16:45:13 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/12 20:42:13 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/12 20:43:59 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_rejoin(char	*s1, char *s2)
+int	ft_tablen(char **tab)
 {
-	char	*rejoin;
+	int	i;
 
-	rejoin = ft_strjoin(s1, s2);
-	if (s1)
-		free(s1);
-	return (rejoin);
+	if (!tab)
+		return (-1);
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
 }

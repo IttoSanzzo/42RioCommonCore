@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/12 19:32:42 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 20:55:22 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	ms_setprompt(t_mini *ms)
 
 void	mini_init(t_mini *ms, char **ep)
 {
-	ms->rt.ep = ep;
+	ms->df.ep = ep;
+	ms->rt.ep = ft_tabcpy(ms->df.ep);
 	ms_setprompt(ms);
 	ms->line = ft_calloc(1, 1);
 	ms->homepath = ms_gethome(ms);
@@ -72,7 +73,7 @@ int	ms_is_div(char *s)
 	return (0);
 }
 
-char	*ms_exec_name(char *path)
+char	*ms_parname(char *path)
 {
 	int	i;
 
@@ -104,7 +105,7 @@ int	pop_cmd(t_mini *ms)
 			ms->ex.ac++;
 		free(ms->ex.av);
 		ms->ex.av = (char **)ft_calloc((2 + ms->ex.ac), sizeof(char *));
-		ms->ex.av[0] = ms_exec_name(ms->ex.path);
+		ms->ex.av[0] = ms_parname(ms->ex.path);
 		i = 0;
 		while (++i <= ms->ex.ac)
 		ms->ex.av[i] = (char *)&ms->cmdl[i][0];

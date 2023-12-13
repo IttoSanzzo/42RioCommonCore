@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/12 19:39:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/12 20:35:16 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define GOLDEN "\033[38;5;220m"
 
 # define EXT_MSS "\033[38;5;43mExiting now...\n\033[0m"
+# define CDERR_A "cd: The directory \""
+# define CDERR_B "\" does not exist\n"
 # define STDIN 0
 # define STDOUT 1
 # define STDERR 2
@@ -59,6 +61,7 @@ typedef struct s_mini
 	char			*line;
 	int				exit;
 	int				ret;
+	struct s_vars	df;
 	struct s_vars	rt;
 	struct s_vars	ex;
 	struct s_sig	sig;
@@ -77,10 +80,12 @@ void	ms_sigquit(t_mini *ms);
 // ms_builtins.c
 int		ms_builtins(t_mini *ms);
 // pwd.c
-int		ms_printpwd(t_mini *ms);
 char	*ms_getpwd(t_mini *ms);
+int		ms_printpwd(t_mini *ms);
 // cat.c
-int	ms_cat(t_mini *ms);
+int		ms_cat(t_mini *ms);
+// cd.c
+int		ms_cd(t_mini *ms);
 // exit.c
 void	ms_free_cmd(t_mini *ms);
 void	ms_exit(t_mini *ms);

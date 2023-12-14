@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 14:26:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/12 19:16:56 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/14 02:40:08 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ void	sig_init(t_mini *ms)
 	ms->sig.pid = 0;
 }
 
-void	ms_sigint(t_mini *ms)
+void	ms_sigint(int signum)
 {
+	t_mini	*ms;
+
+	(void)signum;
+	ms = get_mini(NULL);
 	if (ms->sig.pid == 0)
 	{
 		ft_putstr_fd("\b\b  ", STDERR);
@@ -38,11 +42,13 @@ void	ms_sigint(t_mini *ms)
 	ms->sig.sigint = 1;
 }
 
-void	ms_sigquit(t_mini *ms)
+void	ms_sigquit(int signum)
 {
 	char	*nbr;
+	t_mini	*ms;
 
-	nbr = ft_itoa(ms->sig.code);
+	ms = get_mini(NULL);
+	nbr = ft_itoa(signum);
 	if (ms->sig.pid != 0)
 	{
 		ft_putstr_fd("Quit: ", STDERR);

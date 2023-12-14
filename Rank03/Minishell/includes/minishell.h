@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/14 02:02:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/14 02:23:08 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ typedef struct s_mini
 int		main(int argc, char **argv, char **ep);
 // signals.c
 void	sig_init(t_mini *ms);
-void	ms_sigint(t_mini *ms);
-void	ms_sigquit(t_mini *ms);
+void	ms_sigint(int signum);
+void	ms_sigquit(int signum);
 
 // ft_utils.c
 /// Builtins
@@ -91,5 +91,10 @@ int		ms_cd(t_mini *ms);
 // exit.c
 void	ms_free_cmd(t_mini *ms);
 void	ms_exit(t_mini *ms);
+
+
+
+
+t_mini	*get_mini(t_mini *base);
 
 #endif

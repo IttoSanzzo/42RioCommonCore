@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/14 02:10:08 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/14 02:31:41 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -49,8 +49,19 @@ void	ms_setprompt(t_mini *ms)
 	ms->prompt = ft_rejoin(ms->prompt, WHITE);
 }
 
+t_mini	*get_mini(t_mini *base)
+{
+	static t_mini	*ms;
+
+	if (base == NULL)
+		return (ms);
+	ms = base;
+	return (base);
+}
+
 void	mini_init(t_mini *ms, char **ep)
 {
+	get_mini(ms);
 	ms->pid = getpid();
 	ms->df.ep = ep;
 	ms->rt.ep = ft_tabcpy(ms->df.ep);
@@ -62,6 +73,7 @@ void	mini_init(t_mini *ms, char **ep)
 	ms->cmdl = NULL;
 	ms->exit = 0;
 	ms->ret = 0;
+	signal(SIGINT, ms_sigint);
 }
 
 int	ms_is_div(char *s)

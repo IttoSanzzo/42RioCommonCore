@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/12 20:35:16 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/14 02:02:48 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/wait.h>
 
 // Pre-processors
 # define WHITE "\033[0m"
@@ -59,6 +60,7 @@ typedef struct s_mini
 	char			*homepath;
 	char			*prompt;
 	char			*line;
+	int				pid;
 	int				exit;
 	int				ret;
 	struct s_vars	df;

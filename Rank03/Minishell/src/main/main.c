@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/12 20:55:22 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/14 02:10:08 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	ms_setprompt(t_mini *ms)
 
 void	mini_init(t_mini *ms, char **ep)
 {
+	ms->pid = getpid();
 	ms->df.ep = ep;
 	ms->rt.ep = ft_tabcpy(ms->df.ep);
 	ms_setprompt(ms);
@@ -120,7 +121,13 @@ void	mstester(t_mini *ms)
 	while (ms->ex.av[++i])
 		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
 	ft_printf("path..: |%s|\n", ms->ex.path);
-	execve(ms->ex.path, ms->ex.av, ms->ex.ep);
+	if (fork() == 0)
+	{
+		ft_printf("EXECVE TRY\n");
+		execve(ms->ex.path, ms->ex.av, ms->ex.ep);
+		ms_exit(ms);
+	}
+	wait(NULL);
 }
 
 void	minishell(t_mini *ms)

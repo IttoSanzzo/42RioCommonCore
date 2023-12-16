@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/16 00:55:27 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/16 01:00:56 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -61,7 +61,23 @@ N_PUT		= ft_putchar_fd.c		\
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PUT), $(N_PUT))
 
 DS_STR		= ft_str/
-N_STR		= ft_strlen.c
+N_STR		= ft_strlen.c			\
+		  ft_rejoin.c			\
+		  ft_split.c			\
+		  ft_strchr.c			\
+		  ft_strdup.c			\
+		  ft_striteri.c			\
+		  ft_strjoin.c			\
+		  ft_strlcat.c			\
+		  ft_strlcpy.c			\
+		  ft_strlen.c			\
+		  ft_strmapi.c			\
+		  ft_strncmp.c			\
+		  ft_strnstr.c			\
+		  ft_strrchr.c			\
+		  ft_strrep.c			\
+		  ft_strtrim.c			\
+		  ft_substr.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_STR), $(N_STR))
 
 DS_LST		= ft_list/

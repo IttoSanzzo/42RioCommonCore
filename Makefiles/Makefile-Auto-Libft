@@ -1,0 +1,100 @@
+# **************************************************************************** #
+#									       #
+#							  :::	   ::::::::    #
+#    Makefile-Auto-Libft                                :+:      :+:    :+:    #
+#						      +:+ +:+	      +:+      #
+#    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
+#						  +#+#+#+#+#+	+#+	       #
+#    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
+#    Updated: 2023/12/15 21:48:02 by marcosv2         ###   ########.fr        #
+#									       #
+# **************************************************************************** #
+
+# Comamad Miscs
+
+NAME	= libft.a
+C_COMP	= cc
+C_ARRC	= ar -rc
+C_FLAG	= -Wall -Werror -Wextra
+C_REMO	= rm -rf
+
+# Dirs
+
+D_HDRS	= -I ./includes/
+D_SRCS	= srcs/
+D_OBJS	= objs/
+
+# Sources & Objects
+
+DS_STR	= str/
+N_STR	= $(DS_STR).c		\
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_STR), $(N_STR))		\
+
+DS_MEM	= mem/
+N_MEM	= $(DS_MEM).c		\
+	  $(DS_MEM).c		\
+	  $(DS_MEM).c		\
+	  $(DS_MEM).c		\
+	  $(DS_MEM).c		
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_MEM), $(N_MEM))		\
+
+DS_PRINTF	= ft_printf/
+N_PRINTF	= $(DS_PRINTF)ft_printf.c		\
+		  $(DS_PRINTF)ft_ftype.c		\
+		  $(DS_PRINTF)ft_printpercent.c		\
+		  $(DS_PRINTF)ft_printchar.c		\
+		  $(DS_PRINTF)ft_printstr.c		\
+		  $(DS_PRINTF)ft_printnbr.c		\
+		  $(DS_PRINTF)ft_printunsigned.c	\
+		  $(DS_PRINTF)ft_printhex.c		\
+		  $(DS_PRINTF)ft_printpointer.c		\
+		  $(DS_PRINTF)ft_printf_utils.c	
+F_SRCS  += $(addprefix $(D_SRCS)$(DS_PRINTF), $(N_PRINTF))	\
+
+# Objects Finalization
+
+N_OBJS	= $(N_STR:.c=.o)	\
+	  $(N_MEM:.c=.o)	\
+	  $(N_PRINTF:.c=.o)	\
+
+F_OBJS	= $(addprefix $(D_OBJS), $(N_OBJS))
+
+# Colors
+P_WHITE = \033[0m
+P_LBLUE = \033[0;32m
+P_BROWN = \033[0;33m
+P_DBLUE = \033[0;34m
+P_NCYAN = \033[0;36m
+P_GREEN = \033[38;5;40m
+
+# Mandatory Rules
+
+all		: $(NAME)
+
+$(D_OBJS)%.o	: $(D_SRCS)/*/%.c
+	@printf "\t$(P_BROWN)Generating $(NAME)..: %-33.33s\r $(P_WHITE)" $@
+	@$(C_COMP) $(C_FLAG) -c $< -o $@ $(D_HDRS)
+
+$(D_OBJS)	:
+	@echo "$(P_LBLUE)Starting $(NAME) compilation...$(P_WHITE)"
+	@echo "\n\t$(P_DBLUE)Creating $(NAME) objects directory...$(P_WHITE)"
+	@mkdir $(D_OBJS)
+
+$(NAME)		:  $(D_OBJS) $(F_OBJS)
+	@echo "\n\t$(P_NCYAN)Finishing $(NAME)..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
+	@$(C_ARRC) $(NAME) $(F_OBJS)
+	@echo "$(P_GREEN)Done!$(P_WHITE)"
+
+clean		:
+	@echo "$(P_DBLUE)Cleaning $(NAME) objects...$(P_WHITE)"
+	@$(C_REMO) $(D_OBJS)
+
+fclean		: clean
+	@echo "$(P_DBLUE)Deleting $(NAME)...$(P_WHITE)"
+	@${C_REMO} $(NAME)
+
+re		: fclean all
+
+# Phony
+
+.PHONY: all clean fclean re

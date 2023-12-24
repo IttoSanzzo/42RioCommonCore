@@ -6,17 +6,24 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/14 02:31:41 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:00:36 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	ms_getcmd(t_mini *ms)
+void	ms_getcmd(t_mini *ms, int opt)
 {
-	ms_free_cmd(ms);
-	ms->line = ft_readline(ms->prompt);
-	ms->cmdl = ft_split(ms->line, ' ');
+	if (opt == 1)
+	{
+		ms_free_cmd(ms);
+		ms->line = ft_readline(ms->prompt);
+	}
+	if (opt == 2)
+		ms->line = ft_rejoin(ms->line, ft_readline(NULL));
+	if (!ft_open_quotes(ms->line, '"'))
+		ms->cmdl = ft_splitq(ms->line, '"');
+	else
+		ms_getcmd(ms, 2);
 }
 
 char	*ms_getuser(t_mini *ms)
@@ -137,7 +144,8 @@ void	mstester(t_mini *ms)
 	{
 		ft_printf("EXECVE TRY\n");
 		execve(ms->ex.path, ms->ex.av, ms->ex.ep);
-		ms_exit(ms);
+		ft_printf("minishell: %s: command not found\n", ms->ex.av[0]);
+		ms_exit(ms, 2);
 	}
 	wait(NULL);
 }
@@ -146,7 +154,7 @@ void	minishell(t_mini *ms)
 {
 	while (1)
 	{
-		ms_getcmd(ms);
+		ms_getcmd(ms, 1);
 		if (pop_cmd(ms) || !ms_builtins(ms))
 			continue ;
 		mstester(ms);

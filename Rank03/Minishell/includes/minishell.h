@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/23 22:49:26 by gupiment         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:02:12 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int		ms_echo(char **ms);
 int		ms_env(char **env);
 // exit.c
 void	ms_free_cmd(t_mini *ms);
-void	ms_exit(t_mini *ms);
+void	ms_exit(t_mini *ms, int opt);
 
 
 

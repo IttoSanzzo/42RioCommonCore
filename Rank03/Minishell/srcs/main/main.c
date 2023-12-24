@@ -6,11 +6,12 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/24 01:06:27 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/24 02:35:34 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
 void	ms_getcmd(t_mini *ms, int opt)
 {
 	if (opt == 1)
@@ -142,7 +143,7 @@ int	pop_cmd(t_mini *ms)
 
 void	mstester(t_mini *ms)
 {
-	int	i = 0;
+	int	i = -1;
 
 	while (ms->rt.ep[++i] && ft_strncmp(ms->rt.ep[i], "PATH=", 5))
 		i++;
@@ -154,17 +155,18 @@ void	mstester(t_mini *ms)
 		ms->paths[i] = ft_rejoin(ms->paths[i], ms->ex.av[0]);
 	}
 	i = -1;
-//	while (ms->ex.av[++i])
-//		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
+	while (ms->ex.av[++i])
+		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
 	i = -1;
-//	ft_printf("path..: |%s|\n", ms->ex.path);
+	ft_printf("path..: |%s|\n", ms->ex.path);
 	if (fork() == 0)
 	{
-//		ft_printf("EXECVE TRY\n");
+		ft_printf("EXECVE TRY\n");
 		while (ms->paths[++i])
 			execve(ms->paths[i], ms->ex.av, ms->ex.ep);
 		execve(ms->ex.path, ms->ex.av, ms->ex.ep);
 		ft_printf("minishell: %s: command not found\n", ms->ex.av[0]);
+		exit(0);
 		ms_exit(ms, 2);
 	}
 	ft_freetab(ms->paths);

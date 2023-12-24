@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 09:13:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/24 01:00:09 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/08 09:33:51 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ char	*ft_readline(char *prompt)
 	if (!line)
 		return (NULL);
 	read(0, buffer, 1);
-	while (*buffer != '\n' && *buffer != '\0')
+	while (*buffer != '\n')
 	{
 		line = ft_rl_jf(line, buffer);
 		if (read(0, buffer, 1) == -1)
 			break ;
 	}
-	if (*buffer == '\0')
-		return (NULL);
 	return (line);
 }

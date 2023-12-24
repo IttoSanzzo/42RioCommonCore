@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/24 00:00:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/24 01:06:27 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void	ms_getcmd(t_mini *ms, int opt)
 	{
 		ms_free_cmd(ms);
 		ms->line = ft_readline(ms->prompt);
+		if (ms->line[0] == '\0')
+		{
+			free(ms->line);
+			ft_putstr("\n");
+			ms->line = ft_strdup("exit");
+		}
 	}
 	if (opt == 2)
 		ms->line = ft_rejoin(ms->line, ft_readline(NULL));
@@ -136,17 +142,32 @@ int	pop_cmd(t_mini *ms)
 
 void	mstester(t_mini *ms)
 {
-	int	i = -1;
-	while (ms->ex.av[++i])
-		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
-	ft_printf("path..: |%s|\n", ms->ex.path);
+	int	i = 0;
+
+	while (ms->rt.ep[++i] && ft_strncmp(ms->rt.ep[i], "PATH=", 5))
+		i++;
+	ms->paths = ft_split(ms->rt.ep[i], ':');
+	i = -1;
+	while (ms->paths[++i])
+	{
+		ms->paths[i] = ft_rejoin(ms->paths[i], "/");
+		ms->paths[i] = ft_rejoin(ms->paths[i], ms->ex.av[0]);
+	}
+	i = -1;
+//	while (ms->ex.av[++i])
+//		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
+	i = -1;
+//	ft_printf("path..: |%s|\n", ms->ex.path);
 	if (fork() == 0)
 	{
-		ft_printf("EXECVE TRY\n");
+//		ft_printf("EXECVE TRY\n");
+		while (ms->paths[++i])
+			execve(ms->paths[i], ms->ex.av, ms->ex.ep);
 		execve(ms->ex.path, ms->ex.av, ms->ex.ep);
 		ft_printf("minishell: %s: command not found\n", ms->ex.av[0]);
 		ms_exit(ms, 2);
 	}
+	ft_freetab(ms->paths);
 	wait(NULL);
 }
 

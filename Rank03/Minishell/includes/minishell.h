@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/24 00:02:12 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:30:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_vars
 typedef struct s_mini
 {
 	char			**cmdl;
+	char			**paths;
 	char			*homepath;
 	char			*prompt;
 	char			*line;

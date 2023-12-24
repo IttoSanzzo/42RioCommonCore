@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/24 02:35:34 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/24 05:03:12 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ void	ms_getcmd(t_mini *ms, int opt)
 	{
 		ms_free_cmd(ms);
 		ms->line = ft_readline(ms->prompt);
-		if (ms->line[0] == '\0')
+		if (!ms->line)
 		{
-			free(ms->line);
 			ft_putstr("\n");
 			ms->line = ft_strdup("exit");
 		}
@@ -88,6 +87,7 @@ void	mini_init(t_mini *ms, char **ep)
 	ms->exit = 0;
 	ms->ret = 0;
 	signal(SIGINT, ms_sigint);
+	signal(SIGQUIT, ms_sigquit);
 }
 
 int	ms_is_div(char *s)
@@ -154,14 +154,15 @@ void	mstester(t_mini *ms)
 		ms->paths[i] = ft_rejoin(ms->paths[i], "/");
 		ms->paths[i] = ft_rejoin(ms->paths[i], ms->ex.av[0]);
 	}
+//	i = -1;
+//	while (ms->ex.av[++i])
+//		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
+//	ft_printf("path..: |%s|\n", ms->ex.path);
 	i = -1;
-	while (ms->ex.av[++i])
-		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
-	i = -1;
-	ft_printf("path..: |%s|\n", ms->ex.path);
-	if (fork() == 0)
+	ms->sig.pid = fork();
+	if (ms->sig.pid == 0)
 	{
-		ft_printf("EXECVE TRY\n");
+//		ft_printf("EXECVE TRY\n");
 		while (ms->paths[++i])
 			execve(ms->paths[i], ms->ex.av, ms->ex.ep);
 		execve(ms->ex.path, ms->ex.av, ms->ex.ep);

@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/23 22:01:57 by gupiment         ###   ########.fr       */
+/*   Updated: 2023/12/23 22:49:26 by gupiment         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int		ms_cat(t_mini *ms);
 int		ms_cd(t_mini *ms);
 // echo.c
 int		ms_echo(char **ms);
+// env.c
+int		ms_env(char **env);
 // exit.c
 void	ms_free_cmd(t_mini *ms);
 void	ms_exit(t_mini *ms);

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 20:40:28 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/23 22:46:46 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/23 23:41:38 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	wc_q(char const *s, char c)
 	return (wcount);
 }
 
-static int	wlen_q(char const *s, char c)
+static int	wlq(char const *s, char c)
 {
 	int	wlen;
 	int	open;
@@ -61,32 +61,17 @@ static int	wlen_q(char const *s, char c)
 	}
 	return (wlen);
 }
-/*static char	*ft_newstring(char const *str, int count, int start, char c)
-{
-	char		*temp_string;
-	int			count2;
 
-	count2 = 0;
-	temp_string = (char *)ft_calloc((count - start + 1), sizeof(char));
-	if (!temp_string)
-		return (NULL);
-	while (str[start] != c && str[start])
-		temp_string[count2++] = str[start++];
-	temp_string[count2] = '\0';
-	return (temp_string);
-}*/
-
-static char	*next_quote_q(char const *s, char c, int *i, char **tab)
+static char	*next_quote_q(char const *s, int *i, char c, char **tab)
 {
 	int		open;
 	int		p;
 	char	*quote;
-	
-	quote = (char*)ft_calloc(wlen_q(s, c) + 1, sizeof(char));
+
+	quote = (char *)ft_calloc(wlq((char *)(s + i[0]--), c) + 1, sizeof(char));
 	if (!quote)
-		return ((char*)ft_freetab(tab));
+		return ((char *)ft_freetab(tab));
 	open = -1;
-	i[0]--;
 	p = -1;
 	while (s[++i[0]])
 	{
@@ -108,8 +93,6 @@ static char	*next_quote_q(char const *s, char c, int *i, char **tab)
 
 char	**ft_splitq(char const *s, char c)
 {
-	ft_printc(C_NCYAN, "Palavras..: %d\n", wc_q(s, c));
-	ft_printc(C_NCYAN, "wlen..: %d\n", wlen_q(s, c));
 	int		i[1];
 	int		wc;
 	int		y;
@@ -118,7 +101,7 @@ char	**ft_splitq(char const *s, char c)
 	if (!s)
 		return (NULL);
 	wc = wc_q(s, c);
-	tab = (char**)ft_calloc(wc + 1, sizeof(char*));
+	tab = (char **)ft_calloc(wc + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
 	i[0] = 0;
@@ -129,7 +112,7 @@ char	**ft_splitq(char const *s, char c)
 			i[0]++;
 		if (!s[i[0]])
 			break ;
-		tab[y] = next_quote_q((char*)(s + i[0]), c, i, tab);
+		tab[y] = next_quote_q(s, i, c, tab);
 		if (!tab)
 			return (NULL);
 	}

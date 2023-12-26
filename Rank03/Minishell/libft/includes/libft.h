@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:08:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/23 22:05:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/26 00:14:38 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 
 //// ft_tox
+char	*ft_ttos(char **tab, char *sep);
 char	*ft_itoa(int n);
 int		ft_atoi(const char *nptr);
 int		ft_toupper(int c);
@@ -72,11 +73,13 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr(char *s);
 void	ft_putnbr(int nb);
+void	ft_puttab(char **tab, char *prompt);
 
 //// ft_str
 size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strcpy(char *dst, const char *src);
 char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
@@ -88,14 +91,24 @@ char	**ft_split(char const *s, char c);
 char	**ft_splitq(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-char	*ft_rejoin(char *s1, char *s2);
+char	*ft_freejoin(char *s1, char *s2);
+char	*ft_prejoin(char *s1, char *s2);
+char	*ft_sujoin(char *s1, char *s2);
 char	*ft_strrep(char *body, char *news);
+char	*ft_strdrep(char *body, char *news);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 //// ft_tab
 char	**ft_tabcpy(char **old);
 char	**ft_freetab(char **tab);
-void	ft_puttab(char **tab, char *prompt);
+char	**ft_tabadd_end(char **old, char *add);
+char	**ft_tabadd_bgn(char **old, char *add);
+char	**ft_tabadd_n(char **old, char *add, int n);
+char	**ft_tabrem_end(char **old);
+char	**ft_tabrem_bgn(char **old);
+char	**ft_tabrem_n(char **old, int n);
+char	*ft_tabsmove(char **tab, int start, int end);
+int		ft_getarg_p(char **tab, char const *name);
 int		ft_tablen(char **tab);
 
 //// ft_list

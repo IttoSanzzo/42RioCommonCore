@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/24 05:03:12 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/26 01:59:41 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ms_getcmd(t_mini *ms, int opt)
 		}
 	}
 	if (opt == 2)
-		ms->line = ft_rejoin(ms->line, ft_readline(NULL));
+		ms->line = ft_sujoin(ms->line, ft_readline(NULL));
 	if (!ft_open_quotes(ms->line, '"'))
 		ms->cmdl = ft_splitq(ms->line, '"');
 	else
@@ -57,9 +57,9 @@ char	*ms_gethome(t_mini *ms)
 void	ms_setprompt(t_mini *ms)
 {
 	ms->prompt = ft_strjoin(PURPLE, ms_getuser(ms));
-	ms->prompt = ft_rejoin(ms->prompt, GOLDEN);
-	ms->prompt = ft_rejoin(ms->prompt, "$ ");
-	ms->prompt = ft_rejoin(ms->prompt, WHITE);
+	ms->prompt = ft_sujoin(ms->prompt, GOLDEN);
+	ms->prompt = ft_sujoin(ms->prompt, "$ ");
+	ms->prompt = ft_sujoin(ms->prompt, WHITE);
 }
 
 t_mini	*get_mini(t_mini *base)
@@ -120,12 +120,12 @@ int	pop_cmd(t_mini *ms)
 		if (!ft_strncmp(ms->cmdl[0], "~/", 2))
 		{
 			ms->ex.path = ft_strjoin(ms->homepath, "/");
-			ms->ex.path = ft_rejoin(ms->ex.path, &ms->cmdl[0][2]);
+			ms->ex.path = ft_sujoin(ms->ex.path, &ms->cmdl[0][2]);
 		}
 		else
 		{
 			ms->ex.path = ft_strjoin(ms_getpwd(ms), "/");
-			ms->ex.path = ft_rejoin(ms->ex.path, ms->cmdl[0]);
+			ms->ex.path = ft_sujoin(ms->ex.path, ms->cmdl[0]);
 		}
 		ms->ex.ac = 1;
 		while (ms->cmdl[ms->ex.ac] && !ms_is_div(ms->cmdl[ms->ex.ac]))
@@ -151,8 +151,8 @@ void	mstester(t_mini *ms)
 	i = -1;
 	while (ms->paths[++i])
 	{
-		ms->paths[i] = ft_rejoin(ms->paths[i], "/");
-		ms->paths[i] = ft_rejoin(ms->paths[i], ms->ex.av[0]);
+		ms->paths[i] = ft_sujoin(ms->paths[i], "/");
+		ms->paths[i] = ft_sujoin(ms->paths[i], ms->ex.av[0]);
 	}
 //	i = -1;
 //	while (ms->ex.av[++i])
@@ -167,7 +167,7 @@ void	mstester(t_mini *ms)
 			execve(ms->paths[i], ms->ex.av, ms->ex.ep);
 		execve(ms->ex.path, ms->ex.av, ms->ex.ep);
 		ft_printf("minishell: %s: command not found\n", ms->ex.av[0]);
-		exit(0);
+		ft_freetab(ms->paths);
 		ms_exit(ms, 2);
 	}
 	ft_freetab(ms->paths);

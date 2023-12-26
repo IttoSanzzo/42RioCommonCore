@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 19:50:01 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/12 21:16:27 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/26 01:47:28 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static char	*ms_gen_newpath(t_mini *ms)
 	{
 		newpath = ft_strdup(ms->homepath);
 		if (ms->cmdl[1])
-			newpath = ft_rejoin(newpath, &ms->cmdl[0][2]);
+			newpath = ft_sujoin(newpath, &ms->cmdl[0][2]);
 	}
 	else
 	{
 		newpath = ft_strdup(ms_getpwd(ms));
-		newpath = ft_rejoin(newpath, ms->cmdl[1]);
+		newpath = ft_sujoin(newpath, ms->cmdl[1]);
 	}
 	return (newpath);
 }

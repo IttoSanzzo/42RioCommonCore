@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/15 19:34:51 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/24 16:28:57 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ re		: fclean all
 # Test
 
 val		:
-	@valgrind --leak-check=full --show-leak-kinds=all $(NAME)
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 # Phony
 

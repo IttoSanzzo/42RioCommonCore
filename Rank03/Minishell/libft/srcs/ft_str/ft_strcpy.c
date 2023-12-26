@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_strrep.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 20:03:28 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/26 00:12:07 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:44:43 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/25 13:51:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrep(char *body, char *news)
+size_t	ft_strcpy(char *dst, const char *src)
 {
-	if (body)
-		free(body);
-	body = ft_strdup(news);
-	return (body);
+	size_t	i;
+
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (i);
 }

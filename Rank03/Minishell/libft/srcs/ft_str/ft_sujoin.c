@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_strrep.c                                        :+:      :+:    :+:   */
+/*   ft_sujoin.c                                        :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 20:03:28 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/26 00:12:07 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/12 16:32:12 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/25 21:39:56 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrep(char *body, char *news)
+char	*ft_sujoin(char *s1, char *s2)
 {
-	if (body)
-		free(body);
-	body = ft_strdup(news);
-	return (body);
+	char	*sujoin;
+
+	sujoin = ft_strjoin(s1, s2);
+	if (s1)
+		free(s1);
+	return (sujoin);
 }

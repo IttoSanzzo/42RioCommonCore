@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_strrep.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 20:03:28 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/26 00:12:07 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/26 01:22:23 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/26 01:39:57 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrep(char *body, char *news)
+void	*ft_free(void *any)
 {
-	if (body)
-		free(body);
-	body = ft_strdup(news);
-	return (body);
+	if (any)
+		free(any);
+	any = NULL;
+	return (any);
 }

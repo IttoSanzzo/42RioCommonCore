@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/20 16:40:22 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/26 00:15:54 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ F_SRCS	+= $(addprefix $(D_SRCS)$(DS_ISX), $(N_ISX))
 
 DS_TOX		= ft_tox/
 N_TOX		= ft_itoa.c		\
+		  ft_ttos.c		\
 		  ft_atoi.c		\
 		  ft_tolower.c		\
 		  ft_toupper.c
@@ -59,12 +60,15 @@ N_PUT		= ft_putchar_fd.c		\
 		  ft_putnbr_fd.c		\
 		  ft_putstr.c			\
 		  ft_putstr_fd.c		\
-		  ft_putnbr.c
+		  ft_putnbr.c			\
+		  ft_puttab.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PUT), $(N_PUT))
 
 DS_STR		= ft_str/
 N_STR		= ft_strlen.c			\
-		  ft_rejoin.c			\
+		  ft_freejoin.c			\
+		  ft_prejoin.c			\
+		  ft_sujoin.c			\
 		  ft_split.c			\
 		  ft_splitq.c			\
 		  ft_strchr.c			\
@@ -73,12 +77,14 @@ N_STR		= ft_strlen.c			\
 		  ft_strjoin.c			\
 		  ft_strlcat.c			\
 		  ft_strlcpy.c			\
+		  ft_strcpy.c			\
 		  ft_strlen.c			\
 		  ft_strmapi.c			\
 		  ft_strncmp.c			\
 		  ft_strnstr.c			\
 		  ft_strrchr.c			\
 		  ft_strrep.c			\
+		  ft_strdrep.c			\
 		  ft_strtrim.c			\
 		  ft_substr.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_STR), $(N_STR))
@@ -99,7 +105,14 @@ DS_TAB		= ft_tab/
 N_TAB		= ft_freetab.c		\
 		  ft_tabcpy.c		\
 		  ft_tablen.c		\
-		  ft_puttab.c
+		  ft_tabadd_end.c	\
+		  ft_tabadd_bgn.c	\
+		  ft_tabadd_n.c		\
+		  ft_tabrem_end.c	\
+		  ft_tabrem_bgn.c	\
+		  ft_tabrem_n.c		\
+		  ft_tabsmove.c		\
+		  ft_getarg_p.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_TAB), $(N_TAB))
 
 DS_PRINTF	= ft_printf/

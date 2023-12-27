@@ -6,11 +6,14 @@
 /*   By: fremoor <fremoor@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2019/07/26 13:29:41 by fremoor	       #+#    #+#	      */
-/*   Updated: 2023/12/04 16:52:19 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:16:43 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+char     *g_arr[4];
+char     **g_env;
 
 char			*end_quote(char *str, char c)
 {

@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2019/07/26 13:29:47 by fremoor	       #+#    #+#	      */
-/*   Updated: 2023/12/04 16:52:31 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:14:19 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/includes/libft.h"
 # include <signal.h>
+# include <stdio.h>
 # include <readline/history.h>
 # include <readline/readline.h>
 # include <sys/wait.h>
@@ -27,8 +28,8 @@
 # define C_CYAN "\033[1;36m"
 # define C_MAGENTA "\033[1;35m"
 
-char		*g_arr[4];
-char		**g_env;
+extern char	*g_arr[4];
+extern char	**g_env;
 
 int			quote(char *str, char c);
 int			exec_env(void);

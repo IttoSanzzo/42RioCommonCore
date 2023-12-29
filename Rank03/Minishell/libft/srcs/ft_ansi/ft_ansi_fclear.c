@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_putfclear.c                                     :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/26 01:22:23 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/29 05:23:02 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/27 20:55:14 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/29 05:55:03 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_free(void *any)
+void	ft_ansi_fclear(void)
 {
-	if (any)
-		free(any);
-	any = NULL;
-	return (any);
+	ft_putstr("\e[1;1H\e[2J\e[3J");
 }

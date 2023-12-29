@@ -5,30 +5,71 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/08 09:13:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/25 21:40:25 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/29 10:02:53 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/29 10:53:48 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	*rl_wrap_up(t_readline *rl)
+{
+	rl_checkmove(rl);
+	ft_putchar('\n');
+	return (rl->str);
+}
+
+char	*rl_init(t_readline *rl, char *prompt, int prt)
+{
+	rl->str = ft_free(rl->str);
+	rl->str = (char *)ft_calloc(1, sizeof(char));
+	if (!rl->str)
+		return (NULL);
+	ft_rlconfig(2, PUTV, 0);
+	rl->move = 0;
+	rl->his = ft_rlhistory(NULL);
+	rl->hlen = ft_rlconfig(0, GETV, 0);
+	rl->hpos = rl->hlen;
+	rl->pos = 0;
+	rl->len = 0;
+	rl->ch = 0;
+	rl->prompt = prompt;
+	if (rl->prompt && prt)
+		ft_putstr(rl->prompt);
+	return (rl->str);
+}
+
+static void	rl_others(t_readline *rl)
+{
+	if (rl->ch == '\033')
+		rl_get_specials(rl);
+	else if (rl_checkmove(rl) && rl->ch == '\t')
+		rl_do_tab(rl);
+	else if (rl->ch == 127)
+		rl_do_backspace(rl);
+	else if (rl->ch == '\f')
+		rl_cleard(rl);
+	else if (rl->ch != '\n' && rl->ch != 4)
+		rl_addchar(rl);
+}
+
 char	*ft_readline(char *prompt)
 {
-	char	*line;
-	char	buffer[1];
+	t_readline	rl;
 
-	ft_putstr(prompt);
-	buffer[0] = 0;
-	if (read(0, buffer, 1) == 0)
+	rl.str = NULL;
+	if (!rl_init(&rl, prompt, 1))
 		return (NULL);
-	line = (char *)ft_calloc(2, sizeof(char));
-	if (!line)
-		return (NULL);
-	while (*buffer != '\n')
+	while (rl.ch != '\n')
 	{
-		line = ft_sujoin(line, buffer);
-		while (read(0, buffer, 1) == 0)
-			buffer[0] = 0;
+		if (!rl_checkreset(&rl))
+			rl.ch = ft_getchar();
+		if (rl_checkreset(&rl))
+			continue ;
+		if (rl.len == 0 && rl.ch == 4)
+			return (ft_free(rl.str));
+		else
+			rl_others(&rl);
 	}
-	return (line);
+	return (rl_wrap_up(&rl));
 }

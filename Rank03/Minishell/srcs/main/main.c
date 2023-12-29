@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/26 01:59:41 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/29 07:52:34 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	ms_getcmd(t_mini *ms, int opt)
 	if (opt == 2)
 		ms->line = ft_sujoin(ms->line, ft_readline(NULL));
 	if (!ft_open_quotes(ms->line, '"'))
+	{
 		ms->cmdl = ft_splitq(ms->line, '"');
+		ft_rlhistory(ms->line);
+	}
 	else
 		ms_getcmd(ms, 2);
 }

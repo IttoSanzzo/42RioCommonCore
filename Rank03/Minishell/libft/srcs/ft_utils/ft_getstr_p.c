@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_freetab.c                                       :+:      :+:    :+:   */
+/*   ft_getstr_p.c                                      :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 20:48:55 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/29 05:23:16 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/25 14:40:36 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/29 04:37:02 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_freetab(char **tab)
+int	ft_getstr_p(char **tab, char const *name)
 {
-	int	i;
+	int		nlen;
+	int		i;
 
+	if (!tab || !name)
+		return (-1);
+	nlen = ft_strlen(name) + 1;
 	i = -1;
-	if (!tab)
-		return (NULL);
 	while (tab[++i])
-		ft_free(tab[i]);
-	if (tab)
-		ft_free(tab);
-	return (NULL);
+		if (!ft_strncmp(tab[i], name, nlen))
+			return (i);
+	return (-1);
 }

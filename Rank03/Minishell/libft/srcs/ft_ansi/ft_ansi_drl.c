@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_ansi_drl.c                                      :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/26 01:22:23 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/29 05:23:02 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/29 05:57:57 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/29 06:02:48 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_free(void *any)
+void	ft_ansi_drl(char *prompt)
 {
-	if (any)
-		free(any);
-	any = NULL;
-	return (any);
+	if (prompt)
+		ft_putstr(prompt);
+	ft_putstr("\033[0K");
 }

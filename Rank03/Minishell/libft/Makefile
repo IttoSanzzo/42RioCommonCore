@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/26 00:15:54 by marcosv2         ###   ########.fr        #
+#    Updated: 2023/12/29 10:56:01 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -36,10 +36,10 @@ N_ISX		= ft_isalnum.c			\
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_ISX), $(N_ISX))
 
 DS_TOX		= ft_tox/
-N_TOX		= ft_itoa.c		\
-		  ft_ttos.c		\
-		  ft_atoi.c		\
-		  ft_tolower.c		\
+N_TOX		= ft_itoa.c			\
+		  ft_ttos.c			\
+		  ft_atoi.c			\
+		  ft_tolower.c			\
 		  ft_toupper.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_TOX), $(N_TOX))
 
@@ -51,15 +51,19 @@ N_MEM		= ft_calloc.c			\
 		  ft_memcpy.c			\
 		  ft_memdel.c			\
 		  ft_memmove.c			\
-		  ft_memset.c
+		  ft_memset.c			\
+		  ft_free.c			\
+		  ft_gptr.c			\
+		  ft_gint.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_MEM), $(N_MEM))
 
 DS_PUT		= ft_put/
 N_PUT		= ft_putchar_fd.c		\
 		  ft_putendl_fd.c		\
 		  ft_putnbr_fd.c		\
-		  ft_putstr.c			\
 		  ft_putstr_fd.c		\
+		  ft_putchar.c			\
+		  ft_putstr.c			\
 		  ft_putnbr.c			\
 		  ft_puttab.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PUT), $(N_PUT))
@@ -101,19 +105,41 @@ N_LST		= ft_lstadd_back_bonus.c	\
 		  ft_lstsize_bonus.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_LST), $(N_LST))
 
+DS_STRMAN	= ft_strman/
+N_STRMAN	= ft_stradd_bgn.c		\
+		  ft_stradd_end.c		\
+		  ft_stradd_n.c			\
+		  ft_strrem_bgn.c		\
+		  ft_strrem_end.c		\
+		  ft_strrem_n.c
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_STRMAN), $(N_STRMAN))
+
 DS_TAB		= ft_tab/
-N_TAB		= ft_freetab.c		\
-		  ft_tabcpy.c		\
-		  ft_tablen.c		\
-		  ft_tabadd_end.c	\
-		  ft_tabadd_bgn.c	\
-		  ft_tabadd_n.c		\
-		  ft_tabrem_end.c	\
-		  ft_tabrem_bgn.c	\
-		  ft_tabrem_n.c		\
-		  ft_tabsmove.c		\
-		  ft_getarg_p.c
+N_TAB		= ft_freetab.c			\
+		  ft_tabcpy.c			\
+		  ft_tablen.c			\
+		  ft_tabadd_bgn.c		\
+		  ft_tabadd_end.c		\
+		  ft_tabadd_n.c			\
+		  ft_tabrem_bgn.c		\
+		  ft_tabrem_end.c		\
+		  ft_tabrem_n.c			\
+		  ft_tabsmove.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_TAB), $(N_TAB))
+
+DS_ANSI		= ft_ansi/
+N_ANSI		= ft_ansi_fclear.c		\
+		  ft_ansi_clear.c		\
+		  ft_ansi_resetl.c		\
+		  ft_ansi_drl.c
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_ANSI), $(N_ANSI))
+
+DS_UTILS	= ft_utils/
+N_UTILS		= ft_getarg_p.c			\
+		  ft_getrstr_p.c		\
+		  ft_getstr_p.c			\
+		  ft_getchar.c
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_UTILS), $(N_UTILS))
 
 DS_PRINTF	= ft_printf/
 N_PRINTF	= ft_printf.c			\
@@ -134,7 +160,14 @@ N_GNL		= get_next_line.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_GNL), $(N_GNL))
 
 DS_READLINE	= ft_readline/
-N_READLINE	= ft_readline.c
+N_READLINE	= ft_sreadline.c		\
+		  ft_readline.c			\
+		  ft_rlconfig.c			\
+		  ft_rlhistory.c		\
+		  rl_checks.c			\
+		  rl_moviments.c		\
+		  rl_specials.c			\
+		  rl_utils.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_READLINE), $(N_READLINE))
 
 # Objects Finalization
@@ -144,8 +177,11 @@ N_OBJS	= $(N_ISX:.c=.o)	\
 	  $(N_MEM:.c=.o)	\
 	  $(N_PUT:.c=.o)	\
 	  $(N_STR:.c=.o)	\
+	  $(N_STRMAN:.c=.o)	\
 	  $(N_LST:.c=.o)	\
 	  $(N_TAB:.c=.o)	\
+	  $(N_ANSI:.c=.o)	\
+	  $(N_UTILS:.c=.o)	\
 	  $(N_PRINTF:.c=.o)	\
 	  $(N_GNL:.c=.o)	\
 	  $(N_READLINE:.c=.o)

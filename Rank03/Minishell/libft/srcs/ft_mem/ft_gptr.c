@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_freetab.c                                       :+:      :+:    :+:   */
+/*   ft_gptr.c                                          :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 20:48:55 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/29 05:23:16 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/27 21:17:31 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/29 04:18:17 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_freetab(char **tab)
+void	*ft_gptr(int id, void *ptr)
 {
-	int	i;
+	static void	*save[GMEM_BUFFER];
 
-	i = -1;
-	if (!tab)
+	if (id < 0 || id > GMEM_BUFFER - 1)
 		return (NULL);
-	while (tab[++i])
-		ft_free(tab[i]);
-	if (tab)
-		ft_free(tab);
-	return (NULL);
+	if (ptr != GETV)
+		save[id] = ptr;
+	return (save[id]);
 }

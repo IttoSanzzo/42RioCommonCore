@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/24 00:01:50 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/29 07:53:40 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ms_exit(t_mini *ms, int opt)
 	free(ms->ex.path);
 	free(ms->ex.av);
 	free(ms->prompt);
+	ft_freetab(ft_rlhistory(NULL));
 	ft_freetab(ms->rt.ep);
 	exit(EXT_SUC);
 }

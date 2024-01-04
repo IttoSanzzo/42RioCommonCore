@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_putfclear.c                                     :+:      :+:    :+:   */
+/*   ft_clstlen.c                                       :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/27 20:55:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/29 05:55:03 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 19:38:13 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/30 23:44:24 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_ansi_fclear(void)
+int	ft_clstlen(t_clist *lst)
 {
-	ft_putstr("\e[1;1H\e[2J\e[3J");
+	t_clist	*last;
+	int		i;
+
+	last = lst;
+	i = 0;
+	while (last)
+	{
+		last = last->next;
+		i++;
+	}
+	return (i);
 }

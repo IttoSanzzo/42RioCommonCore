@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:08:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/29 16:29:40 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/03 05:46:49 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 # define LIBFT_H
 
 // Lib Includes
+# include <stdio.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 # include <stdint.h>
 # include <signal.h>
 # include <termios.h>
+# include <sys/wait.h>
+# include <sys/ioctl.h>
 
 //// Macros
 # ifndef BUFFER_SIZE
@@ -37,6 +41,8 @@
 # ifndef STDERR
 #  define STDERR 2
 # endif
+# define CP_BUFFER 13
+# define RL_FORCE_END 999
 # define PUTV 1
 # define GETV 0
 
@@ -50,31 +56,45 @@
 # define C_GREEN "\033[38;5;40m"
 # define C_YELLOW "\033[38;5;226m"
 # define C_ORANGE "\033[38;5;208m"
+# define C_PURPLE "\033[38;5;93m"
 
 // Struct Define
 typedef struct s_list
 {
-	void			*content;
+	void			*val;
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_clist
+{
+	char			val;
+	struct s_clist	*next;
+}	t_clist;
+
 typedef struct s_readline
 {
-	int		cpos[2];
-	int		move;
-	int		hlen;
-	int		hpos;
-	int		pos;
-	int		len;
-	char	**his;
-	char	*prompt;
-	char	*str;
-	char	ch;
+	int				home[2];
+	int				end[2];
+	int				move;
+	int				hlen;
+	int				hpos;
+	int				spos;
+	int				vpos;
+	int				pos;
+	int				len;
+	char			**his;
+	char			*prompt;
+	char			ch;
+	struct s_clist	*line;
+	struct s_clist	*buffer;
 }	t_readline;
 
 ////// SOURCE FILES
 //// ft_isx
 int		ft_open_quotes(char *s, char c);
+int		ft_cquotes(char *s);
+int		ft_isupp(int c);
+int		ft_islow(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -83,12 +103,16 @@ int		ft_isprint(int c);
 
 //// ft_tox
 char	*ft_ttos(char **tab, char *sep);
+char	*ft_cltos(t_clist *lst);
+t_clist	*ft_stocl(char *str);
 char	*ft_itoa(int n);
 int		ft_atoi(const char *nptr);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
 //// ft_mem
+t_clist	*ft_nfree_clst(t_clist **mem);
+char	*ft_nfree_str(char **mem);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
@@ -96,7 +120,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memdel(void *ptr);
-void	*ft_free(void *any);
+void	*ft_free(void *mem);
+void	*ft_nfree(void **mem);
 void	*ft_gptr(int id, void *ptr);
 int		ft_gint(int id, size_t act, int val);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -110,6 +135,11 @@ void	ft_putchar(int c);
 void	ft_putstr(char *s);
 void	ft_putnbr(int nb);
 void	ft_puttab(char **tab, char *prompt);
+void	ft_putclstval(t_clist *lst);
+void	ft_putclst(t_clist *lst);
+void	ft_putnclst(t_clist *lst, int n);
+void	ft_putclstpos(t_clist *lst, int pos);
+void	ft_putclst_xfory(t_clist *lst, int x, int y);
 
 //// ft_str
 size_t	ft_strlen(const char *str);
@@ -135,12 +165,13 @@ char	*ft_strdrep(char *body, char *news);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 //// ft_strman
-char	*ft_stradd_bgn(char *old, char add);
-char	*ft_stradd_end(char *old, char add);
-char	*ft_stradd_n(char *old, char add, int n);
-char	*ft_strrem_bgn(char *old);
-char	*ft_strrem_end(char *old);
-char	*ft_strrem_n(char *old, int n);
+char	*ft_strnew(char **old, char add);
+char	*ft_stradd_bgn(char **old, char add);
+char	*ft_stradd_end(char **old, char add);
+char	*ft_stradd_n(char **old, char add, int n);
+char	*ft_strrem_bgn(char **old);
+char	*ft_strrem_end(char **old);
+char	*ft_strrem_n(char **old, int n);
 
 //// ft_tab
 char	**ft_tabcpy(char **old);
@@ -155,28 +186,51 @@ char	*ft_tabsmove(char **tab, int start, int end);
 int		ft_tablen(char **tab);
 
 //// ft_ansi
+void	ft_ansi_sc(void);
+void	ft_ansi_lc(void);
 void	ft_ansi_drl(char *prompt);
 void	ft_ansi_drd(char *prompt);
+void	ft_ansi_dfd(void);
 void	ft_ansi_resetl(void);
-void	ft_ansi_fclear(void);
 void	ft_ansi_clear(void);
+void	ft_ansi_getcp(int *x, int *y);
+void	ft_ansi_go(int x, int y);
 
 //// ft_utils
+void	ft_newfile(const char *name);
+void	ft_stdout_off(void);
+void	ft_stdout_on(void);
+void	ft_ungetchar(char ch);
 int		ft_getrstr_p(char **tab, char const *name);
 int		ft_getstr_p(char **tab, char const *name);
 int		ft_getarg_p(char **tab, char const *name);
 int		ft_getchar(void);
+int		ft_getchar_unb(int dsecs);
 
 //// ft_list
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(void *val);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstfree(t_list **lst, void (*del)(void*));
+void	ft_lstadd_bgn(t_list **lst, t_list *new);
+void	ft_lstadd_end(t_list **lst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-int		ft_lstsize(t_list *lst);
+void	ft_lstdel(void *val);
+int		ft_lstlen(t_list *lst);
+
+//// ft_clist
+t_clist	*ft_clstnew(char val);
+t_clist	*ft_clstadd_bgn(t_clist **lst, t_clist *new);
+t_clist	*ft_clstadd_end(t_clist **lst, t_clist *new);
+t_clist	*ft_clstadd_n(t_clist **lst, t_clist *new, int n);
+t_clist	*ft_clstrem_bgn(t_clist **lst);
+t_clist	*ft_clstrem_end(t_clist **lst);
+t_clist	*ft_clstrem_n(t_clist **lst, int n);
+t_clist	*ft_clstpos(t_clist *lst, int pos);
+t_clist	*ft_freeclst(t_clist **lst);
+char	ft_clstnval(t_clist *lst, int pos);
+int		ft_clstlen(t_clist *lst);
 
 //// ft_printf
 void	ft_lputchar(int c, int *len);
@@ -199,20 +253,26 @@ char	*get_next_line(int fd);
 int		rl_checkmove(t_readline *rl);
 int		rl_checkreset(t_readline *rl);
 int		ft_rlconfig(int id, size_t act, int val);
+char	ft_buffer_read(t_readline *rl);
+char	rl_bufferuse(t_readline *rl);
 char	**ft_rlhistory(char *new);
 char	*ft_sreadline(char *prompt);
-char	*rl_init(t_readline *rl, char *prompt, int prt);
-char	*rl_getprompt(char *prompt);
 char	*ft_readline(char *prompt);
+void	rl_termios_ch(int opt);
+void	rl_init(t_readline *rl, char *prompt);
+void	rl_getcp(int *x, int *y, t_readline *rl);
 void	rl_go_right(t_readline *rl);
 void	rl_go_left(t_readline *rl);
+void	rl_save_home(t_readline *rl);
+void	rl_save_end(t_readline *rl);
 void	rl_do_moviments(t_readline *rl);
-void	rl_do_home(t_readline *rl);
+void	rl_go_home(t_readline *rl);
+void	rl_go_end(t_readline *rl);
 void	rl_do_tab(t_readline *rl);
 void	rl_do_backspace(t_readline *rl);
 void	rl_get_specials(t_readline *rl);
-void	rl_come_back(t_readline *rl);
 void	rl_addchar(t_readline *rl);
 void	rl_cleard(t_readline *rl);
+void	rl_get_back(t_readline *rl);
 
 #endif

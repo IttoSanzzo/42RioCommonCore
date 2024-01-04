@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_ansi_go.c                                       :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/08 09:14:09 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/30 21:48:30 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/31 06:19:59 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2023/12/31 06:48:30 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *s)
+void	ft_ansi_go(int x, int y)
 {
-	if (!s)
-		return ;
-	while (*s)
-		write(1, &*s++, 1);
+	ft_putstr("\033[");
+	ft_putnbr(y);
+	ft_putchar(';');
+	ft_putnbr(x);
+	ft_putchar('H');
 }

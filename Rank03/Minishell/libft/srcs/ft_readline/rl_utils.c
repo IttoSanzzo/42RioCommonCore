@@ -6,45 +6,63 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/29 10:35:22 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/29 11:40:16 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/04 03:01:45 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	rl_come_back(t_readline *rl)
+void	rl_get_back(t_readline *rl)
 {
-	int	i;
+	int	save;
 
-	i = rl->len;
-	while (i-- > rl->pos)
-		ft_putchar('\b');
-}
-
-void	rl_addchar(t_readline *rl)
-{
-	rl->str = ft_stradd_n(rl->str, rl->ch, rl->pos);
-	ft_putchar(rl->ch);
-	ft_putstr((char *)(rl->str + rl->pos + 1));
-	rl->pos++;
-	rl->len++;
-	rl_come_back(rl);
+	if (rl->pos == rl->len)
+		return ;
+	save = rl->pos;
+	if (rl->pos >= rl->len % 2)
+	{
+		rl->pos = rl->len;
+		while (rl->pos != save)
+			rl_go_left(rl);
+	}
+	else
+	{
+		rl_go_home(rl);
+		while (rl->pos != save)
+			rl_go_right(rl);
+	}
 }
 
 void	rl_cleard(t_readline *rl)
 {
-	ft_ansi_fclear();
+	ft_ansi_dfd();
 	if (rl->prompt)
 		ft_putstr(rl->prompt);
-	ft_putstr(rl->str);
-	rl_come_back(rl);
+	rl_save_home(rl);
+	ft_putclst(rl->line);
+	rl_save_end(rl);
+	rl_get_back(rl);
 }
 
-char	*rl_getprompt(char *prompt)
+char	rl_bufferuse(t_readline *rl)
 {
-	static char	*save;
+	rl->ch = rl->buffer->val;
+	ft_clstrem_bgn(&rl->buffer);
+	return (rl->ch);
+}
 
-	if (prompt)
-		save = prompt;
-	return (save);
+void	rl_termios_ch(int opt)
+{
+	static struct termios	oldt;
+	struct termios			newt;
+
+	if (opt == 0)
+	{
+		tcgetattr(STDIN_FILENO, &oldt);
+		newt = oldt;
+		newt.c_lflag &= ~(ICANON | ECHO);
+		tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+	}
+	if (opt == 1)
+		tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 }

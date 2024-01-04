@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_clstfree.c                                      :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:34:24 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/28 21:55:24 by marcosv2         ###   ########.fr       */
+/*   Updated: 2023/12/31 02:26:30 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+t_clist	*ft_freeclst(t_clist **lst)
 {
-	t_list	*temp;
+	t_clist	*temp;
 
-	if (lst && del)
+	while (*lst)
 	{
-		while (*lst)
-		{
-			temp = (*lst)->next;
-			del((*lst)->content);
-			free(*lst);
-			*lst = temp;
-		}
+		temp = (*lst)->next;
+		free(*lst);
+		*lst = temp;
 	}
 	lst = NULL;
+	return (NULL);
 }

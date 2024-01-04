@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnclst.c                                      :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/08 09:14:09 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/12/30 21:48:30 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/12/30 16:11:01 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2024/01/03 05:04:46 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *s)
+// Writes all values of a clist in the stdout, till it's end.
+void	ft_putnclst(t_clist *lst, int n)
 {
-	if (!s)
-		return ;
-	while (*s)
-		write(1, &*s++, 1);
+	while (lst && n--)
+	{
+		ft_putchar(lst->val);
+		lst = lst->next;
+	}
 }

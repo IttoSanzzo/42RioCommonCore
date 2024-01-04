@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2023/12/29 16:43:20 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/01/04 03:02:13 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -28,16 +28,21 @@ D_OBJS	= objs/
 
 DS_ISX		= ft_isx/
 N_ISX		= ft_isalnum.c			\
+		  ft_isupp.c			\
+		  ft_islow.c			\
 		  ft_isalpha.c			\
 		  ft_isascii.c			\
 		  ft_isdigit.c			\
 		  ft_isprint.c			\
+		  ft_cquotes.c			\
 		  ft_open_quotes.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_ISX), $(N_ISX))
 
 DS_TOX		= ft_tox/
-N_TOX		= ft_itoa.c			\
-		  ft_ttos.c			\
+N_TOX		= ft_ttos.c			\
+		  ft_cltos.c			\
+		  ft_stocl.c			\
+		  ft_itoa.c			\
 		  ft_atoi.c			\
 		  ft_tolower.c			\
 		  ft_toupper.c
@@ -53,6 +58,9 @@ N_MEM		= ft_calloc.c			\
 		  ft_memmove.c			\
 		  ft_memset.c			\
 		  ft_free.c			\
+		  ft_nfree.c			\
+		  ft_nfree_str.c		\
+		  ft_nfree_clst.c		\
 		  ft_gptr.c			\
 		  ft_gint.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_MEM), $(N_MEM))
@@ -65,7 +73,12 @@ N_PUT		= ft_putchar_fd.c		\
 		  ft_putchar.c			\
 		  ft_putstr.c			\
 		  ft_putnbr.c			\
-		  ft_puttab.c
+		  ft_puttab.c			\
+		  ft_putclstval.c		\
+		  ft_putclstpos.c		\
+		  ft_putnclst.c			\
+		  ft_putclst.c			\
+		  ft_putclst_xfory.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PUT), $(N_PUT))
 
 DS_STR		= ft_str/
@@ -93,20 +106,36 @@ N_STR		= ft_strlen.c			\
 		  ft_substr.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_STR), $(N_STR))
 
-DS_LST		= ft_list/
-N_LST		= ft_lstadd_back_bonus.c	\
-		  ft_lstadd_front_bonus.c	\
-		  ft_lstclear_bonus.c		\
-		  ft_lstdelone_bonus.c		\
-		  ft_lstiter_bonus.c		\
-		  ft_lstlast_bonus.c		\
-		  ft_lstmap_bonus.c		\
-		  ft_lstnew_bonus.c		\
-		  ft_lstsize_bonus.c
+DS_LST		= ft_lst/
+N_LST		= ft_lstadd_end.c		\
+		  ft_lstadd_bgn.c		\
+		  ft_lstfree.c			\
+		  ft_lstdelone.c		\
+		  ft_lstiter.c			\
+		  ft_lstlast.c			\
+		  ft_lstmap.c			\
+		  ft_lstnew.c			\
+		  ft_lstlen.c			\
+		  ft_lstdel.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_LST), $(N_LST))
 
+DS_CLST		= ft_clst/
+N_CLST		= ft_clstnew.c			\
+		  ft_freeclst.c			\
+		  ft_clstlen.c			\
+		  ft_clstpos.c			\
+		  ft_clstnval.c			\
+		  ft_clstadd_bgn.c		\
+		  ft_clstadd_end.c		\
+		  ft_clstadd_n.c		\
+		  ft_clstrem_bgn.c		\
+		  ft_clstrem_end.c		\
+		  ft_clstrem_n.c
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_CLST), $(N_CLST))
+
 DS_STRMAN	= ft_strman/
-N_STRMAN	= ft_stradd_bgn.c		\
+N_STRMAN	= ft_strnew.c			\
+		  ft_stradd_bgn.c		\
 		  ft_stradd_end.c		\
 		  ft_stradd_n.c			\
 		  ft_strrem_bgn.c		\
@@ -128,18 +157,27 @@ N_TAB		= ft_freetab.c			\
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_TAB), $(N_TAB))
 
 DS_ANSI		= ft_ansi/
-N_ANSI		= ft_ansi_fclear.c		\
+N_ANSI		= ft_ansi_sc.c			\
+		  ft_ansi_lc.c			\
 		  ft_ansi_clear.c		\
 		  ft_ansi_resetl.c		\
+		  ft_ansi_dfd.c			\
 		  ft_ansi_drl.c			\
-		  ft_ansi_drd.c
+		  ft_ansi_drd.c			\
+		  ft_ansi_getcp.c		\
+		  ft_ansi_go.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_ANSI), $(N_ANSI))
 
 DS_UTILS	= ft_utils/
-N_UTILS		= ft_getarg_p.c			\
+N_UTILS		= ft_stdout_off.c		\
+		  ft_stdout_on.c		\
+		  ft_getarg_p.c			\
 		  ft_getrstr_p.c		\
 		  ft_getstr_p.c			\
-		  ft_getchar.c
+		  ft_ungetchar.c		\
+		  ft_getchar_unb.c		\
+		  ft_getchar.c			\
+		  ft_newfile.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_UTILS), $(N_UTILS))
 
 DS_PRINTF	= ft_printf/
@@ -166,9 +204,11 @@ N_READLINE	= ft_sreadline.c		\
 		  ft_rlconfig.c			\
 		  ft_rlhistory.c		\
 		  rl_checks.c			\
+		  rl_save_cp.c			\
 		  rl_moviments.c		\
 		  rl_go.c			\
 		  rl_specials.c			\
+		  rl_addchar.c			\
 		  rl_utils.c
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_READLINE), $(N_READLINE))
 
@@ -181,6 +221,7 @@ N_OBJS	= $(N_ISX:.c=.o)	\
 	  $(N_STR:.c=.o)	\
 	  $(N_STRMAN:.c=.o)	\
 	  $(N_LST:.c=.o)	\
+	  $(N_CLST:.c=.o)	\
 	  $(N_TAB:.c=.o)	\
 	  $(N_ANSI:.c=.o)	\
 	  $(N_UTILS:.c=.o)	\

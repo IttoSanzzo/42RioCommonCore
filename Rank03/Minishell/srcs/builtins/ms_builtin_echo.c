@@ -6,45 +6,28 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/23 21:49:49 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:15:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/07 02:45:35 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static	int	nb_ms(char **ms)
+int	ms_builtin_echo(t_mini *ms)
 {
-	int		size;
+	int	flag;
+	int	i;
 
-	size = 0;
-	while (ms[size])
-		size++;
-	return (size);
-}
-
-int	ms_builtin_echo(char **ms)
-{
-	int		i;
-	int		n_option;
-
-	i = 1;
-	n_option = 0;
-	if (nb_ms(ms) > 1)
+	i = 0;
+	flag = 0;
+	if (ms->cmdl[1] && !ft_strncmp(ms->cmdl[1], "-n", 3) && ++i)
+		flag = 1;
+	while (ms->cmdl[++i])
 	{
-		while (ms[i] && ft_strncmp(ms[i], "-n", 3) == 0)
-		{
-			n_option = 1;
-			i++;
-		}
-		while (ms[i])
-		{
-			ft_putstr_fd(ms[i], 1);
-			if (ms[i + 1] && ms[i][0] != '\0')
-				write(1, " ", 1);
-			i++;
-		}
+		ft_putstr(ms->cmdl[i]);
+		if (ms->cmdl[i + 1])
+			ft_putchar(' ');
 	}
-	if (n_option == 0)
-		write(1, "\n", 1);
+	if (!flag)
+		ft_putchar('\n');
 	return (0);
 }

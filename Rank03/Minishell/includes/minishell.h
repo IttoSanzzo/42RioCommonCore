@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/07 01:50:12 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/07 02:54:21 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -34,25 +34,17 @@ void	sig_init(t_mini *ms);
 void	ms_sigint(int signum);
 void	ms_sigquit(int signum);
 
-// ft_utils.c
-/// Builtins
-// ms_builtins.c
-int		ms_builtins(t_mini *ms);
-// pwd.c
-char	*ms_getpwd(t_mini *ms);
-int		ms_printpwd(t_mini *ms);
-// cat.c
-int		ms_cat(t_mini *ms);
-// cd.c
-int		ms_cd(t_mini *ms);
-// echo.c
-int		ms_echo(char **ms);
-// env.c
-int		ms_env(char **env);
-// exit.c
-void	ms_free_cmd(t_mini *ms);
-void	ms_exit(t_mini *ms, int opt);
-
 t_mini	*get_mini(t_mini *base);
+/// Builtins
+int		ms_builtin_switch(t_mini *ms);
+int		ms_builtin_echo(t_mini *ms);
+int		ms_builtin_cd(t_mini *ms);
+int		ms_builtin_pwd(t_mini *ms);
+int		ms_builtin_export(t_mini *ms);
+int		ms_builtin_unset(t_mini *ms);
+int		ms_builtin_env(t_mini *ms);
+int		ms_builtin_exit(t_mini *ms);
+void	ms_free_cmd(t_mini *ms);
+char	*ms_getpwd(t_mini *ms);
 
 #endif

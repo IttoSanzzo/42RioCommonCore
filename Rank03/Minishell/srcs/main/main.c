@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/07 01:58:49 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/07 02:47:02 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ void	mstester(t_mini *ms)
 		execve(ms->ex.path, ms->ex.av, ms->ex.ep);
 		ft_printf("minishell: %s: command not found\n", ms->ex.av[0]);
 		ft_freetab(ms->paths);
-		ms_exit(ms, 2);
+		ms_builtin_exit(ms);
 	}
 	ft_freetab(ms->paths);
 	wait(NULL);
@@ -182,7 +182,7 @@ void	minishell(t_mini *ms)
 	while (1)
 	{
 		ms_getcmd(ms, 1);
-		if (pop_cmd(ms) || !ms_builtins(ms))
+		if (pop_cmd(ms) || !ms_builtin_switch(ms))
 			continue ;
 		mstester(ms);
 	}

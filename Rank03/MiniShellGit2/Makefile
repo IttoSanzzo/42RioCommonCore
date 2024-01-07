@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#									       #
+#							  :::	   ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#						      +:+ +:+	      +:+      #
+#    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
+#						  +#+#+#+#+#+	+#+	       #
+#    Created: 2024/01/06 23:56:49 by marcosv2	       #+#    #+#	       #
+#    Updated: 2024/01/06 23:57:46 by marcosv2         ###   ########.fr        #
+#									       #
+# **************************************************************************** #
+
 NAME = minishell
 
 LIBFT_PATH = ./libft/
@@ -19,11 +31,11 @@ all: $(NAME)
 
 $(NAME): $(SRCO)
 	@make -C $(LIBFT_PATH)
-	@gcc -lreadline $(FLAGS) -o $(NAME) $(SRCS) $(LIBFT_PATH)libftprintf.a
+	@gcc $(FLAGS) -o $(NAME) $(SRCS) $(LIBFT_PATH)libftprintf.a -lreadline
 	@echo "\033[32mBinary \033[1;32m$(NAME)\033[1;0m\033[32m Created.\033[0m"
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c
-	@gcc $(FLAGS) -c $< -o $@
+	@gcc $(FLAGS) -o $@ -c $< -lreadline
 
 clean:
 	@make -C $(LIBFT_PATH) clean

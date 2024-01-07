@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2023/12/29 07:52:34 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/07 01:58:49 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ms_getcmd(t_mini *ms, int opt)
 	if (!ft_open_quotes(ms->line, '"'))
 	{
 		ms->cmdl = ft_splitq(ms->line, '"');
-		ft_rlhistory(ms->line);
+		ft_add_history(ms->line);
 	}
 	else
 		ms_getcmd(ms, 2);
@@ -59,10 +59,10 @@ char	*ms_gethome(t_mini *ms)
 
 void	ms_setprompt(t_mini *ms)
 {
-	ms->prompt = ft_strjoin(PURPLE, ms_getuser(ms));
-	ms->prompt = ft_sujoin(ms->prompt, GOLDEN);
+	ms->prompt = ft_strjoin(C_PURPLE, ms_getuser(ms));
+	ms->prompt = ft_sujoin(ms->prompt, C_GOLDEN);
 	ms->prompt = ft_sujoin(ms->prompt, "$ ");
-	ms->prompt = ft_sujoin(ms->prompt, WHITE);
+	ms->prompt = ft_sujoin(ms->prompt, C_WHITE);
 }
 
 t_mini	*get_mini(t_mini *base)
@@ -80,7 +80,7 @@ void	mini_init(t_mini *ms, char **ep)
 	get_mini(ms);
 	ms->pid = getpid();
 	ms->df.ep = ep;
-	ms->rt.ep = ft_tabcpy(ms->df.ep);
+	ms->rt.ep = ft_tabdup(ms->df.ep);
 	ms_setprompt(ms);
 	ms->line = ft_calloc(1, 1);
 	ms->homepath = ms_gethome(ms);

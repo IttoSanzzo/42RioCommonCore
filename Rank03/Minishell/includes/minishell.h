@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/07 00:15:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/07 01:50:12 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -15,60 +15,16 @@
 
 // Includes
 # include "../libft/includes/libft.h"
-# include "signal.h"
-# include <stdio.h>
-# include <fcntl.h>
+# include "ms_macros.h"
+# include "ms_structs.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <signal.h>
 # include <sys/wait.h>
-
-// Pre-processors
-# define WHITE "\033[0m"
-# define PURPLE "\033[0;35m"
-# define GOLDEN "\033[38;5;220m"
-
-# define EXT_MSS "\033[38;5;43mExiting now...\n\033[0m"
-# define CDERR_A "cd: The directory \""
-# define CDERR_B "\" does not exist\n"
-# define STDIN 0
-# define STDOUT 1
-# define STDERR 2
-
-# define EXT_SUC 0
-
-// Structs
-typedef struct s_sig
-{
-	int	exit_status;
-	int	sigquit;
-	int	sigint;
-	int	code;
-	int	pid;
-}	t_sig;
-
-typedef struct s_vars
-{
-	int		ac;
-	char	*path;
-	char	**av;
-	char	**ep;
-}	t_vars;
-
-typedef struct s_mini
-{
-	char			**cmdl;
-	char			**paths;
-	char			*homepath;
-	char			*prompt;
-	char			*line;
-	int				pid;
-	int				exit;
-	int				ret;
-	struct s_vars	df;
-	struct s_vars	rt;
-	struct s_vars	ex;
-	struct s_sig	sig;
-}	t_mini;
+# include <stdio.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 
 //// Functions per Archive
 // main.c
@@ -96,9 +52,6 @@ int		ms_env(char **env);
 // exit.c
 void	ms_free_cmd(t_mini *ms);
 void	ms_exit(t_mini *ms, int opt);
-
-
-
 
 t_mini	*get_mini(t_mini *base);
 

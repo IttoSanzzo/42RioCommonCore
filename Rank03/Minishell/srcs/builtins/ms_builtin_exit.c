@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   ms_builtin_exit.c                                  :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:03:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/07 02:17:35 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ms_free_cmd(t_mini *ms)
 	}
 }
 
-void	ms_exit(t_mini *ms, int opt)
+void	ms_builtin_exit(t_mini *ms, int opt)
 {
 	if (opt == 1)
 		ft_putstr(EXT_MSS);

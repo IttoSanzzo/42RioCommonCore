@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2024/01/08 06:45:16 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/01/08 08:38:58 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ LIBFT	= libft
 MAKE	= make
 C_COMP	= cc
 C_FLAG	= -Wall -Werror -Wextra
-C_RDLN = -lreadline
+C_RDLN	= -lreadline
 C_REMO	= rm -rf
+C_PUTS	= printf
 
 # Dirs
 
@@ -47,28 +48,31 @@ F_LBFT	= $(addprefix $(D_LBFT), $(N_LBFT))
 
 # Colors
 P_WHITE	= \033[0m
-P_LBLUE	= \033[0;32m
-P_DBLUE	= \033[0;34m
-P_PRPLE	= \033[0;35m
-P_NCYAN	= \033[0;36m
+P_LBLUE = \033[38;5;32m
+P_DBLUE = \033[38;5;21m
+P_PRPLE	= \033[38;5;93m
+P_NCYAN	= \033[38;5;37m
+P_MAGEN = \033[38;5;99m
 P_GREEN	= \033[38;5;40m
+P_LGREN	= \033[38;5;42m
+P_NWINE = \033[38;5;88m
 
 # Mandatory Rules
 
 all		: $(NAME) 
 
 $(NAME)		: $(F_LBFT) $(D_OBJS) $(F_OBJS)
-	@echo "\n\t$(P_NCYAN)Finishing binary..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
+	@$(C_PUTS) "\n\t$(P_NCYAN)Finishing binary..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
 	@$(C_COMP) $(C_FLAG) -o $@ $(F_OBJS) $(F_LBFT) $(C_RDLN)
-	@echo "$(P_GREEN)Done!$(P_WHITE)"
+	@$(C_PUTS) "$(P_GREEN)Done!$(P_WHITE)\n"
 
 $(D_OBJS)%.o	: $(D_SRCS)/*/%.c
-	@printf "\t$(P_PRPLE)Generating $(NAME)..: %-33.33s\r $(P_WHITE)" $@
+	@$(C_PUTS) "\t$(P_PRPLE)Generating $(NAME)..: %-33.33s\r $(P_WHITE)" $@
 	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@ $(C_RDLN)
 
 $(D_OBJS)	:
-	@echo "$(P_LBLUE)Starting $(NAME) compilation...$(P_WHITE)"
-	@echo "\n\t$(P_DBLUE)Creating $(NAME) objects directory...$(P_WHITE)"
+	@$(C_PUTS) "$(P_LGREN)Starting $(NAME) compilation...$(P_WHITE)"
+	@$(C_PUTS) "\n\t$(P_MAGEN)Creating $(NAME) objects directory...$(P_WHITE)\n"
 	@mkdir $(D_OBJS)
 
 $(F_LBFT)	:
@@ -77,14 +81,14 @@ $(F_LBFT)	:
 
 clean		:
 	@$(MAKE) clean --no-print-directory -C $(D_LBFT)
-	@echo "$(P_DBLUE)Cleaning $(NAME) objects...$(P_WHITE)"
+	@$(C_PUTS) "$(P_NWINE)Cleaning $(NAME) objects...$(P_WHITE)\n"
 	@${C_REMO} $(D_OBJS)
 
 fclean		:
 	@$(MAKE) fclean --no-print-directory -C $(D_LBFT)
-	@echo "$(P_DBLUE)Cleaning $(NAME) objects...$(P_WHITE)"
+	@$(C_PUTS) "$(P_NWINE)Cleaning $(NAME) objects...$(P_WHITE)\n"
 	@${C_REMO} $(D_OBJS)
-	@echo "$(P_DBLUE)Deleting $(NAME)...$(P_WHITE)"
+	@$(C_PUTS) "$(P_NWINE)Deleting $(NAME)...$(P_WHITE)\n"
 	@${C_REMO} $(NAME)
 
 re		: fclean all

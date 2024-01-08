@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:36:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 07:44:07 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 07:58:22 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ms_readline(t_mini *ms)
 
 	ms->sig.sint = 0;
 	ms_gen_prompt(ms);
-	ft_nfreestr(&ms->line);
+	ms_free_cmd(ms);
 	ms->line = ft_readline(ms->prompt);
 	if (!ms->line)
 	{

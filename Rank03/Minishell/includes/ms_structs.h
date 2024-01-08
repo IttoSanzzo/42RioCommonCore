@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 02:42:46 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 04:33:55 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_mini
 	char			*line;
 	char			**cmdl;
 	char			**paths;
-	char			*homep;
 	int				exit;
 	int				ret;
 	struct s_vars	vrt;

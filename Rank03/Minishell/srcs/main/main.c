@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/08 02:47:42 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 05:29:25 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	minishell(t_mini *ms)
 
 static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)
 {
+	ms_get_mini(ms);
 	ft_strcpy(ms->mendl, "> ");
 	ms->prompt = NULL;
 	ms->line = NULL;
 	ms->cmdl = NULL;
 	ms->paths = NULL;
-	ms->homep = NULL;
 	ms->ret = 0;
 	ms->exit = 0;
 	ms->vrt.ac = ac;
@@ -48,10 +48,9 @@ int	main(int ac, char **av, char **ep)
 	while (ms.exit == 0)
 	{
 		ms_sig_init(&ms);
-//		parse(&ms);
-//		if (ms.start != NULL && check_line(&ms, ms.start))
-//		signal(SIGINT, &ms_sigint);
+		signal(SIGINT, &ms_sigint);
 //		signal(SIGQUIT, &ms_sigquit);
+//		parse(&ms);
 		minishell(&ms);
 //		free_token(ms.start);
 	}

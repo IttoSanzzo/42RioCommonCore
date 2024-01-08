@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 14:26:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 03:09:19 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 03:53:29 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ms_sigint(int signum)
 
 	(void)signum;
 	ms = ms_get_mini(NULL);
-	if (ms->sig.pid != 0)
+	if (ms->sig.pid == 0)
 	{
 		ft_putstr_fd("^C\n", STDERR);
 		ms_gen_prompt(ms);

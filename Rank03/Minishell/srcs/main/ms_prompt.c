@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:00:38 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 05:32:50 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 06:38:51 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -17,21 +17,18 @@ static int	ms_prompt_path_len(char *path)
 	int	count;
 	int	i;
 
-	count = 0;
+	count = 1;
 	i = ft_strlen(path);
-	if (path[0] == '/')
+	while (--i >= 0 && path[i] != '/')
 		count++;
-	while (i >= 0 && path[i] != '/')
-	{
-		i--;
-		count++;
-	}
 	while (--i >= 0)
 	{
 		count += 2;
 		while (i >= 0 && path[i] != '/')
 			i--;
 	}
+	if (path[0] != '/')
+		count--;
 	return (count);
 }
 
@@ -46,16 +43,18 @@ static void	ms_prompt_path_trim(char **path)
 	len = ms_prompt_path_len(*path);
 	trim = (char *)ft_calloc(len + 1, sizeof(char));
 	i = ft_strlen(*path);
-	while (i >= 0 && path[0][i] != '/')
-		trim[--len] = path[0][i--];
-	while (i >= 0)
+	while (--i >= 0 && path[0][i] != '/' && len - 1 > 0)
+		trim[--len] = path[0][i];
+	while (i >= 0 && len - 1 > 0)
 	{
 		trim[--len] = path[0][i--];
 		while (i >= 0 && path[0][i] != '/')
 			i--;
 		trim[--len] = path[0][i + 1];
 	}
-	if (path[0][0] == '/')
+	if (path[0][0] == '~')
+		trim[0] = '~';
+	else
 		trim[0] = '/';
 	ft_nfreestr(path);
 	*path = trim;
@@ -78,7 +77,7 @@ static void	ms_gen_prompt_path(t_mini *ms)
 	if (path)
 	{
 		ft_sujoin(&ms->prompt, C_GREEN);
-		ft_sujoin(&ms->prompt, path);
+		ft_freejoin(&ms->prompt, &path);
 	}
 }
 

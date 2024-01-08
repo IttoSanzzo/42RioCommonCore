@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 04:39:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 05:39:43 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ int		ms_builtin_env(t_mini *ms);
 int		ms_builtin_exit(t_mini *ms);
 void	ms_free_cmd(t_mini *ms);
 char	*ms_getpwd(t_mini *ms);
+
+/// ms_parse.c
+void	ms_parse(t_mini *ms);
 
 /// ms_gets.c
 char	*ms_home(void);

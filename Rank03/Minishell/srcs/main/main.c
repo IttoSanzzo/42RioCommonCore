@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/08 05:29:25 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 06:09:45 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 void	minishell(t_mini *ms)
 {
-	while (1)
-	{
+//	while (1)
+//	{
 		(void)ms;
-//		ms_getcmd(ms, 1);
-//		if (pop_cmd(ms) || !ms_builtin_switch(ms))
-//			continue ;
-//		mstester(ms);
-	}
+//	}
 }
 
 static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)
 {
 	ms_get_mini(ms);
-	ft_strcpy(ms->mendl, "> ");
 	ms->prompt = NULL;
 	ms->line = NULL;
 	ms->cmdl = NULL;
@@ -36,7 +31,7 @@ static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)
 	ms->exit = 0;
 	ms->vrt.ac = ac;
 	ms->vrt.av = av;
-	ms->vrt.ep = ep;
+	ms->vrt.ep = ft_tabdup(ep);
 	ms->vex = NULL;
 }
 
@@ -49,10 +44,8 @@ int	main(int ac, char **av, char **ep)
 	{
 		ms_sig_init(&ms);
 		signal(SIGINT, &ms_sigint);
-//		signal(SIGQUIT, &ms_sigquit);
-//		parse(&ms);
+		ms_parse(&ms);
 		minishell(&ms);
-//		free_token(ms.start);
 	}
 	return (ms.ret);
 }

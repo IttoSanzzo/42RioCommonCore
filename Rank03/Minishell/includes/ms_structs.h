@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:29:46 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:19:59 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 typedef struct s_sig
 {
 	int	exit_status;
-	int	sigquit;
-	int	sigint;
+	int	squit;
+	int	sint;
 	int	code;
 	int	pid;
 }	t_sig;
@@ -33,17 +33,17 @@ typedef struct s_vars
 
 typedef struct s_mini
 {
+	char			*prompt;
+	char			mendl[3];
+	char			*line;
 	char			**cmdl;
 	char			**paths;
-	char			*homepath;
-	char			*prompt;
-	char			*line;
+	char			*homep;
 	int				pid;
 	int				exit;
 	int				ret;
-	struct s_vars	df;
-	struct s_vars	rt;
-	struct s_vars	ex;
+	struct s_vars	vrt;
+	struct s_vars	vex;
 	struct s_sig	sig;
 }	t_mini;
 

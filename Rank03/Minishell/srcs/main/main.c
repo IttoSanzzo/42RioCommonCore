@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:47:02 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:05:22 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ char	*ms_getuser(t_mini *ms)
 	int	i;
 
 	i = -1;
-	while (ms->rt.ep[++i])
-		if (!ft_strncmp(ms->rt.ep[i], "USER=", 5))
-			return ((char *)&ms->rt.ep[i][5]);
+	while (ms->vrt.ep[++i])
+		if (!ft_strncmp(ms->vrt.ep[i], "USER=", 5))
+			return ((char *)&ms->vrt.ep[i][5]);
 	return (NULL);
 }
 
@@ -51,9 +51,9 @@ char	*ms_gethome(t_mini *ms)
 	int	i;
 
 	i = -1;
-	while (ms->rt.ep[++i])
-		if (!ft_strncmp(ms->rt.ep[i], "HOME=", 5))
-			return ((char *)&ms->rt.ep[i][5]);
+	while (ms->vrt.ep[++i])
+		if (!ft_strncmp(ms->vrt.ep[i], "HOME=", 5))
+			return ((char *)&ms->vrt.ep[i][5]);
 	return (NULL);
 }
 
@@ -79,13 +79,12 @@ void	mini_init(t_mini *ms, char **ep)
 {
 	get_mini(ms);
 	ms->pid = getpid();
-	ms->df.ep = ep;
-	ms->rt.ep = ft_tabdup(ms->df.ep);
+	ms->vrt.ep = ft_tabdup(ep);
 	ms_setprompt(ms);
 	ms->line = ft_calloc(1, 1);
-	ms->homepath = ms_gethome(ms);
-	ms->ex.path = ft_calloc(1, 1);
-	ms->ex.av = (char **)ft_calloc(1, 1);
+	ms->homep = ms_gethome(ms);
+	ms->vex.path = ft_calloc(1, 1);
+	ms->vex.av = (char **)ft_calloc(1, 1);
 	ms->cmdl = NULL;
 	ms->exit = 0;
 	ms->ret = 0;
@@ -119,26 +118,26 @@ int	pop_cmd(t_mini *ms)
 
 	if (ms->cmdl[0] && ft_strncmp(ms->cmdl[0], "\n", 2))
 	{
-		free(ms->ex.path);
+		free(ms->vex.path);
 		if (!ft_strncmp(ms->cmdl[0], "~/", 2))
 		{
-			ms->ex.path = ft_strjoin(ms->homepath, "/");
-			ms->ex.path = ft_sujoin(ms->ex.path, &ms->cmdl[0][2]);
+			ms->vex.path = ft_strjoin(ms->homep, "/");
+			ms->vex.path = ft_sujoin(ms->vex.path, &ms->cmdl[0][2]);
 		}
 		else
 		{
-			ms->ex.path = ft_strjoin(ms_getpwd(ms), "/");
-			ms->ex.path = ft_sujoin(ms->ex.path, ms->cmdl[0]);
+			ms->vex.path = ft_strjoin(ms_getpwd(ms), "/");
+			ms->vex.path = ft_sujoin(ms->vex.path, ms->cmdl[0]);
 		}
-		ms->ex.ac = 1;
-		while (ms->cmdl[ms->ex.ac] && !ms_is_div(ms->cmdl[ms->ex.ac]))
-			ms->ex.ac++;
-		free(ms->ex.av);
-		ms->ex.av = (char **)ft_calloc((2 + ms->ex.ac), sizeof(char *));
-		ms->ex.av[0] = ms_parname(ms->ex.path);
+		ms->vex.ac = 1;
+		while (ms->cmdl[ms->vex.ac] && !ms_is_div(ms->cmdl[ms->vex.ac]))
+			ms->vex.ac++;
+		free(ms->vex.av);
+		ms->vex.av = (char **)ft_calloc((2 + ms->vex.ac), sizeof(char *));
+		ms->vex.av[0] = ms_parname(ms->vex.path);
 		i = 0;
-		while (++i <= ms->ex.ac)
-		ms->ex.av[i] = (char *)&ms->cmdl[i][0];
+		while (++i <= ms->vex.ac)
+		ms->vex.av[i] = (char *)&ms->cmdl[i][0];
 		return (0);
 	}
 	return (1);
@@ -148,28 +147,28 @@ void	mstester(t_mini *ms)
 {
 	int	i = -1;
 
-	while (ms->rt.ep[++i] && ft_strncmp(ms->rt.ep[i], "PATH=", 5))
+	while (ms->vrt.ep[++i] && ft_strncmp(ms->vrt.ep[i], "PATH=", 5))
 		i++;
-	ms->paths = ft_split(ms->rt.ep[i], ':');
+	ms->paths = ft_split(ms->vrt.ep[i], ':');
 	i = -1;
 	while (ms->paths[++i])
 	{
 		ms->paths[i] = ft_sujoin(ms->paths[i], "/");
-		ms->paths[i] = ft_sujoin(ms->paths[i], ms->ex.av[0]);
+		ms->paths[i] = ft_sujoin(ms->paths[i], ms->vex.av[0]);
 	}
 //	i = -1;
-//	while (ms->ex.av[++i])
-//		ft_printf("Argumento %d..: |%s|\n", i, ms->ex.av[i]);
-//	ft_printf("path..: |%s|\n", ms->ex.path);
+//	while (ms->vex.av[++i])
+//		ft_printf("Argumento %d..: |%s|\n", i, ms->vex.av[i]);
+//	ft_printf("path..: |%s|\n", ms->vex.path);
 	i = -1;
 	ms->sig.pid = fork();
 	if (ms->sig.pid == 0)
 	{
 //		ft_printf("EXECVE TRY\n");
 		while (ms->paths[++i])
-			execve(ms->paths[i], ms->ex.av, ms->ex.ep);
-		execve(ms->ex.path, ms->ex.av, ms->ex.ep);
-		ft_printf("minishell: %s: command not found\n", ms->ex.av[0]);
+			execve(ms->paths[i], ms->vex.av, ms->vex.ep);
+		execve(ms->vex.path, ms->vex.av, ms->vex.ep);
+		ft_printf("minishell: %s: command not found\n", ms->vex.av[0]);
 		ft_freetab(ms->paths);
 		ms_builtin_exit(ms);
 	}
@@ -194,8 +193,8 @@ int	main(int ac, char **av, char **ep)
 
 	(void) ac;
 	(void) av;
-	ms.ex.av = av;
-	ms.ex.ep = ep;
+	ms.vex.av = av;
+	ms.vex.ep = ep;
 	mini_init(&ms, ep);
 	while (ms.exit == 0)
 	{

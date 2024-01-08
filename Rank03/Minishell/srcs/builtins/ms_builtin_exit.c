@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:50:56 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:08:37 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	ms_builtin_exit(t_mini *ms)
 {
 	ft_putstr(EXT_MSS);
 	ms_free_cmd(ms);
-	free(ms->ex.path);
-	free(ms->ex.av);
+	free(ms->vex.path);
+	free(ms->vex.av);
 	free(ms->prompt);
 	ft_rl_clear_history();
-	ft_freetab(ms->rt.ep);
+	ft_freetab(ms->vrt.ep);
 	exit(EXIT_SUCC);
 	return (0);
 }

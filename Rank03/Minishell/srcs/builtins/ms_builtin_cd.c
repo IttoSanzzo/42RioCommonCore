@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 19:50:01 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:19:52 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:07:44 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*ms_gen_newpath(t_mini *ms)
 	if (!ms->cmdl[1] || (ms->cmdl[1]
 			&& !ft_strncmp(ms->cmdl[1], "~/", 2)))
 	{
-		newpath = ft_strdup(ms->homepath);
+		newpath = ft_strdup(ms->homep);
 		if (ms->cmdl[1])
 			newpath = ft_sujoin(newpath, &ms->cmdl[0][2]);
 	}
@@ -46,12 +46,12 @@ int	ms_builtin_cd(t_mini *ms)
 	i = -1;
 	if (ms_check_newpath(newpath))
 	{
-		while (ms->rt.ep[++i])
+		while (ms->vrt.ep[++i])
 		{
-			if (!ft_strncmp(ms->rt.ep[i], "PWD=", 4))
+			if (!ft_strncmp(ms->vrt.ep[i], "PWD=", 4))
 			{
-				free(ms->rt.ep[i]);
-				ms->rt.ep[i] = ft_strjoin("PWD=", newpath);
+				free(ms->vrt.ep[i]);
+				ms->vrt.ep[i] = ft_strjoin("PWD=", newpath);
 				break ;
 			}
 		}
@@ -59,7 +59,7 @@ int	ms_builtin_cd(t_mini *ms)
 	else
 	{
 		ft_putstr_fd(CDERR_A, 2);
-		ft_putstr_fd(ms->ex.av[1], 2);
+		ft_putstr_fd(ms->vex.av[1], 2);
 		ft_putstr_fd(CDERR_B, 2);
 	}
 	free(newpath);

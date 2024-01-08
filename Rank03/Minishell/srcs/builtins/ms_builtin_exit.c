@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 01:08:37 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 03:14:27 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	ms_builtin_exit(t_mini *ms)
 {
 	ft_putstr(EXT_MSS);
 	ms_free_cmd(ms);
-	free(ms->vex.path);
-	free(ms->vex.av);
+	free(ms->vex->path);
+	free(ms->vex->av);
 	free(ms->prompt);
 	ft_rl_clear_history();
 	ft_freetab(ms->vrt.ep);

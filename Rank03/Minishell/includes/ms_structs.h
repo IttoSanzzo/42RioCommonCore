@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 01:19:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 02:42:46 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ typedef struct s_mini
 	char			**cmdl;
 	char			**paths;
 	char			*homep;
-	int				pid;
 	int				exit;
 	int				ret;
 	struct s_vars	vrt;
-	struct s_vars	vex;
+	struct s_vars	*vex;
 	struct s_sig	sig;
 }	t_mini;
 

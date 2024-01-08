@@ -3,10 +3,10 @@
 /*							  :::	   ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
-/*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
+/*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/04 13:38:17 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:54:21 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2024/01/08 03:07:45 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@
 // main.c
 int		main(int argc, char **argv, char **ep);
 // signals.c
-void	sig_init(t_mini *ms);
+void	ms_sig_init(t_mini *ms);
 void	ms_sigint(int signum);
 void	ms_sigquit(int signum);
 
-t_mini	*get_mini(t_mini *base);
 /// Builtins
 int		ms_builtin_switch(t_mini *ms);
 int		ms_builtin_echo(t_mini *ms);
@@ -46,5 +45,9 @@ int		ms_builtin_env(t_mini *ms);
 int		ms_builtin_exit(t_mini *ms);
 void	ms_free_cmd(t_mini *ms);
 char	*ms_getpwd(t_mini *ms);
+
+/// ms_utils
+t_mini	*ms_get_mini(t_mini *ms);
+void	ms_gen_prompt(t_mini *ms);
 
 #endif

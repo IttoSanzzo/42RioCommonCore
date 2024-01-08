@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 19:50:01 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 01:07:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 03:12:23 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ int	ms_builtin_cd(t_mini *ms)
 	}
 	else
 	{
-		ft_putstr_fd(CDERR_A, 2);
-		ft_putstr_fd(ms->vex.av[1], 2);
-		ft_putstr_fd(CDERR_B, 2);
+		ft_putstr_fd(CDERR_A, STDERR);
+		ft_putstr_fd(ms->vex->av[1], STDERR);
+		ft_putstr_fd(CDERR_B, STDERR);
 	}
 	free(newpath);
 	return (0);

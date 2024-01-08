@@ -6,13 +6,13 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 14:26:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 01:06:53 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 03:09:19 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	sig_init(t_mini *ms)
+void	ms_sig_init(t_mini *ms)
 {
 	ms->sig.exit_status = 0;
 	ms->sig.squit = 0;
@@ -26,12 +26,12 @@ void	ms_sigint(int signum)
 	t_mini	*ms;
 
 	(void)signum;
-	ms = get_mini(NULL);
+	ms = ms_get_mini(NULL);
 	if (ms->sig.pid != 0)
 	{
 		ft_putstr_fd("^C\n", STDERR);
+		ms_gen_prompt(ms);
 		ft_putstr_fd(ms->prompt, STDERR);
-		ft_rlconfig(2, PUTV, 1);
 		ms->sig.exit_status = 1;
 	}
 	else
@@ -47,7 +47,7 @@ void	ms_sigquit(int signum)
 	char	*nbr;
 	t_mini	*ms;
 
-	ms = get_mini(NULL);
+	ms = ms_get_mini(NULL);
 	nbr = ft_itoa(signum);
 	if (ms->sig.pid != 0)
 	{

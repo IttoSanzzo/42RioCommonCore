@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2023/11/26 19:20:16 by marcosv2	       #+#    #+#	       #
-#    Updated: 2024/01/07 00:14:58 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/01/08 06:45:16 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ LIBFT	= libft
 MAKE	= make
 C_COMP	= cc
 C_FLAG	= -Wall -Werror -Wextra
+C_RDLN = -lreadline
 C_REMO	= rm -rf
 
 # Dirs
@@ -58,12 +59,12 @@ all		: $(NAME)
 
 $(NAME)		: $(F_LBFT) $(D_OBJS) $(F_OBJS)
 	@echo "\n\t$(P_NCYAN)Finishing binary..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
-	@$(C_COMP) $(C_FLAG) -o $@ $(F_OBJS) $(F_LBFT)
+	@$(C_COMP) $(C_FLAG) -o $@ $(F_OBJS) $(F_LBFT) $(C_RDLN)
 	@echo "$(P_GREEN)Done!$(P_WHITE)"
 
 $(D_OBJS)%.o	: $(D_SRCS)/*/%.c
 	@printf "\t$(P_PRPLE)Generating $(NAME)..: %-33.33s\r $(P_WHITE)" $@
-	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@
+	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@ $(C_RDLN)
 
 $(D_OBJS)	:
 	@echo "$(P_LBLUE)Starting $(NAME) compilation...$(P_WHITE)"

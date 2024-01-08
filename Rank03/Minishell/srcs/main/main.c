@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/08 06:09:45 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 07:26:25 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	main(int ac, char **av, char **ep)
 	t_mini	ms;
 
 	ms_mini_init(&ms, ac, av, ep);
+	signal(SIGINT, &ms_sigint);
 	while (ms.exit == 0)
 	{
 		ms_sig_init(&ms);
-		signal(SIGINT, &ms_sigint);
 		ms_parse(&ms);
 		minishell(&ms);
 	}

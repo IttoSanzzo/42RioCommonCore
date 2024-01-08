@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 14:43:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/07 02:51:39 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 07:48:34 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	ms_builtin_switch(t_mini *ms)
 			return (ms_builtin_cd(ms));
 		if (!ft_strncmp(ms->cmdl[0], "pwd", 4))
 			return (ms_builtin_pwd(ms));
-//		if (!ft_strncmp(ms->cmdl[0], "export", 7))
-//			return (ms_builtin_export(ms));
-//		if (!ft_strncmp(ms->cmdl[0], "unset", 6))
-//			return (ms_builtin_unset(ms));
+		if (!ft_strncmp(ms->cmdl[0], "export", 7))
+			return (ms_builtin_export(ms));
+		if (!ft_strncmp(ms->cmdl[0], "unset", 6))
+			return (ms_builtin_unset(ms));
 		if (!ft_strncmp(ms->cmdl[0], "env", 4))
 			return (ms_builtin_env(ms));
 		if (!ft_strncmp(ms->cmdl[0], "exit", 5))

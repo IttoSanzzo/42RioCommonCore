@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/08 07:42:32 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 07:50:57 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	minishell(t_mini *ms)
 {
-//	while (1)
-//	{
 	(void)ms;
-//	}
 }
 
 static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)

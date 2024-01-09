@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 05:39:43 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:53:43 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -35,16 +35,17 @@ void	ms_sigint(int signum);
 void	ms_sigquit(int signum);
 
 /// Builtins
-int		ms_builtin_switch(t_mini *ms);
-int		ms_builtin_echo(t_mini *ms);
-int		ms_builtin_cd(t_mini *ms);
-int		ms_builtin_pwd(t_mini *ms);
-int		ms_builtin_export(t_mini *ms);
-int		ms_builtin_unset(t_mini *ms);
-int		ms_builtin_env(t_mini *ms);
-int		ms_builtin_exit(t_mini *ms);
+int		ms_builtins_switch(t_vars *vex);
+int		ms_builtin_echo(t_vars *vex);
+int		ms_builtin_cd(t_vars *vex);
+int		ms_builtin_pwd(t_vars *vex);
+int		ms_builtin_export(t_vars *vex);
+int		ms_builtin_unset(t_vars *vex);
+int		ms_builtin_env(t_vars *vex);
+int		ms_builtin_exit(t_vars *vex);
+void	ms_endlexit(void);
 void	ms_free_cmd(t_mini *ms);
-char	*ms_getpwd(t_mini *ms);
+void	ms_free_vex(t_mini *ms);
 
 /// ms_parse.c
 void	ms_parse(t_mini *ms);

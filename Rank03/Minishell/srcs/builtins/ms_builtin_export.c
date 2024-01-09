@@ -6,14 +6,14 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:13:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 07:50:03 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 09:19:15 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ms_builtin_export(t_mini *ms)
+int	ms_builtin_export(t_vars *vex)
 {
-	(void)ms;
+	(void)vex;
 	return (0);
 }

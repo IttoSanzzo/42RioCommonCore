@@ -6,25 +6,25 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:12:44 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 02:12:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 09:16:45 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ms_builtin_echo(t_mini *ms)
+int	ms_builtin_echo(t_vars *vex)
 {
 	int	flag;
 	int	i;
 
 	i = 0;
 	flag = 0;
-	if (ms->cmdl[1] && !ft_strncmp(ms->cmdl[1], "-n", 3) && ++i)
+	if (vex->av[1] && !ft_strncmp(vex->av[1], "-n", 3) && ++i)
 		flag = 1;
-	while (ms->cmdl[++i])
+	while (vex->av[++i])
 	{
-		ft_putstr(ms->cmdl[i]);
-		if (ms->cmdl[i + 1])
+		ft_putstr(vex->av[i]);
+		if (vex->av[i + 1])
 			ft_putchar(' ');
 	}
 	if (!flag)

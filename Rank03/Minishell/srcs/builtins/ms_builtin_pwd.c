@@ -6,25 +6,17 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 14:42:40 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 01:08:50 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 09:24:18 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*ms_getpwd(t_mini *ms)
+int	ms_builtin_pwd(t_vars *vex)
 {
-	int	i;
-
-	i = -1;
-	while (ms->vrt.ep[++i])
-		if (!ft_strncmp(ms->vrt.ep[i], "PWD=", 4))
-			return ((char *)&ms->vrt.ep[i][4]);
-	return (NULL);
-}
-
-int	ms_builtin_pwd(t_mini *ms)
-{
-	ft_printf("%s\n", ms_getpwd(ms));
+	if (vex->ac > 1)
+		ft_printf("pwd: expected 0 arguments; got %d\n", vex->ac - 1);
+	else
+		ft_printf("%s\n", ms_pwd());
 	return (0);
 }

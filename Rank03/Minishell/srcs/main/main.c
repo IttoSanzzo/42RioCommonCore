@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/08 07:50:57 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 01:37:11 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,16 +14,29 @@
 
 void	minishell(t_mini *ms)
 {
-	(void)ms;
+	int	i;
+
+	i = 0;
+	while (1)
+	{
+		ft_printc(C_CYAN, "String..:%s %s\n", C_WHITE, ms->line);
+		if (ms_builtins_switch((t_vars *)ms->vex[i]))
+			break ;
+		if (ms->sig.sint || ms->sig.squit || !ms->vex
+			|| (t_vars *)ms->vex[++i] == NULL)
+			break ;
+	}
 }
 
 static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)
 {
 	ms_get_mini(ms);
+	ms->altprompt = NULL;
 	ms->prompt = NULL;
 	ms->line = NULL;
 	ms->cmdl = NULL;
 	ms->paths = NULL;
+	ms->p = 0;
 	ms->ret = 0;
 	ms->exit = 0;
 	ms->vrt.ac = ac;

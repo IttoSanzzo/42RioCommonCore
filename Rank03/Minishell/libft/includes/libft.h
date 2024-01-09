@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:08:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 03:49:11 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:20:23 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@
 
 ////// SOURCE FILES
 //// ft_isx
-int		ft_open_quotes(char *s, char c);
+int		ft_cquotesn(char *s, int n);
 int		ft_cquotes(char *s);
+int		ft_cend(char *s);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

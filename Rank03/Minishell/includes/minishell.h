@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 21:53:43 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 04:29:54 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	ms_free_vex(t_mini *ms);
 
 /// ms_parse.c
 void	ms_parse(t_mini *ms);
+int		ms_check_tokens(t_mini *ms);
 
 /// ms_gets.c
 char	*ms_home(void);

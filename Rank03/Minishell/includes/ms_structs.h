@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/09 01:41:30 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 04:29:36 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ typedef struct s_sig
 
 typedef struct s_hdoc
 {
-
-}
+	char	**docs;
+	int		cdocs;
+	int		tdocs;
+}	t_hdoc;
 
 typedef struct s_vars
 {
 	int		ac;
-	int		op;
+	int		tp;
+	char	*hdoc;
 	char	*path;
 	char	**av;
 	char	**ep;
@@ -46,9 +49,9 @@ typedef struct s_mini
 	char			**paths;
 	int				exit;
 	int				ret;
-	int				p;
 	struct s_vars	vrt;
 	struct s_vars	**vex;
+	struct s_hdoc	hdoc;
 	struct s_sig	sig;
 }	t_mini;
 

@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/09 01:37:11 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 04:27:58 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)
 	ms->line = NULL;
 	ms->cmdl = NULL;
 	ms->paths = NULL;
-	ms->p = 0;
 	ms->ret = 0;
 	ms->exit = 0;
 	ms->vrt.ac = ac;
 	ms->vrt.av = av;
 	ms->vrt.ep = ft_tabdup(ep);
+	ms->hdoc.docs = NULL;
 	ms->vex = NULL;
 }
 

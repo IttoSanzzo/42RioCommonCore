@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 21:52:56 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 02:47:12 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ms_free_vex(t_mini *ms)
 		while (ms->vex[++i])
 		{
 			ft_nfreestr(&ms->vex[i]->path);
+			ft_nfreestr(&ms->vex[i]->hdoc);
 			ft_nfreetab(&ms->vex[i]->av);
 			ft_nfreetab(&ms->vex[i]->ep);
 			ft_nfree((void *)&ms->vex[i]);
@@ -52,8 +53,9 @@ int	ms_builtin_exit(t_vars *vex)
 	ms_free_vex(ms);
 	ft_nfreestr(&ms->prompt);
 	ft_nfreetab(&ms->vrt.ep);
+	ft_nfreetab(&ms->hdoc.docs);
 	ft_rl_clear_history();
-	ft_putstr(EXT_MSS);
+	ft_putstr(EXIT_MSS);
 	exit(EXIT_SUCC);
 	return (0);
 }

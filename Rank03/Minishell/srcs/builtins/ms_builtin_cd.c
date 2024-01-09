@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 19:50:01 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 09:28:08 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 04:28:44 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ static char	*ms_gen_newpath(t_mini *ms)
 	return (newpath);
 }
 
+static void	ms_cd_err(t_vars *vex)
+{
+	ft_putstr_fd(CD_ERR_A, STDERR);
+	ft_putstr_fd(vex->av[1], STDERR);
+	ft_putstr_fd(CD_ERR_B, STDERR);
+}
+
 int	ms_builtin_cd(t_vars *vex)
 {
 	int		i;
@@ -59,12 +66,7 @@ int	ms_builtin_cd(t_vars *vex)
 		}
 	}
 	else
-	{
-		ft_putstr_fd(CDERR_A, STDERR);
-		(void)vex;
-//		ft_putstr_fd(ms->vex->av[1], STDERR);
-		ft_putstr_fd(CDERR_B, STDERR);
-	}
+		ms_cd_err(vex);
 	free(newpath);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 20:57:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/10 01:57:37 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/10 03:06:01 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -23,51 +23,54 @@ static void	ms_scend(char **line)
 		ft_stradd_end(line, ';');
 }
 
-static void	ms_form_quotes(char *line, int *open, int *i)
+static int	ms_form_check(char c, int open, int *token, int *space)
 {
-	if (*i > 0 && line[*i - 1] == '\\')
-		return ;
-	else if (line[*i] == '\"' || line[*i] == '\'')
+	if (c == ' ' && !open)
 	{
-		if (*open == 0 && line[*i] == '\"')
-			*open = 2;
-		else if (*open == 0 && line[*i] == '\'')
-			*open = 1;
-		else if (*open == 2 && line[*i] == '\"')
-			*open = 0;
-		else if (*open == 1 && line[*i] == '\'')
-			*open = 0;
+		if (!*token)
+			*space = 1;
+		return (1);
 	}
-	return ;
+	if (!open && !*token && ft_strchr(TOKENS, c))
+	{
+		*space = 0;
+		*token = 1;
+		return (2);
+	}
+	else if (*space)
+	{
+		*space = 0;
+		return (2);
+	}
+	else if (*token && !(ft_strchr(TOKENS, c)))
+	{
+		*token = 0;
+		return (2);
+	}
+	return (0);
 }
 
-static t_clist	*ms_form_tab(t_clist *form, char *line, int i, int token)
+static t_clist	*ms_form_tab(t_clist *form, char *line)
 {
+	int	token;
 	int	space;
 	int	open;
+	int	ret;
+	int	i;
 
-	(void)token;
-
+	i = -1;
+	ret = 0;
 	open = 0;
+	token = 0;
 	space = 0;
 	while (line[++i])
 	{
-		ms_form_quotes(line, &open, &i);
-		if (line[i] == ' ' && !open)
-		{
-			space = 1;
+		ft_squotes(line, &open, &i);
+		ret = ms_form_check(line[i], open, &token, &space);
+		if (ret == 1)
 			continue ;
-		}
-		if (ft_strchr(TOKENS, line[i]) && ft_strchr(TOKENS, line[i - 1]))
-		{
-			space = 0;
-			token = 1;
-		}
-		if (space)
-		{
-			space = 0;
+		else if (ret == 2)
 			ft_clstadd_end(&form, ft_clstnew(' '));
-		}
 		ft_clstadd_end(&form, ft_clstnew(line[i]));
 	}
 	return (form);
@@ -78,7 +81,7 @@ static void	ms_form_space(char **line)
 	t_clist	*form;
 
 	form = NULL;
-	form = ms_form_tab(form, *line, -1, 0);
+	form = ms_form_tab(form, *line);
 	ft_strdrep(&*line, ft_cltos(form));
 	ft_freeclst(&form);
 }

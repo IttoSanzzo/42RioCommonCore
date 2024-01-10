@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 04:24:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/09 04:24:42 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/10 02:22:04 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	ms_get_obj(char *token, char **obj)
 		*obj = ft_strdup("||");
 	else if (token[0] == '|')
 		*obj = ft_strdup("|");
+	else if (token[0] == '&')
+		*obj = ft_strdup("&");
 }
 
 static int	ms_token_quotes(char *line, int *open, int *i)
@@ -53,7 +55,7 @@ static int	ms_token_test(char *line, int *i)
 	int	open;
 
 	open = 0;
-	token = 0;
+	token = 1;
 	while (line[++i[0]])
 	{
 		if (((*i > 0 && line[*i - 1] == '\\')
@@ -70,6 +72,15 @@ static int	ms_token_test(char *line, int *i)
 			token = 0;
 	}
 	return (token);
+}
+
+static int	ms_token_error(char **obj)
+{
+	ft_putstr_fd(TOKEN_ERR_A, STDERR);
+	ft_putstr_fd(*obj, STDERR);
+	ft_putstr_fd(TOKEN_ERR_B, STDERR);
+	ft_nfreestr(&*obj);
+	return (1);
 }
 
 int	ms_check_tokens(t_mini *ms)
@@ -90,12 +101,6 @@ int	ms_check_tokens(t_mini *ms)
 			ft_nfreestr(&obj);
 	}
 	if (obj)
-	{
-		ft_putstr_fd(TOKEN_ERR_A, STDERR);
-		ft_putstr_fd(obj, STDERR);
-		ft_putstr_fd(TOKEN_ERR_B, STDERR);
-		ft_nfreestr(&obj);
-		return (1);
-	}
+		return (ms_token_error(&obj));
 	return (0);
 }

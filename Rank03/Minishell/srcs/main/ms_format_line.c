@@ -6,13 +6,13 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 20:57:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/09 23:12:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 23:42:37 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	ms_sce(char **line)
+static void	ms_scend(char **line)
 {
 	int	i;
 
@@ -27,5 +27,5 @@ void	ms_format_line(t_mini *ms)
 {
 //	char	*new;
 
-	ms_sce(&ms->line);
+	ms_scend(&ms->line);
 }

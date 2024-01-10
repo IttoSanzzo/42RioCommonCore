@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 04:24:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/10 02:35:54 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/10 04:10:57 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,39 +20,65 @@ static void	ms_get_obj(char *token, char **obj)
 		*obj = ft_strdup(";");
 	else if (token[0] == '&' && token[1] == '&')
 		*obj = ft_strdup("&&");
+	else if (token[0] == '&')
+		*obj = ft_strdup("&");
 	else if (token[0] == '<' && token[1] == '<')
 		*obj = ft_strdup("<<");
+	else if (token[0] == '<')
+		*obj = ft_strdup("<");
 	else if (token[0] == '>' && token[1] == '>')
 		*obj = ft_strdup(">>");
+	else if (token[0] == '>')
+		*obj = ft_strdup(">");
 	else if (token[0] == '|' && token[1] == '|')
 		*obj = ft_strdup("||");
 	else if (token[0] == '|')
 		*obj = ft_strdup("|");
-	else if (token[0] == '&')
-		*obj = ft_strdup("&");
 }
 
-static int	ms_token_test(char *line, int *i)
+static int	ms_mtoken(char *line, int *i)
 {
-	int	token;
 	int	open;
 
 	open = 0;
-	token = 1;
+	if (ft_strchr(TOKENS, line[0]))
+		return (*i++ + 1);
 	while (line[++i[0]])
 	{
-		if (((*i > 0 && line[*i - 1] == '\\')
-				|| ft_squotes(line, &open, i)) && token--)
+		if (((*i > 0 && line[*i - 1] == '\\') || ft_squotes(line, &open, i)))
 			continue ;
-		else if (*i > 0 && line[*i] == line[*i - 1]
-			&& ft_strchr(TOKENS, line[*i]) && line[*i] != ';')
+		else if (ft_strchr(DTOKENS, line[*i])
+			&& (line[*i + 1] != line[*i] && line[*i - 1] != line[*i]))
+			return (1);
+	}
+	*i = -1;
+	return (0);
+}
+
+static int	ms_token_test(char *line, int *i, int token, int open)
+{
+	int	tc;
+
+	tc = 0;
+	while (line[++i[0]])
+	{
+		if (((*i > 0 && line[*i - 1] == '\\') || ft_squotes(line, &open, i)))
+		{
+			token = 0;
 			continue ;
-		else if (token > 0 && !open && ft_strchr(TOKENS, line[*i]))
+		}
+		else if (*i > 0 && (line[*i] == line[*i - 1])
+			&& ft_strchr(TOKENS, line[*i]) && line[*i] != ';' && ++tc && tc < 3)
+			continue ;
+		else if (tc > 2 || (token > 0 && !open && ft_strchr(TOKENS, line[*i])))
 			break ;
-		else if (!open && ft_strchr(TOKENS, line[*i]))
+		else if (!open && ft_strchr(TOKENS, line[*i]) && ++tc)
 			token = 1;
 		else if (line[*i] != ' ' && line[*i] != '\n')
+		{
 			token = 0;
+			tc = 0;
+		}
 	}
 	return (token);
 }
@@ -73,7 +99,7 @@ int	ms_check_tokens(t_mini *ms)
 
 	i = -1;
 	obj = NULL;
-	if (ms_token_test(ms->line, &i))
+	if (ms_mtoken(ms->line, &i) || ms_token_test(ms->line, &i, 1, 0))
 		ms_get_obj((char *)(ms->line + i), &obj);
 	if (obj && !ft_strncmp(obj, "\\n", 3))
 	{

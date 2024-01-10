@@ -6,21 +6,21 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 20:57:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/10 03:06:01 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/10 05:05:07 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	ms_scend(char **line)
+static int	ms_check_bl(char *line, int i)
 {
-	int	i;
-
-	i = ft_strlen(*line) - 1;
-	while (i >= 0 && (line[0][i] == ' ' || line[0][i] == '\n'))
-		i--;
-	if (line[0][i] != ';')
-		ft_stradd_end(line, ';');
+	if (i > 1 && (ft_strchr(TOKENS, line[i]) && line[i] == line[i - 1])
+		&& (line[i - 2] == '\\'))
+		return (1);
+	if (i > 2 && (ft_strchr(TOKENS, line[i]) && line[i] == line[i - 1])
+		&& (line[i - 3] == '\\'))
+		return (1);
+	return (0);
 }
 
 static int	ms_form_check(char c, int open, int *token, int *space)
@@ -66,28 +66,31 @@ static t_clist	*ms_form_tab(t_clist *form, char *line)
 	while (line[++i])
 	{
 		ft_squotes(line, &open, &i);
-		ret = ms_form_check(line[i], open, &token, &space);
+		if (i > 0 && (line[i - 1] == '\\' || ms_check_bl(line, i)))
+			ret = ms_form_check('\\', open, &token, &space);
+		else
+			ret = ms_form_check(line[i], open, &token, &space);
 		if (ret == 1)
 			continue ;
-		else if (ret == 2)
+		else if (ret == 2 && !(i > 0 && line[i - 1] == '\\'))
 			ft_clstadd_end(&form, ft_clstnew(' '));
 		ft_clstadd_end(&form, ft_clstnew(line[i]));
 	}
 	return (form);
 }
 
-static void	ms_form_space(char **line)
-{
-	t_clist	*form;
-
-	form = NULL;
-	form = ms_form_tab(form, *line);
-	ft_strdrep(&*line, ft_cltos(form));
-	ft_freeclst(&form);
-}
-
 void	ms_format_line(t_mini *ms)
 {
-	ms_scend(&ms->line);
-	ms_form_space(&ms->line);
+	int		i;
+	t_clist	*form;
+
+	i = ft_strlen(ms->line) - 1;
+	while (i >= 0 && (ms->line[i] == ' ' || ms->line[i] == '\n'))
+		i--;
+	if (ms->line[i] != ';')
+		ft_stradd_end(&ms->line, ';');
+	form = NULL;
+	form = ms_form_tab(form, ms->line);
+	ft_strdrep(&ms->line, ft_cltos(form));
+	ft_freeclst(&form);
 }

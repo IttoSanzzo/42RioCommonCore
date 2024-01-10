@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 04:24:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/10 04:10:57 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/10 04:25:04 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -39,16 +39,24 @@ static void	ms_get_obj(char *token, char **obj)
 static int	ms_mtoken(char *line, int *i)
 {
 	int	open;
+	int	tc;
 
+	tc = 0;
 	open = 0;
 	if (ft_strchr(TOKENS, line[0]))
 		return (*i++ + 1);
 	while (line[++i[0]])
 	{
+		if (!ft_strchr(TOKENS, line[*i]))
+			tc = 0;
 		if (((*i > 0 && line[*i - 1] == '\\') || ft_squotes(line, &open, i)))
 			continue ;
 		else if (ft_strchr(DTOKENS, line[*i])
 			&& (line[*i + 1] != line[*i] && line[*i - 1] != line[*i]))
+			return (1);
+		else if (ft_strchr(TOKENS, line[*i]))
+			tc++;
+		if (tc == 3)
 			return (1);
 	}
 	*i = -1;

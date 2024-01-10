@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:36:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/09 04:24:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 23:21:52 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ void	ms_parse(t_mini *ms)
 	ms_readline(ms);
 	if (ms_check_tokens(ms))
 		return (ms_parse(ms));
+								ft_printc(C_CYAN, "String........:%s %s\n", C_WHITE, ms->line);
+	ms_format_line(ms);
+//	ms_readhdoc(ms);
 	ms->vex = (t_vars **)ft_calloc(2, sizeof(t_vars *));
 	ms->vex[0] = (t_vars *)ft_calloc(2, sizeof(t_vars));
 	ms->vex[0]->av = (char **)ft_calloc(2, sizeof(char *));

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/09 03:19:22 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/09 04:41:40 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 // Messages
 # define EXIT_MSS "\033[38;5;43mExiting now...\n\033[0m"
+# define CD_ERR_N "cd: too many arguments\n"
 # define CD_ERR_A "cd: The directory \""
 # define CD_ERR_B "\" does not exist\n"
 # define TOKEN_ERR_A "minishell: syntax error near unexpected token \'"

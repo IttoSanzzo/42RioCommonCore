@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/09 23:11:34 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 01:14:36 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ char	*ms_pwd(void);
 
 /// ms_utils
 t_mini	*ms_get_mini(t_mini *ms);
+void	ms_freeall(void);
+
+/// ms_prompt.c
 void	ms_gen_prompt(t_mini *ms);
 
 #endif

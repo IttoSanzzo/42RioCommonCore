@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/11 00:53:32 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 03:50:42 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	minishell(t_mini *ms)
 		ft_printc(C_LBLUE, "Final String..:%s %s\n", C_WHITE, ms->line);
 		if (!ft_strncmp(ms->line, "exit ;", 7))
 			ms_builtin_exit(NULL);
-		if (ms_builtins_switch((t_vars *)ms->vex[i]))
+		if (ms->vex && ms_builtins_switch((t_vars *)ms->vex[i]))
 			break ;
 		if (ms->sig.sint || ms->sig.squit || !ms->vex
 			|| (t_vars *)ms->vex[++i] == NULL)

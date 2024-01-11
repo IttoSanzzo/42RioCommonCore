@@ -6,11 +6,25 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:31:02 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 01:28:58 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 03:46:05 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int	ms_is_token(char *cmd)
+{
+	if (!ft_strncmp(cmd, ";", 2)
+		|| !ft_strncmp(cmd, "|", 2)
+		|| !ft_strncmp(cmd, "||", 3)
+		|| !ft_strncmp(cmd, "&&", 3))
+		return (1);
+	else if (!ft_strncmp(cmd, ">>", 3))
+		return (2);
+	else if (!ft_strncmp(cmd, "<<", 3))
+		return (3);
+	return (0);
+}
 
 t_mini	*ms_get_mini(t_mini *ms)
 {

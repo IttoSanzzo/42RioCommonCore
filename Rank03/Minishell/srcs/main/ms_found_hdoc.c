@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ms_readhdoc.c                                      :+:      :+:    :+:   */
+/*   ms_found_hdoc.c                                    :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 14:36:27 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 15:37:24 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:29:44 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ static void	ms_get_hdoc(t_mini *ms, char *prompt, char **hdoc, char *end)
 {
 	char	*line;
 
-	line = NULL;
 	if (!*hdoc)
 		*hdoc = ft_strdup("");
-	while (ft_strncmp(line, end, ft_strlen(end) + 1) && ms->sig.sint)
+	line = NULL;
+	while (ft_strncmp(line, end, ft_strlen(end) + 1) && !ms->sig.sint)
 	{
 		if (line)
 		{
@@ -54,10 +54,13 @@ static void	ms_get_hdoc(t_mini *ms, char *prompt, char **hdoc, char *end)
 	ft_nfreestr(&line);
 }
 
-static void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i)
+
+void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i)
 {
 	char	*prompt;
 
+	vex->ac -= 2;
+	vex->intp = IN_HDOC;
 	prompt = NULL;
 	ft_tabrem_n(&vex->av, i);
 	ms->hds++;
@@ -67,21 +70,3 @@ static void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i)
 	ft_tabrem_n(&vex->av, i);
 }
 
-void	ms_readhdoc(t_mini *ms)
-{
-	int	y;
-	int	i;
-
-	y = -1;
-	ms->hds = 0;
-	while (ms->vex[++y])
-	{
-		i = -1;
-		while (ms->vex[y]->av[++i])
-			if (ms_is_token(ms->vex[y]->av[i]) == 3)
-			{
-				ms_found_hdoc(ms, ms->vex[y], i);
-				if (ms->sig.sint)
-					return ;
-			}
-}

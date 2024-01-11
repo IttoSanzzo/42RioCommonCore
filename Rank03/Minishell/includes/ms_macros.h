@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 15:35:49 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:22:37 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -28,9 +28,15 @@
 # define ERR_CEND "opencmd> "
 # define HDOC_A "heredoc "
 # define HDOC_B "> "
-# define HDOC_EOF_A "minishell: warning: here-document delimited "
+# define HDOC_EOF_A "\nminishell: warning: here-document delimited "
 # define HDOC_EOF_B "by end-of-file (wanted `"
-# define HDOC_EOF_C "`)"
+# define HDOC_EOF_C "`)\n"
+
+// Intypes
+# define IN_HDOC 1
+# define IN_FILE 2
+# define OUT_AP 1
+# define OUT_NP 2
 
 // Misc
 # define TOKENS ";|&<>"

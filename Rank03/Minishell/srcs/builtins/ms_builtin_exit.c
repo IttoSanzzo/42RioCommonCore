@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 06:05:49 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:52:45 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	ms_free_vex(t_mini *ms)
 		i = -1;
 		while (ms->vex[++i])
 		{
-			ft_nfreestr(&ms->vex[i]->path);
 			ft_nfreestr(&ms->vex[i]->hdoc);
+			ft_nfreestr(&ms->vex[i]->infile);
+			ft_nfreestr(&ms->vex[i]->oufile);
+			ft_nfreestr(&ms->vex[i]->path);
 			ft_nfreetab(&ms->vex[i]->av);
 			ft_nfreetab(&ms->vex[i]->ep);
 			ft_nfree((void *)&ms->vex[i]);

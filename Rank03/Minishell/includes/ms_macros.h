@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 04:16:37 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 06:41:09 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 // Misc
 # define TOKENS ";|&<>"
-# define DTOKENS "&<>"
+# define DTOKENS "&"
 # define VTOKENS ";|&>"
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 03:28:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 05:34:56 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 05:37:17 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
 static void	ms_vex_avs(t_mini *ms)
 {
 	int	y;

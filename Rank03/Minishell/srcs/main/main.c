@@ -6,26 +6,23 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/11 03:50:42 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 05:35:27 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	minishell(t_mini *ms)
+static void	minishell(t_mini *ms)
 {
 	int	i;
 
-	i = 0;
-	while (1)
+	i = -1;
+	while (ms->vex && ms->vex[++i])
 	{
-		ft_printc(C_LBLUE, "Final String..:%s %s\n", C_WHITE, ms->line);
-		if (!ft_strncmp(ms->line, "exit ;", 7))
-			ms_builtin_exit(NULL);
-		if (ms->vex && ms_builtins_switch((t_vars *)ms->vex[i]))
-			break ;
-		if (ms->sig.sint || ms->sig.squit || !ms->vex
-			|| (t_vars *)ms->vex[++i] == NULL)
+//		ms_vex_finish(ms, ms->vex[i])
+		if (ms->vex && !(ms_builtins_switch(ms->vex[i])))
+//			ms_exec_vex((t_vars *)ms->vex[i]);
+		if (ms->sig.sint || ms->sig.squit || !ms->vex)
 			break ;
 	}
 }

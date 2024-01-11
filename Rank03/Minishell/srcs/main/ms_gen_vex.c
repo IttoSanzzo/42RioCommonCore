@@ -6,11 +6,28 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 03:28:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 03:44:52 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 05:34:56 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
+static void	ms_vex_avs(t_mini *ms)
+{
+	int	y;
+	int	i;
+
+	y = -1;
+	i = -1;
+	if (!ms->cmdl)
+		return ;
+	while (ms->vex[++y])
+	{
+		ms->vex[y]->av = (char **)ft_calloc(1, sizeof(char *));
+		while (ms_is_token(ms->cmdl[++i]) != 1)
+			ft_tabadd_end(&ms->vex[y]->av, ft_strdup(ms->cmdl[i]));
+		ft_tabadd_end(&ms->vex[y]->av, ft_strdup(ms->cmdl[i]));
+	}
+}
 
 static int	ms_vc(char **cmdl)
 {
@@ -27,15 +44,17 @@ static int	ms_vc(char **cmdl)
 	return (vc);
 }
 
-static void	ms_vex_split(t_mini *ms)
-{
-	int	vc;
-
-	vc = ms_vc(ms->cmdl);
-	ft_printc(C_GOLDEN, "VC..: %d", vc);
-}
-
 void	ms_gen_vex(t_mini *ms)
 {
-	ms_vex_split(ms);
+	int	vc;
+	int	i;
+
+	vc = ms_vc(ms->cmdl);
+	ms->vex = (t_vars **)ft_calloc(vc + 1, sizeof(t_vars *));
+	if (!ms->vex)
+		return ;
+	i = -1;
+	while (++i < vc)
+		ms->vex[i] = (t_vars *)ft_calloc(1, sizeof(t_vars));
+	ms_vex_avs(ms);
 }

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 14:36:27 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 17:29:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:42:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ms_gen_hdoc_prompt(char **prompt, int hds)
 {
 	char	*nbr;
-	
+
 	nbr = NULL;
 	nbr = ft_itoa(hds);
 	*prompt = ft_strdup(HDOC_A);
@@ -54,7 +54,6 @@ static void	ms_get_hdoc(t_mini *ms, char *prompt, char **hdoc, char *end)
 	ft_nfreestr(&line);
 }
 
-
 void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i)
 {
 	char	*prompt;
@@ -69,4 +68,3 @@ void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i)
 	ft_nfreestr(&prompt);
 	ft_tabrem_n(&vex->av, i);
 }
-

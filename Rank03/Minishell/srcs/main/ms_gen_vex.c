@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 03:28:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 06:24:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:29:59 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	ms_vex_avs(t_mini *ms)
 		while (ms_is_token(ms->cmdl[++i]) != 1)
 			ft_tabadd_end(&ms->vex[y]->av, ft_strdup(ms->cmdl[i]));
 		ft_tabadd_end(&ms->vex[y]->av, ft_strdup(ms->cmdl[i]));
+		ms->vex[y]->hdoc = NULL;
 	}
 }
 

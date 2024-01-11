@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 03:42:54 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:32:37 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ void	ms_format_line(t_mini *ms);
 // ms_gen_vex.c
 void	ms_gen_vex(t_mini *ms);
 
-/// ms_gets.c
+// ms_readhdoc
+void	ms_readhdoc(t_mini *ms);
+
+// ms_gets.c
 char	*ms_home(void);
 char	*ms_pwd(void);
 

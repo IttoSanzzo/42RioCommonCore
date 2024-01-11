@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:36:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 06:45:23 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:35:36 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void	ms_parse(t_mini *ms)
 	ms_format_line(ms);
 	ms->cmdl = ft_splitq(ms->line);
 	ms_gen_vex(ms);
-	return ;
+	ms_readhdoc(ms);
 }

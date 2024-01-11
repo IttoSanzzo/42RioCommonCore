@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:31:02 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 06:13:43 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:42:29 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int	ms_is_token(char *cmd)
 		return (2);
 	else if (!ft_strncmp(cmd, "<<", 3))
 		return (3);
+	else if (!ft_strncmp(cmd, ">", 2))
+		return (4);
+	else if (!ft_strncmp(cmd, "<", 2))
+		return (5);
 	return (0);
 }
 

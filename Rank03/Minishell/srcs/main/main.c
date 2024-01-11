@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/11 06:48:14 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 07:47:50 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void	minishell(t_mini *ms)
 	{
 //		ms_vex_finish(ms, ms->vex[i])
 		if (ms->vex && !(ms_builtins_switch(ms->vex[i])))
+		{
+		}
 //			ms_exec_vex((t_vars *)ms->vex[i]);
 //		ms_reset_fds(ms);
 		if (ms->sig.sint || ms->sig.squit || !ms->vex)

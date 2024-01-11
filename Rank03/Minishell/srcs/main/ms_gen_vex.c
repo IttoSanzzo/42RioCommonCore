@@ -6,11 +6,31 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 03:28:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 05:37:17 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 06:11:50 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void	ms_vex_actp(t_mini *ms)
+{
+	int	y;
+
+	y = -1;
+	while (ms->vex[++y])
+	{
+		ms->vex[y]->ac = ft_tablen(ms->vex[y]->av) - 1;
+		if (!ft_strncmp(ms->vex[y]->av[ms->vex[y]->ac], "|", 2))
+			ms->vex[y]->tp = 0;
+		else if (!ft_strncmp(ms->vex[y]->av[ms->vex[y]->ac], ";", 2))
+			ms->vex[y]->tp = 1;
+		else if (!ft_strncmp(ms->vex[y]->av[ms->vex[y]->ac], "&&", 3))
+			ms->vex[y]->tp = 2;
+		else if (!ft_strncmp(ms->vex[y]->av[ms->vex[y]->ac], "||", 3))
+			ms->vex[y]->tp = 3;
+		ft_tabrem_end(&ms->vex[y]->av);
+	}
+}
 
 static void	ms_vex_avs(t_mini *ms)
 {
@@ -30,7 +50,7 @@ static void	ms_vex_avs(t_mini *ms)
 	}
 }
 
-static int	ms_vc(char **cmdl)
+static int	ms_vex_count(char **cmdl)
 {
 	int	i;
 	int	vc;
@@ -50,7 +70,7 @@ void	ms_gen_vex(t_mini *ms)
 	int	vc;
 	int	i;
 
-	vc = ms_vc(ms->cmdl);
+	vc = ms_vex_count(ms->cmdl);
 	ms->vex = (t_vars **)ft_calloc(vc + 1, sizeof(t_vars *));
 	if (!ms->vex)
 		return ;
@@ -58,4 +78,5 @@ void	ms_gen_vex(t_mini *ms)
 	while (++i < vc)
 		ms->vex[i] = (t_vars *)ft_calloc(1, sizeof(t_vars));
 	ms_vex_avs(ms);
+	ms_vex_actp(ms);
 }

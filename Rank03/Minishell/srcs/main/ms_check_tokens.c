@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 04:24:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/10 04:25:04 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/12 01:21:48 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ms_mtoken(char *line, int *i)
 	{
 		if (!ft_strchr(TOKENS, line[*i]))
 			tc = 0;
-		if (((*i > 0 && line[*i - 1] == '\\') || ft_squotes(line, &open, i)))
+		if (((*i > 0 && line[*i - 1] == '\\') || ft_squotes(line, &open, *i)))
 			continue ;
 		else if (ft_strchr(DTOKENS, line[*i])
 			&& (line[*i + 1] != line[*i] && line[*i - 1] != line[*i]))
@@ -70,7 +70,7 @@ static int	ms_token_test(char *line, int *i, int token, int open)
 	tc = 0;
 	while (line[++i[0]])
 	{
-		if (((*i > 0 && line[*i - 1] == '\\') || ft_squotes(line, &open, i)))
+		if (((*i > 0 && line[*i - 1] == '\\') || ft_squotes(line, &open, *i)))
 		{
 			token = 0;
 			continue ;

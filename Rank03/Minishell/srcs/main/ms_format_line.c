@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 20:57:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/10 05:05:07 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/12 01:22:07 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static t_clist	*ms_form_tab(t_clist *form, char *line)
 	space = 0;
 	while (line[++i])
 	{
-		ft_squotes(line, &open, &i);
+		ft_squotes(line, &open, i);
 		if (i > 0 && (line[i - 1] == '\\' || ms_check_bl(line, i)))
 			ret = ms_form_check('\\', open, &token, &space);
 		else

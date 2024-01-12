@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/11 07:47:50 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:40:27 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ static void	minishell(t_mini *ms)
 	i = -1;
 	while (ms->vex && ms->vex[++i])
 	{
-//		ms_vex_finish(ms, ms->vex[i])
-		if (ms->vex && !(ms_builtins_switch(ms->vex[i])))
-		{
-		}
-//			ms_exec_vex((t_vars *)ms->vex[i]);
-//		ms_reset_fds(ms);
+		ms_vex_finish(ms, ms->vex[i]);
+		if (ms->vex && ms_builtins_switch(ms->vex[i]))
+			ms_exec_vex(ms, (t_vars *)ms->vex[i]);
 		if (ms->sig.sint || ms->sig.squit || !ms->vex)
 			break ;
 	}
 }
 
-static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)
+static void	ms_mini_init(t_mini *ms, char **ep)
 {
 	ms_get_mini(ms);
 	ms->altprompt = NULL;
@@ -40,17 +37,17 @@ static void	ms_mini_init(t_mini *ms, int ac, char **av, char **ep)
 	ms->paths = NULL;
 	ms->ret = 0;
 	ms->exit = 0;
-	ms->vrt.ac = ac;
-	ms->vrt.av = av;
-	ms->vrt.ep = ft_tabdup(ep);
 	ms->vex = NULL;
+	ms->ep = ft_tabdup(ep);
 }
 
 int	main(int ac, char **av, char **ep)
 {
 	t_mini	ms;
 
-	ms_mini_init(&ms, ac, av, ep);
+	(void)ac;
+	(void)av;
+	ms_mini_init(&ms, ep);
 	signal(SIGINT, &ms_sigint);
 	while (ms.exit == 0)
 	{

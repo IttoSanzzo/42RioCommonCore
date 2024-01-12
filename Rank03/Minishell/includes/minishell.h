@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 17:20:13 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:39:58 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		ms_builtin_unset(t_vars *vex);
 int		ms_builtin_env(t_vars *vex);
 int		ms_builtin_exit(t_vars *vex);
 void	ms_endlexit(void);
+void	ms_exec_exit(void);
 void	ms_free_cmd(t_mini *ms);
 void	ms_free_vex(t_mini *ms);
 
@@ -60,6 +61,12 @@ void	ms_gen_vex(t_mini *ms);
 // ms_redirects
 int		ms_redirects(t_mini *ms);
 void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i);
+
+// ms_vex_finish
+void	ms_vex_finish(t_mini *ms, t_vars *vex);
+
+// ms_exec_vex.c
+void	ms_exec_vex(t_mini *ms, t_vars *vex);
 
 // ms_gets.c
 char	*ms_home(void);

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:00:38 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 06:38:51 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:46:19 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -84,14 +84,14 @@ static void	ms_gen_prompt_path(t_mini *ms)
 void	ms_gen_prompt(t_mini *ms)
 {
 	ft_nfreestr(&ms->prompt);
-	ms->prompt = ft_strjoin(C_PURPLE, ft_getarg(ms->vrt.ep, "USER="));
+	ms->prompt = ft_strjoin(C_PURPLE, ft_getarg(ms->ep, "USER="));
 	if (!ms->prompt)
 		ms->prompt = ft_strjoin(C_PURPLE, DEFAULT_PROMPT);
-	if (ft_getarg_p(ms->vrt.ep, "NAME=") != -1)
+	if (ft_getarg_p(ms->ep, "NAME=") != -1)
 	{
 		ft_sujoin(&ms->prompt, C_WHITE);
 		ft_sujoin(&ms->prompt, "@");
-		ft_sujoin(&ms->prompt, ft_getarg(ms->vrt.ep, "NAME="));
+		ft_sujoin(&ms->prompt, ft_getarg(ms->ep, "NAME="));
 	}
 	ft_sujoin(&ms->prompt, " ");
 	ms_gen_prompt_path(ms);

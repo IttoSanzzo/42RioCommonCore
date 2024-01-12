@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 17:22:37 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 22:19:15 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define CD_ERR_B "\" does not exist\n"
 # define TOKEN_ERR_A "minishell: syntax error near unexpected token \'"
 # define TOKEN_ERR_B "\'\n"
+# define EXEC_FAIL_A "minishell: "
+# define EXEC_FAIL_B ": command not found\n"
 
 // Prompts
 # define DEFAULT_PROMPT "minishell"

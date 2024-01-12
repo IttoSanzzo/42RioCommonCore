@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 19:50:01 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/09 04:28:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:46:50 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ int	ms_builtin_cd(t_vars *vex)
 	i = -1;
 	if (ms_check_newpath(newpath))
 	{
-		while (ms->vrt.ep[++i])
+		while (ms->ep[++i])
 		{
-			if (!ft_strncmp(ms->vrt.ep[i], "PWD=", 4))
+			if (!ft_strncmp(ms->ep[i], "PWD=", 4))
 			{
-				free(ms->vrt.ep[i]);
-				ms->vrt.ep[i] = ft_strjoin("PWD=", newpath);
+				free(ms->ep[i]);
+				ms->ep[i] = ft_strjoin("PWD=", newpath);
 				break ;
 			}
 		}

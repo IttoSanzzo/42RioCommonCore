@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 17:13:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:42:57 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_vars
 
 typedef struct s_mini
 {
+	char			**ep;
 	char			*altprompt;
 	char			*prompt;
 	char			*line;
@@ -47,7 +48,6 @@ typedef struct s_mini
 	int				exit;
 	int				ret;
 	int				hds;
-	struct s_vars	vrt;
 	struct s_vars	**vex;
 	struct s_sig	sig;
 }	t_mini;

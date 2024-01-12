@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 04:34:20 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 04:38:32 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:45:22 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ms_home(void)
 
 	if (!ms)
 		ms = ms_get_mini(NULL);
-	return (ft_getarg(ms->vrt.ep, "HOME="));
+	return (ft_getarg(ms->ep, "HOME="));
 }
 
 char	*ms_pwd(void)
@@ -27,5 +27,5 @@ char	*ms_pwd(void)
 
 	if (!ms)
 		ms = ms_get_mini(NULL);
-	return (ft_getarg(ms->vrt.ep, "PWD="));
+	return (ft_getarg(ms->ep, "PWD="));
 }

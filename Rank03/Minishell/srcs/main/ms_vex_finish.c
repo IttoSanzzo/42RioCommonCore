@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ms_builtin_env.c                                   :+:      :+:    :+:   */
+/*   ms_vex_finish.c                                    :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2024/01/08 02:13:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 21:47:07 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/01/12 00:38:25 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2024/01/12 01:23:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ms_builtin_env(t_vars *vex)
+void	ms_vex_finish(t_mini *ms, t_vars *vex)
 {
-	t_mini	*ms;
-
-	ms = ms_get_mini(NULL);
-	if (!vex->av[1])
-	{
-		ft_puttab(ms->ep, NULL);
-		return (0);
-	}
-	return (0);
+	(void)ms;
+	ft_tabrem_q(vex->av);
 }

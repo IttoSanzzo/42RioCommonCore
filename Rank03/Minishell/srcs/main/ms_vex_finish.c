@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/12 00:38:25 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/12 01:23:14 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 15:05:58 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ms_vex_finish(t_mini *ms, t_vars *vex)
 {
 	(void)ms;
-	ft_tabrem_q(vex->av);
+	ft_tabrem_qbl(vex->av);
 }

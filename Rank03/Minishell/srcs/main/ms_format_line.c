@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/09 20:57:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/12 01:22:07 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 13:02:32 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -88,7 +88,9 @@ void	ms_format_line(t_mini *ms)
 	while (i >= 0 && (ms->line[i] == ' ' || ms->line[i] == '\n'))
 		i--;
 	if (ms->line[i] != ';')
-		ft_stradd_end(&ms->line, ';');
+		ft_sujoin(&ms->line, " ;");
+	else if (ms->line[i] == ';' && i > 0 && ms->line[i - 1] == '\\')
+		ft_sujoin(&ms->line, " ;");
 	form = NULL;
 	form = ms_form_tab(form, ms->line);
 	ft_strdrep(&ms->line, ft_cltos(form));

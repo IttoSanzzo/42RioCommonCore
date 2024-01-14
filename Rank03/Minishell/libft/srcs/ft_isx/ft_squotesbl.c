@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_cquotes.c                                       :+:      :+:    :+:   */
+/*   ft_squotesbl.c                                     :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/18 16:42:19 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 13:51:53 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/01/14 14:08:30 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2024/01/14 14:08:48 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	cquotes(char *line, int *open, int i, int *bl)
+int	ft_squotesbl(char *line, int *open, int i, int *bl)
 {
 	if (line[i] == '\\' && !*bl)
 	{
@@ -34,24 +34,4 @@ static int	cquotes(char *line, int *open, int i, int *bl)
 		return (1);
 	}
 	return (0);
-}
-
-int	ft_cquotes(char *s)
-{
-	int	open;
-	int	bl;
-	int	i;
-
-	open = 0;
-	bl = 0;
-	i = -1;
-	if (!s)
-		return (0);
-	while (s[++i])
-	{
-		if (cquotes(s, &open, i, &bl) == 3)
-			continue ;
-		bl = 0;
-	}
-	return (open);
 }

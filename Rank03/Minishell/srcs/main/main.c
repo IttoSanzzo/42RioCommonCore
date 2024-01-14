@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/12 00:40:27 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 15:26:52 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	main(int ac, char **av, char **ep)
 	(void)av;
 	ms_mini_init(&ms, ep);
 	signal(SIGINT, &ms_sigint);
+	signal(SIGQUIT, &ms_sigquit);
 	while (ms.exit == 0)
 	{
 		ms_sig_init(&ms);

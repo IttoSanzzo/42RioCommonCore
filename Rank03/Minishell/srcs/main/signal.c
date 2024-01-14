@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 14:26:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 07:43:18 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 15:28:39 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void	ms_sigquit(int signum)
 		ms->sig.squit = 1;
 	}
 	else
-		ft_putstr_fd("\b\b  \b\b", STDERR);
+		ft_putstr_fd("", STDERR);
 	ft_memdel(nbr);
 }

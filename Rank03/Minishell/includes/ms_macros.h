@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 22:19:15 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:01:26 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@
 # define CD_ERR_B "\" does not exist\n"
 # define TOKEN_ERR_A "minishell: syntax error near unexpected token \'"
 # define TOKEN_ERR_B "\'\n"
-# define EXEC_FAIL_A "minishell: "
-# define EXEC_FAIL_B ": command not found\n"
+# define EXEC_C_FAIL "minishell: "
+# define EXEC_FAIL_A ": command not found"
+# define EXEC_FAIL_B ": No such file or directory"
+# define EXEC_FAIL_C ": is a directory"
+# define EXEC_FAIL_D ": Permission denied"
 
 // Prompts
 # define DEFAULT_PROMPT "minishell"
@@ -43,5 +46,9 @@
 // Misc
 # define TOKENS ";|&<>"
 # define DTOKENS "&"
+
+// Rets
+# define EXIT_UCMD 127
+# define EXIT_IDIR 126
 
 #endif

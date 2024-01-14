@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/12 00:39:58 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:14:23 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <dirent.h>
 # include <signal.h>
 # include <sys/wait.h>
 # include <stdio.h>
@@ -44,7 +45,7 @@ int		ms_builtin_unset(t_vars *vex);
 int		ms_builtin_env(t_vars *vex);
 int		ms_builtin_exit(t_vars *vex);
 void	ms_endlexit(void);
-void	ms_exec_exit(void);
+void	ms_exec_exit(int ret);
 void	ms_free_cmd(t_mini *ms);
 void	ms_free_vex(t_mini *ms);
 
@@ -75,6 +76,7 @@ char	*ms_pwd(void);
 /// ms_utils
 int		ms_is_token(char *cmd);
 t_mini	*ms_get_mini(t_mini *ms);
+void	ms_waitret(int pid, int *status, int options);
 void	ms_freeall(void);
 
 /// ms_prompt.c

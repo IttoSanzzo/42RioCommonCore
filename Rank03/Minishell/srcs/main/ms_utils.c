@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:31:02 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 21:44:52 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:37:42 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ t_mini	*ms_get_mini(t_mini *ms)
 	if (ms)
 		save = ms;
 	return (save);
+}
+
+void	ms_waitret(int pid, int *status, int options)
+{
+	waitpid(pid, status, options);
+	if (*status == 32256 || *status == 32512)
+		*status = *status / 256;
+	else
+		*status = !!*status;
 }
 
 void	ms_freeall(void)

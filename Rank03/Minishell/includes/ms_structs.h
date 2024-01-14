@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 21:42:57 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:20:00 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_vars
 	char	*infile;
 	char	*oufile;
 	char	*path;
+	char	*cmd;
 	char	**av;
 	char	**ep;
 }	t_vars;

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 22:10:22 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:54:15 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ms_free_vex(t_mini *ms)
 			ft_nfreestr(&ms->vex[i]->infile);
 			ft_nfreestr(&ms->vex[i]->oufile);
 			ft_nfreestr(&ms->vex[i]->path);
+			ft_nfreestr(&ms->vex[i]->cmd);
 			ft_nfreetab(&ms->vex[i]->av);
 			ft_nfree((void *)&ms->vex[i]);
 		}
@@ -38,11 +39,11 @@ void	ms_free_cmd(t_mini *ms)
 	ft_nfreetab(&ms->cmdl);
 }
 
-void	ms_exec_exit(void)
+void	ms_exec_exit(int ret)
 {
 	ms_freeall();
 	ft_rl_clear_history();
-	exit(EXIT_SUCC);
+	exit(ret);
 }
 
 void	ms_endlexit(void)

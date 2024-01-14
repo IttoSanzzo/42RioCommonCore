@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 03:28:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 12:58:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:27:02 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	ms_vex_avs(t_mini *ms)
 		ft_tabadd_end(&ms->vex[y]->av, ft_strdup(ms->cmdl[i]));
 		ms->vex[y]->ep = ms->ep;
 		ms->vex[y]->path = NULL;
+		ms->vex[y]->cmd = NULL;
 		ms->vex[y]->hdoc = NULL;
 		ms->vex[y]->infile = NULL;
 		ms->vex[y]->oufile = NULL;

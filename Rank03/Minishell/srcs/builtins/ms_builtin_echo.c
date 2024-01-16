@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:12:44 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 09:16:45 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:45:58 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	ms_builtin_echo(t_vars *vex)
 	}
 	if (!flag)
 		ft_putchar('\n');
-	return (0);
+	return (ms_ret(0));
 }

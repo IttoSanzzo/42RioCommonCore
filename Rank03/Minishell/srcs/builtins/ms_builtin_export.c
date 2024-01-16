@@ -6,14 +6,41 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:13:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/08 09:19:15 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:16:43 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+static void	ms_export_core(t_mini *ms, char *arg)
+{
+	int		eq;
+	int		p;
+	char	*name;
+
+	eq = ft_strchp(arg, '=');
+	if (eq == -1)
+		return ;
+	name = ft_strtrim_xtoy(arg, 0, eq);
+	p = ft_getarg_p(ms->ep, name);
+	ft_nfreestr(&name);
+	if (p != -1)
+		ft_strdrep(&ms->ep[p], ft_strdup(arg));
+	else
+		ft_tabadd_end(&ms->ep, ft_strdup(arg));
+}
+
 int	ms_builtin_export(t_vars *vex)
 {
-	(void)vex;
-	return (0);
+	int		i;
+	t_mini	*ms;
+
+	ms = ms_get_mini(NULL);
+	i = 0;
+	while (vex->av[++i])
+	{
+		if (vex->av[i][0])
+			ms_export_core(ms, (char *)vex->av[i]);
+	}
+	return (ms_ret(0));
 }

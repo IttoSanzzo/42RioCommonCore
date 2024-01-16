@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 14:42:40 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 14:12:41 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:48:49 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ int	ms_builtin_pwd(t_vars *vex)
 {
 	(void)vex;
 	ft_putendl(ms_pwd());
-	ms_ret(0);
-	return (0);
+	return (ms_ret(0));
 }

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ft_puttab.c                                        :+:      :+:    :+:   */
+/*   ft_strchp.c                                        :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/20 14:44:50 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 17:11:35 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/01/16 16:32:05 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2024/01/16 16:56:53 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_puttab(char **tab, char *prompt)
+int	ft_strchp(char *s, char c)
 {
 	int	i;
 
-	if (!tab)
-		return ;
 	i = -1;
-	while (tab[++i])
-	{
-		if (prompt)
-			ft_putstr(prompt);
-		ft_putendl(tab[i]);
-	}
+	if (!s)
+		return (-1);
+	while (s[++i])
+		if (s[i] == c)
+			return (i);
+	return (-1);
 }

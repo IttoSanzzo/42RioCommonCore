@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:13:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 14:34:50 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:50:09 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int	ms_builtin_unset(t_vars *vex)
 				ft_tabrem_n(&ms->ep, p);
 		}
 	}
-	ms_ret(0);
-	return (0);
+	return (ms_ret(0));
 }

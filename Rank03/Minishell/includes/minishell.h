@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 14:11:23 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:46:10 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void	ms_vex_finish(t_mini *ms, t_vars *vex);
 void	ms_exec_vex(t_mini *ms, t_vars *vex);
 
 // ms_gets.c
+int		ms_ret(int ret);
 char	*ms_home(void);
 char	*ms_pwd(void);
-void	ms_ret(int ret);
 
 /// ms_utils
 int		ms_is_token(char *cmd);

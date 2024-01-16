@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 04:34:20 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 14:21:35 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:46:30 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ char	*ms_pwd(void)
 	return (ms->pwd);
 }
 
-void	ms_ret(int ret)
+int	ms_ret(int ret)
 {
 	static t_mini	*ms;
 
 	if (!ms)
 		ms = ms_get_mini(NULL);
 	ms->ret = ret;
+	return (ret);
 }

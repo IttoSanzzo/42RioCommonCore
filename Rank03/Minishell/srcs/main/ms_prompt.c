@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:00:38 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 21:46:19 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:09:46 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	ms_gen_prompt_path(t_mini *ms)
 	char	*path;
 
 	homel = ft_strlen(ms_home());
-	if (homel > 0 && !strncmp(ms_pwd(), ms_home(), homel - 1))
+	if (homel > 0 && !ft_strncmp(ms_pwd(), ms_home(), homel - 1))
 	{
 		path = ft_strdup("~");
 		ft_sujoin(&path, (char *)(ms_pwd() + homel));

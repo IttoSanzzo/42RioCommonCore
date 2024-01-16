@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 18:20:00 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:58:02 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ typedef struct s_mini
 	char			*prompt;
 	char			*line;
 	char			**cmdl;
-	char			**paths;
+	char			*home;
+	char			*pwd;
 	int				exit;
 	int				ret;
 	int				hds;

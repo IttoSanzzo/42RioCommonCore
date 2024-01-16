@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 21:49:26 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 18:59:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:21:20 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ static void	ms_try_envpaths(t_vars *vex)
 
 static void	ms_gen_exec_path(t_vars *vex)
 {
-	if (!ft_strncmp("./", vex->cmd, 2))
+	if (!ft_strncmp("/", vex->cmd, 1))
+		vex->path = ft_strdup(vex->cmd);
+	else if (!ft_strncmp("./", vex->cmd, 2))
 		vex->path = ft_strjoin(ms_pwd(), (char *)(vex->cmd + 1));
 	else if (!ft_strncmp("~/", vex->cmd, 2))
 		vex->path = ft_strjoin(ms_home(), (char *)(vex->cmd + 1));

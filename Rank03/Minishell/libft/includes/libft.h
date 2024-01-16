@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 19:08:14 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 17:20:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:19:25 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void	ft_putchar(int c);
+void	ft_putendl(char *s);
 void	ft_putstr(char *s);
+void	ft_putchar(int c);
 void	ft_putnbr(int nb);
 void	ft_putclst_xfory(t_clist *lst, int x, int y);
 void	ft_putclstpos(t_clist *lst, int pos);
@@ -143,10 +144,11 @@ void	ft_ansi_lc(void);
 
 //// ft_utils
 void	ft_newfile(const char *name);
+void	ft_trash_stdin(int dsecs);
 void	ft_ungetchar(char ch);
+void	ft_getcwd(char **pwd);
 void	ft_stdout_off(void);
 void	ft_stdout_on(void);
-void	ft_trash_stdin(int dsecs);
 void	ft_close(int fd);
 char	*ft_getarg(char **tab, char const *name);
 int		ft_getrstr_p(char **tab, char const *name);

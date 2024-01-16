@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:31:02 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 16:37:42 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:59:18 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ void	ms_freeall(void)
 	ms_free_cmd(ms);
 	ms_free_vex(ms);
 	ft_nfreestr(&ms->prompt);
+	ft_nfreestr(&ms->home);
+	ft_nfreestr(&ms->pwd);
 	ft_nfreetab(&ms->ep);
 }

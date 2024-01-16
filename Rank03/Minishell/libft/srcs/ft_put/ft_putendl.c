@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   ms_builtin_pwd.c                                   :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/12/12 14:42:40 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 14:12:41 by marcosv2         ###   ########.fr       */
+/*   Created: 2023/10/27 20:33:11 by marcosv2	       #+#    #+#	      */
+/*   Updated: 2024/01/16 14:07:02 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	ms_builtin_pwd(t_vars *vex)
+void	ft_putendl(char *s)
 {
-	(void)vex;
-	ft_putendl(ms_pwd());
-	ms_ret(0);
-	return (0);
+	if (!s)
+		return ;
+	ft_putstr(s);
+	ft_putchar('\n');
 }

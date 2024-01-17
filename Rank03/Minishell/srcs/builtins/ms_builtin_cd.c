@@ -6,16 +6,39 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/12 19:50:01 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 21:59:45 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:26:14 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	ms_cd_testpath(char *path)
+static int	ms_cd_testpath(char *path, char *vexp)
 {
-	(void)path;
-	return (0);
+	DIR	*dir;
+	int	fd;
+
+	(void)vexp;
+	dir = opendir(path);
+	if (dir)
+	{
+		closedir(dir);
+		return (0);
+	}
+	fd = open(path, O_WRONLY);
+	if (fd >= 0)
+	{
+		close(fd);
+		ft_putstr_fd(CD_ERR_A, STDERR);
+		ft_putstr_fd(vexp, STDERR);
+		ft_putstr_fd(CD_ERR_B, STDERR);
+	}
+	else
+	{
+		ft_putstr_fd(CD_ERR_C, STDERR);
+		ft_putstr_fd(vexp, STDERR);
+		ft_putstr_fd(CD_ERR_D, STDERR);
+	}
+	return (1);
 }
 
 static char	*ms_cd_pathjoin(char *path)
@@ -81,7 +104,7 @@ static int	ms_cd_core(t_mini *ms, char *vexpath)
 	ft_nfreestr(&path);
 	path = ms_cd_splitjoin(&split, path);
 	ft_nfreetab(&split);
-	if (ms_cd_testpath(path))
+	if (ms_cd_testpath(path, vexpath))
 		return (ft_nfreestr(&path), 1);
 	chdir(path);
 	ft_strdrep(&ms->pwd, path);
@@ -97,11 +120,11 @@ int	ms_builtin_cd(t_vars *vex)
 
 	ms = ms_get_mini(NULL);
 	if (vex->ac > 2)
-		return (ft_putendl_fd(CD_ERR_N, STDERR), ms_ret(1));
+		return (ft_putendl_fd(CD_ERR_N, STDERR), ms_ret(1), 0);
 	else if (vex->ac == 1)
 		ft_tabadd_n(&vex->av, ft_strdup("~/"), 1);
 	else if (vex->av[1][0] == '\0')
-		return (ms_ret(0));
+		return (ms_ret(0), 0);
 	ret = ms_cd_core(ms, vex->av[1]);
-	return (ms_ret(ret));
+	return (ms_ret(ret), 0);
 }

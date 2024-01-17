@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:36:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 14:19:33 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:17:58 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ static int	ms_check_entry(t_mini *ms)
 	return (ret);
 }
 
-static void	ms_readline(t_mini *ms)
+static void	ms_readcmdl(t_mini *ms)
 {
 	char	*su;
 
 	ms->sig.sint = 0;
 	ms_gen_prompt(ms);
 	ms_free_cmd(ms);
-	ms->line = ft_readline(ms->prompt);
+	ms->line = ms_readline(ms->prompt);
 	if (!ms->line)
 		ms_endlexit();
 	if (ms->sig.sint || !ms->line[0])
-		return (ms_readline(ms));
+		return (ms_readcmdl(ms));
 	while (ms_check_entry(ms))
 	{
-		su = ft_readline(ms->altprompt);
+		su = ms_readline(ms->altprompt);
 		ft_nfreestr(&ms->altprompt);
 		if (!su)
 			ms_endlexit();
@@ -50,15 +50,15 @@ static void	ms_readline(t_mini *ms)
 			ft_freejoin(&ms->line, &su);
 		}
 		if (ms->sig.sint)
-			return (ms_readline(ms));
+			return (ms_readcmdl(ms));
 	}
-	ft_add_history(ms->line);
+	ms_add_history(ms->line);
 }
 
 void	ms_parse(t_mini *ms)
 {
 	ms_free_vex(ms);
-	ms_readline(ms);
+	ms_readcmdl(ms);
 	if (ms_check_tokens(ms))
 		return (ms_parse(ms));
 	ms_format_line(ms);

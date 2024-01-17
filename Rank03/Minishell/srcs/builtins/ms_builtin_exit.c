@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 14:48:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:08:53 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -42,22 +42,22 @@ void	ms_free_cmd(t_mini *ms)
 void	ms_exec_exit(int ret)
 {
 	ms_freeall();
-	ft_rl_clear_history();
+	ms_rl_clear_history();
 	exit(ret);
-}
-
-void	ms_endlexit(void)
-{
-	ft_putchar('\n');
-	ms_builtin_exit(NULL);
 }
 
 int	ms_builtin_exit(t_vars *vex)
 {
 	(void)vex;
 	ms_freeall();
-	ft_rl_clear_history();
+	ms_rl_clear_history();
 	ft_putstr(EXIT_MSS);
 	exit(EXIT_SUCC);
 	return (0);
+}
+
+void	ms_endlexit(void)
+{
+	ft_putchar('\n');
+	ms_builtin_exit(NULL);
 }

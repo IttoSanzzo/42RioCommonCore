@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 14:36:27 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 20:42:14 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:59:25 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	ms_get_hdoc(t_mini *ms, char *prompt, char **hdoc, char *end)
 			ft_sujoin(hdoc, "\n");
 		}
 		ft_nfreestr(&line);
-		line = ft_readline(prompt);
+		line = ms_readline(prompt);
 		if (!line)
 			ms_hdoc_eof(&line, end);
 	}

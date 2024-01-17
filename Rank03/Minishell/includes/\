@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 19:16:11 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:02:29 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int		ms_builtin_export(t_vars *vex);
 int		ms_builtin_unset(t_vars *vex);
 int		ms_builtin_env(t_vars *vex);
 int		ms_builtin_exit(t_vars *vex);
-void	ms_export_core(t_mini *ms, char *arg);
 void	ms_endlexit(void);
 void	ms_exec_exit(int ret);
 void	ms_free_cmd(t_mini *ms);
@@ -85,8 +84,6 @@ void	ms_freeall(void);
 void	ms_gen_prompt(t_mini *ms);
 
 /// ms_readline.c
-char	*ms_readline(char *prompt);
-void	ms_add_history(char *line);
-void	ms_rl_clear_history(void);
+char	*ms_readline(char *);
 
 #endif

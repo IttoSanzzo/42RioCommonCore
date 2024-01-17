@@ -6,24 +6,23 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:13:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 17:16:43 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:56:31 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	ms_export_core(t_mini *ms, char *arg)
+void	ms_export_core(t_mini *ms, char *arg)
 {
 	int		eq;
 	int		p;
-	char	*name;
 
 	eq = ft_strchp(arg, '=');
 	if (eq == -1)
 		return ;
-	name = ft_strtrim_xtoy(arg, 0, eq);
-	p = ft_getarg_p(ms->ep, name);
-	ft_nfreestr(&name);
+	arg[eq] = '\0';
+	p = ft_getarg_p(ms->ep, arg);
+	arg[eq] = '=';
 	if (p != -1)
 		ft_strdrep(&ms->ep[p], ft_strdup(arg));
 	else

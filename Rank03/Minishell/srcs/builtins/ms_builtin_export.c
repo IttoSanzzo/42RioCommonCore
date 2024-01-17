@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:13:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 18:56:31 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:02:05 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ int	ms_builtin_export(t_vars *vex)
 	ms = ms_get_mini(NULL);
 	i = 0;
 	while (vex->av[++i])
-	{
 		if (vex->av[i][0])
 			ms_export_core(ms, (char *)vex->av[i]);
-	}
 	return (ms_ret(0));
 }

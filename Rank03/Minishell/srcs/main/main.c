@@ -6,7 +6,7 @@
 /*   By: gupiment <gupiment@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 13:36:45 by gupiment	       #+#    #+#	      */
-/*   Updated: 2024/01/17 13:28:31 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:32:32 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static void	minishell(t_mini *ms)
 	while (ms->vex && ms->vex[++i])
 	{
 		ms_vex_finish(ms, ms->vex[i]);
+		if (i == 0)
+			ms_redirects_finish(ms, ms->vex[i], NULL);
+		else
+			ms_redirects_finish(ms, ms->vex[i], ms->vex[i - 1]);
 		if (ms->vex && ms_builtins_switch(ms->vex[i]))
 			ms_exec_vex(ms, (t_vars *)ms->vex[i]);
 		if (ms->sig.sint || ms->sig.squit || !ms->vex)
@@ -47,6 +51,10 @@ static void	ms_mini_init(t_mini *ms, char **ep)
 	ms->ret = 0;
 	ms->exit = 0;
 	ms->vex = NULL;
+	ms->std[0] = dup(STDIN);
+	ms->std[1] = dup(STDOUT);
+	ms_dup2(ms->std[0], STDIN);
+	ms_dup2(ms->std[1], STDOUT);
 	ms->ep = ft_tabdup(ep);
 	ms_msvars(ms);
 }
@@ -65,6 +73,7 @@ int	main(int ac, char **av, char **ep)
 		ms_sig_init(&ms);
 		ms_parse(&ms);
 		minishell(&ms);
+		ms_reset_fds(2);
 	}
 	return (ms.ret);
 }

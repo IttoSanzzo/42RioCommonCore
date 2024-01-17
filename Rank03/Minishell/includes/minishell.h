@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/17 13:23:03 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:09:42 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i);
 // ms_vex_finish
 void	ms_vex_finish(t_mini *ms, t_vars *vex);
 
+// ms_redirects_finish.c
+void	ms_redirects_finish(t_mini *ms, t_vars *vex, t_vars *avex);
+
 // ms_expand.c
 void	ms_expand(t_vars *vex);
 
@@ -77,6 +80,11 @@ void	ms_exec_vex(t_mini *ms, t_vars *vex);
 int		ms_ret(int ret);
 char	*ms_home(void);
 char	*ms_pwd(void);
+
+// ms_fd_changers.c
+void	ms_dup2(int new, int target);
+void	ms_dup2c(int new, int target);
+void	ms_reset_fds(int fd);
 
 /// ms_utils
 int		ms_is_token(char *cmd);

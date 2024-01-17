@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/08 14:26:21 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 15:28:39 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:20:28 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ms_sigint(int signum)
 	if (ms->sig.pid != 0)
 	{
 		ms->sig.exit_status = 1;
+		ms->ret = 1;
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:43:00 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 13:58:02 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:47:37 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ typedef struct s_mini
 	int				exit;
 	int				ret;
 	int				hds;
+	int				std[2];
+	int				pip[2];
+	int				cfd[2];
 	struct s_vars	**vex;
 	struct s_sig	sig;
 }	t_mini;

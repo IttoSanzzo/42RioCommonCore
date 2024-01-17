@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/11 17:18:03 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/11 17:53:28 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:14:34 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ms_found_outfile(t_vars *vex, int i, int type)
 	ft_tabrem_n(&vex->av, i);
 	ft_nfreestr(&vex->oufile);
 	vex->oufile = ft_strdup(vex->av[i]);
+	ft_strrem_qbl(&vex->oufile);
 	ft_tabrem_n(&vex->av, i);
 }
 
@@ -29,6 +30,7 @@ static void	ms_found_infile(t_vars *vex, int i)
 	ft_tabrem_n(&vex->av, i);
 	ft_nfreestr(&vex->infile);
 	vex->infile = ft_strdup(vex->av[i]);
+	ft_strrem_qbl(&vex->infile);
 	ft_tabrem_n(&vex->av, i);
 }
 

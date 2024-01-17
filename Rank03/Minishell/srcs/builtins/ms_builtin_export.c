@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:13:15 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/17 13:22:21 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:38:25 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -19,17 +19,20 @@ static int	export_err(char *arg)
 	ft_putstr_fd(XP_ERR_B, STDERR);
 	return (1);
 }
+
 static int	ms_export_check(char *arg, int eq)
 {
 	int	i;
 
 	i = -1;
 	while (arg[++i])
+	{
 		if (ft_strchr(EXPORT_ERR, arg[i]))
 		{
 			arg[eq] = '=';
 			return (1);
 		}
+	}
 	return (0);
 }
 
@@ -40,7 +43,7 @@ int	ms_export_core(t_mini *ms, char *arg)
 
 	eq = ft_strchp(arg, '=');
 	if (eq == -1)
-		return 1;
+		return (1);
 	if (eq == 0 || arg[eq - 1] == '\\')
 		return (export_err(arg));
 	arg[eq] = '\0';

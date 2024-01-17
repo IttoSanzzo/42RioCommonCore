@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 19:16:11 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:53:06 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ void	ms_found_hdoc(t_mini *ms, t_vars *vex, int i);
 
 // ms_vex_finish
 void	ms_vex_finish(t_mini *ms, t_vars *vex);
+
+// ms_expand.c
+void	ms_expand(t_vars *vex);
 
 // ms_exec_vex.c
 void	ms_exec_vex(t_mini *ms, t_vars *vex);

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 22:28:38 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:54:07 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 // Misc
 # define TOKENS ";|&<>"
 # define DTOKENS "&"
+# define EXP_CHAR "\'\"= "
 
 // Rets
 # define EXIT_UCMD 127

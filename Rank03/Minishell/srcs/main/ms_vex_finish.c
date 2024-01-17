@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/12 00:38:25 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/14 18:35:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:56:56 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ms_getavn(char **name)
 void	ms_vex_finish(t_mini *ms, t_vars *vex)
 {
 	(void)ms;
-	//ms_expand_env((t_vars *)(vex + 1));
+	ms_expand(vex);
 	ft_tabrem_qbl(vex->av);
 	vex->cmd = ft_strdup(vex->av[0]);
 	ms_getavn(&vex->av[0]);

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/17 18:29:21 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:47:28 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define OUFILE_ERR_A "minishell: warning: An error has "
 # define OUFILE_ERR_B "ocurred while opening \'"
 # define OUFILE_ERR_C "\'"
+# define EXPORT_STDMSS "declare -x "
 
 // Prompts
 # define DEFAULT_PROMPT "minishell"

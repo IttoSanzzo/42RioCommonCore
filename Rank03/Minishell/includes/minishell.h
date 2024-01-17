@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 02:11:47 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 22:53:06 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:23:03 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ms_builtin_export(t_vars *vex);
 int		ms_builtin_unset(t_vars *vex);
 int		ms_builtin_env(t_vars *vex);
 int		ms_builtin_exit(t_vars *vex);
-void	ms_export_core(t_mini *ms, char *arg);
+int		ms_export_core(t_mini *ms, char *arg);
 void	ms_endlexit(void);
 void	ms_exec_exit(int ret);
 void	ms_free_cmd(t_mini *ms);

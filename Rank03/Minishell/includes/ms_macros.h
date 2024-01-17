@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/07 01:48:11 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/17 13:01:07 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:20:40 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define CD_ERR_B ": Not a directory\n"
 # define CD_ERR_C "minishell: cd: "
 # define CD_ERR_D ": No such file or directory\n"
+# define XP_ERR_A "minishell: export: \'"
+# define XP_ERR_B "\': not a valid identifier\n"
 # define TOKEN_ERR_A "minishell: syntax error near unexpected token \'"
 # define TOKEN_ERR_B "\'\n"
 # define EXEC_C_FAIL "minishell: "
@@ -51,7 +53,8 @@
 // Misc
 # define TOKENS ";|&<>"
 # define DTOKENS "&"
-# define EXP_CHAR "\'\"= $:/"
+# define EXPORT_ERR "\'\" $:/;|&<>"
+# define EXP_CHAR "\'\"= $:/;|&<>"
 
 // Rets
 # define EXIT_UCMD 127

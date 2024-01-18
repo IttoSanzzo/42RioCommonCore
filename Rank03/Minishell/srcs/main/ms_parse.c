@@ -6,11 +6,24 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/01/08 05:36:42 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/17 16:03:29 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 21:10:56 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int	ms_check_allspc(char *line)
+{
+	int	i;
+
+	i = -1;
+	while (line[++i])
+	{
+		if (line[i] != ' ')
+			return (0);
+	}
+	return (1);
+}
 
 static int	ms_check_entry(t_mini *ms)
 {
@@ -59,7 +72,7 @@ void	ms_parse(t_mini *ms)
 {
 	ms_free_vex(ms);
 	ms_readcmdl(ms);
-	if (ms_check_tokens(ms))
+	if (ms_check_allspc(ms->line) || ms_check_tokens(ms))
 		return (ms_parse(ms));
 	ms_format_line(ms);
 	ms->cmdl = ft_splitq(ms->line);

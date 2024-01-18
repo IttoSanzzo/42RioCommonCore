@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/12/04 14:38:29 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2024/01/16 18:08:53 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 21:22:17 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	ms_builtin_exit(t_vars *vex)
 
 void	ms_endlexit(void)
 {
-	ft_putchar('\n');
+	if (READLINE != 1)
+		ft_putchar('\n');
 	ms_builtin_exit(NULL);
 }

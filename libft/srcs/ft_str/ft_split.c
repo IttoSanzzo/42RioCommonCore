@@ -6,74 +6,56 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/10/27 20:40:28 by marcosv2	       #+#    #+#	      */
-/*   Updated: 2023/10/27 20:40:38 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/17 02:32:21 by marcosv2         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char const *str, char c)
+static int	wc_s(char *s, char c)
 {
-	int	count;
+	int	wcount;
 	int	flag;
-	int	str_count;
+	int	i;
 
-	count = 0;
+	i = -1;
 	flag = 1;
-	str_count = 0;
-	if (!str)
-		return (0);
-	while (str[count] != '\0')
+	wcount = 0;
+	while (s[++i])
 	{
-		if (str[count] == c)
-			flag = 1;
-		else if (str[count] && flag == 1 && ++str_count)
+		if (s[i] == c && ++flag)
+			s[i] = '\0';
+		else if (s[i] && flag && ++wcount)
 			flag = 0;
-		count++;
 	}
-	return (str_count);
-}
-
-static char	*ft_newstring(char const *str, int count, int start, char c)
-{
-	char		*temp_string;
-	int			count2;
-
-	count2 = 0;
-	temp_string = (char *)malloc(sizeof(char) * (count - start + 1));
-	if (!temp_string)
-		return (NULL);
-	while (str[start] != c && str[start])
-		temp_string[count2++] = str[start++];
-	temp_string[count2] = '\0';
-	return (temp_string);
+	return (wcount);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**array;
-	int		count;
-	int		array_count;
-	int		start;
+	int		len;
+	int		i;
+	int		y;
+	char	*temp;
+	char	**tab;
 
 	if (!s)
 		return (NULL);
-	count = 0;
-	array_count = 0;
-	array = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!array)
-		return (NULL);
-	while (array_count < count_words(s, c))
+	temp = ft_strdup(s);
+	len = wc_s(temp, c);
+	tab = (char **)ft_calloc(len + 1, sizeof(char *));
+	y = -1;
+	i = 0;
+	while (temp[i] == '\0' && len > 0)
+		i++;
+	while (tab && ++y < len)
 	{
-		if (s[count] != c && s[count])
-		{
-			start = count;
-			while (s[count] != c && s[count])
-				count++;
-			array[array_count++] = ft_newstring(s, count, start, c);
-		}
-		count++;
+		tab[y] = ft_strdup((char *)(temp + i));
+		while (temp[i])
+			i++;
+		while (!temp[i] && y < len - 1)
+			i++;
 	}
-	array[array_count] = NULL;
-	return (array);
+	ft_nfreestr(&temp);
+	return (tab);
 }

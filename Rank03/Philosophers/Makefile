@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:10 by marcosv2          #+#    #+#              #
-#    Updated: 2024/01/19 21:54:19 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/01/19 22:19:36 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,9 @@ D_OBJS	= objs/
 
 # Sources & Objects
 
-N_MAIN	= $(shell ls $(D_SRCS)/main/ | grep -E ".+\.c")
-N_EXTR	= $(shell ls $(D_SRCS)/extra/ | grep -E ".+\.c")
-	
-F_SRCS	= $(addprefix $(D_SRCS)/main/, $(N_MAIN))	\
-	$(addprefix $(D_SRCS)/extra/, $(N_EXTR))	\
-
-N_OBJS	= $(N_MAIN:.c=.o)	\
-	$(N_EXTR:.c=.o)		\
+N_MAIN	= $(shell ls $(D_SRCS)/ | grep -E ".+\.c")
+F_SRCS	= $(addprefix $(D_SRCS)/, $(N_MAIN))
+N_OBJS	= $(N_MAIN:.c=.o)
 
 F_OBJS	= $(addprefix $(D_OBJS), $(N_OBJS))
 
@@ -55,12 +50,12 @@ all		: $(NAME)
 
 $(NAME)		: $(D_OBJS) $(F_OBJS)
 	@$(C_PUTS) "\n\t$(P_NCYAN)Finishing binary..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
-	@$(C_COMP) $(C_FLAG) -o $@ $(F_OBJS)
+	@$(C_COMP) $(C_FLAG) $(D_HDRS) -o $@ $(F_OBJS)
 	@$(C_PUTS) "$(P_GREEN)Done!$(P_WHITE)\n"
 
-$(D_OBJS)%.o	: $(D_SRCS)/*/%.c
+$(D_OBJS)%.o	: $(D_SRCS)/%.c
 	@$(C_PUTS) "\t$(P_PRPLE)Generating $(NAME)..: %-33.33s\r $(P_WHITE)" $@
-	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@ $(C_RDLN)
+	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@
 
 $(D_OBJS)	:
 	@clear

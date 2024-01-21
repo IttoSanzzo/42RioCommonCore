@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 15:47:39 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:54:46 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 # define PH_STRUCTS_H 
 
 // Structs	
-typedef struct s_philo
-{
-	int
 
-}
+typedef struct s_info
+{
+	int		ph_num;
+	int		tm_die;
+	int		tm_eat;
+	int		tm_sleep;
+	int		eat_goal;
+}	t_info;
 
 #endif

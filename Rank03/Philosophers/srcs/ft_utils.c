@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 16:37:39 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 16:40:09 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/01/21 17:03:23 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/01/21 17:16:12 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,13 @@ void	ft_putstr(char *s)
 		return ;
 	while (*s)
 		write(1, &*s++, 1);
+}
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	while (*s)
+		write(1, &*s++, fd);
+	write(1, "\n", fd);
 }

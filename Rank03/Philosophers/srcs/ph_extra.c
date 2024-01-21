@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ph_structs.h                                       :+:      :+:    :+:   */
+/*   ph_extra.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 17:40:52 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/01/21 16:58:37 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/01/21 17:57:16 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PH_STRUCTS_H
-# define PH_STRUCTS_H 
+#include "philo.h"
 
-// Structs	
-
-typedef struct s_info
+int	input_checker(char **argv)
 {
-	int			ph_num;
-	uint64_t	tm_die;
-	uint64_t	tm_eat;
-	uint64_t	tm_slp;
-	int			eat_goal;
-	uint64_t	start_tm;
-}	t_info;
+	int	i;
+	int	j;
 
-#endif
+	i = -1;
+	while (argv[++i])
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (argv[i][j] == ' ')
+				j++;
+			if ((argv[i][j] < 48 || argv[i][j] > 57))
+				return (ph_error(ERR_IN_1, NULL));
+			j++;
+		}
+	}
+	return (0);
+}

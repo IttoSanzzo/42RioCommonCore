@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:58:37 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 18:07:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 20:29:55 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	ph_check_info(char **argv)
 		{
 			while (argv[i][j] == ' ')
 				j++;
-			if ((argv[i][j] < 48 || argv[i][j] > 57))
+			if ((argv[i][j] < 48 || argv[i][j] > 57)
+				&& (argv[i][j] != '-' && argv[i][j] != '+'))
 				return (ph_error(NULL, ERR_IN_1));
 			j++;
 		}

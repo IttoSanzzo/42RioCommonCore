@@ -14,7 +14,7 @@
 
 int	ph_error(t_info *info, char *err)
 {
-	ft_putendl(err, STDERR_FILENO);
+	ft_putendl_fd(err, STDERR_FILENO);
 	if (info)
 		ph_free_all(info);
 	return (1);
@@ -22,5 +22,6 @@ int	ph_error(t_info *info, char *err)
 
 void	ph_free_all(t_info *info)
 {
+	(void)info;
 	return ;
 }

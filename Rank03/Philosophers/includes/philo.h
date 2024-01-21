@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 17:55:54 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:02:10 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 // ph_exit.c
 int		ph_error(t_info *info, char *mss);
 void	ph_free_all(t_info *info);
+
+// ph_extra.c
+int		ph_check_info(char **argv);
 
 // ft_utils.c
 int		ft_atoi(const char *nptr);

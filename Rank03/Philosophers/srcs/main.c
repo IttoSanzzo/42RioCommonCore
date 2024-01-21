@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:36:45 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 16:41:56 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:42:08 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int	main(int ac, char *av[])
 	if (ac < 5 || ac > 6)
 		return (1);
 	ph_init(&info, ac, av);
-	testing();
 	return (0);
 }

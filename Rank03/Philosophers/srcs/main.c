@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:36:45 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 16:39:46 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:41:56 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	ph_init(t_info *info, int ac, char **av)
 	info->tm_slp = ft_atoi(av[4]);
 	if (ac == 6)
 		info->eat_goal = ft_atoi(av[5]);
+	else
+		info->eat_goal = -1;
 }
 
 int	main(int ac, char *av[])

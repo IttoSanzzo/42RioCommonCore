@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/19 22:54:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:46:21 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include <string.h>
-# include <sys/time.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 #endif

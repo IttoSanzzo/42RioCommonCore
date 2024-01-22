@@ -12,36 +12,20 @@
 
 #include "philo.h"
 
-long    ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
-        int             sign;
-        long    result;
+	int	total;
+	int	signal;
 
-        while ((*str >= '\t' && *str <= '\r') || *str == ' ')
-                str++;
-        sign = 1;
-        if (*str == '-')
-                sign *= -1;
-        if (*str == '-' || *str == '+')
-                str++;
-        result = 0;
-        while (*str >= '0' && *str <= '9')
-        {
-                if (result * 10 < 0)
-                        return (-1);
-                result *= 10;
-                result += *str - '0';
-                str++;
-        }
-        return (result * sign);
-}
-
-void	ft_putstr(char *s)
-{
-	if (!s)
-		return ;
-	while (*s)
-		write(1, &*s++, 1);
+	total = 0;
+	signal = 1;
+	while ((*nptr >= '\t' && *nptr <= '\r') || *nptr == ' ')
+		nptr++;
+	if ((*nptr == '-' || *nptr == '+') && *nptr++ == '-')
+		signal *= -1;
+	while (*nptr >= '0' && *nptr <= '9')
+		total = total * 10 + (*nptr++ - '0');
+	return (total * signal);
 }
 
 void	ft_putendl_fd(char *s, int fd)

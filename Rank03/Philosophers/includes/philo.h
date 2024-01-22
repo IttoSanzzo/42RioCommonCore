@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 03:22:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:34:59 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int			ph_usleep(useconds_t time);
 void		ph_mss(char *s, t_philo *philo);
 
 // ft_utils.c
-long		ft_atoi(const char *nptr);
-void		ft_putstr(char *s);
+int			ft_atoi(const char *nptr);
 void		ft_putendl_fd(char *s, int fd);
 int			ft_strcmp(char *s1, char *s2);
 

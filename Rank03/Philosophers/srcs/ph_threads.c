@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:03:22 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 14:29:57 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:32:54 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	*ph_monitor(void *philo_arg)
 			philo->info->died = 1;
 		pthread_mutex_unlock(&philo->lock);
 	}
-	return ((void *)0);
+	return (NULL);
 }
 
 static void	*ph_supervisor(void *philo_arg)
@@ -32,10 +32,10 @@ static void	*ph_supervisor(void *philo_arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)philo_arg;
-	while (philo->info->died == 0)
+	while (!philo->info->died)
 	{
 		pthread_mutex_lock(&philo->lock);
-		if (ph_gtime() >= philo->tm_to_die && philo->eating == 0)
+		if (ph_gtime() >= philo->tm_to_die && !philo->eating)
 			ph_mss(MSS_DIED, philo);
 		if (philo->eats == philo->info->eat_goal)
 		{
@@ -46,7 +46,7 @@ static void	*ph_supervisor(void *philo_arg)
 		}
 		pthread_mutex_unlock(&philo->lock);
 	}
-	return ((void *)0);
+	return (NULL);
 }
 
 static void	*ph_routine(void *philo_arg)
@@ -64,7 +64,7 @@ static void	*ph_routine(void *philo_arg)
 	}
 	if (pthread_join(philo->t1, NULL))
 		return ((void *)1);
-	return ((void *)0);
+	return (NULL);
 }
 
 int	ph_th_init(t_info *info)
@@ -72,11 +72,11 @@ int	ph_th_init(t_info *info)
 	int			i;
 	pthread_t	t0;
 
-	i = -1;
 	info->start_tm = ph_gtime();
 	if (info->eat_goal > 0)
 		if (pthread_create(&t0, NULL, &ph_monitor, &info->philos[0]))
 			return (ph_error(info, ERR_TH));
+	i = -1;
 	while (++i < info->ph_num)
 	{
 		if (pthread_create(&info->tid[i], NULL, &ph_routine, &info->philos[i]))

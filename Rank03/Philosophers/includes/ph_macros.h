@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 22:24:29 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:55:09 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define PH_MACROS_H 
 
 // States
-# define MSS_FORK		" has taken a fork"
-# define MSS_EATING 	" is eating"
-# define MSS_SLEEPING	" is sleeping"
-# define MSS_THINKING	" is thinking"
-# define MSS_DIED		" died"
+# define MSS_FORK		"has taken a fork"
+# define MSS_EATING 	"is eating"
+# define MSS_SLEEPING	"is sleeping"
+# define MSS_THINKING	"is thinking"
+# define MSS_DIED		"died"
 
 // Errors
 # define ERR_IN_1		"INVALID INPUT CHARACTER"

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:38:21 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 14:38:22 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:31:34 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char *av[])
 		return (1);
 	if (info.ph_num == 1)
 		return (ph_loner(&info));
-	if (ph_th_init(&info))
+	if (ph_agora(&info))
 		return (1);
 	ph_free_all(&info);
 	return (0);

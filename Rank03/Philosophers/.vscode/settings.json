@@ -3,6 +3,7 @@
 		".env.*": "dotenv",
 		".prettierrc": "json",
 		"*.css": "css",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"philo.h": "c"
 	}
 }

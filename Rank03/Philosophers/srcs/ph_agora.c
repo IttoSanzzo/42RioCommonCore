@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ph_threads.c                                       :+:      :+:    :+:   */
+/*   ph_agora.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:37:50 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 14:37:53 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:31:15 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void	*ph_routine(void *philo_arg)
 	return (NULL);
 }
 
-int	ph_th_init(t_info *info)
+int	ph_agora(t_info *info)
 {
 	int			i;
 	pthread_t	t0;
@@ -90,17 +90,5 @@ int	ph_th_init(t_info *info)
 	if (info->eat_goal > 0)
 		if (pthread_join(t0, NULL))
 			return (ph_error(info, ERR_JOIN));
-	return (0);
-}
-
-int	ph_loner(t_info *info)
-{
-	info->start_tm = ph_gtime();
-	if (pthread_create(&info->tid[0], NULL, &ph_routine, &info->philos[0]))
-		return (ph_error(info, ERR_TH));
-	pthread_detach(info->tid[0]);
-	while (info->died == 0)
-		ph_usleep(10);
-	ph_free_all(info);
 	return (0);
 }

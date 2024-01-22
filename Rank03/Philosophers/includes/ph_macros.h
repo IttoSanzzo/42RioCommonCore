@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 18:08:47 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 22:24:29 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 # define ERR_ALLOC_2	"ERROR WHILE ALLOCATING FORKS"
 # define ERR_TH			"ERROR WHILE CREATING THREADS"
 # define ERR_JOIN		"ERROR WHILE JOINING THREADS"
-# define ERR_INIT		"ERROR WHILE INIT FORKS"
+# define ERR_FORKS		"ERROR WHILE INITIATING FORKS"
 # define ERR_TIME		"UNABLE TO RETRIVE UTC"
+# define ERR_GTM		"gettimeofday() FAILURE"
 
 #endif

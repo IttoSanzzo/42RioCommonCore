@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ph_extra.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 16:58:37 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 20:29:55 by marcosv2         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ph_extra.c										 :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: marcosv2 <marcosv2@student.42.rio>		 +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2024/01/21 16:58:37 by marcosv2		  #+#	#+#			 */
+/*   Updated: 2024/01/21 20:29:55 by marcosv2		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "philo.h"
@@ -31,5 +31,24 @@ int	ph_check_info(char **argv)
 			j++;
 		}
 	}
+	return (0);
+}
+
+uint64_t	ph_gtime(void)
+{
+	struct timeval	tm;
+
+	if (gettimeofday(&tm, NULL))
+		return (error(ERR_GTM, NULL));
+	return ((tm.tv_sec * (uint64_t)1000) + (tm.tv_usec / 1000));
+}
+
+int	ph_usleep(useconds_t time)
+{
+	uint64_t	start;
+
+	start = ph_gtime();
+	while ((ph_gtime() - start) < time)
+		usleep(time / 10);
 	return (0);
 }

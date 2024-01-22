@@ -22,6 +22,20 @@ int	ph_error(t_info *info, char *err)
 
 void	ph_free_all(t_info *info)
 {
-	(void)info;
-	return ;
+	int	i;
+
+	i = -1;
+	while (++i < info->ph_num)
+	{
+		pthread_mutex_destroy(&info->forks[i]);
+		pthread_mutex_destroy(&info->philos[i].lock);
+	}
+	pthread_mutex_destroy(&info->lock);
+	pthread_mutex_destroy(&info->write);
+	if (info->tid)
+		free(info->tid);
+	if (info->forks)
+		free(info->forks);
+	if (info->philos)
+		free(info->philos);
 }

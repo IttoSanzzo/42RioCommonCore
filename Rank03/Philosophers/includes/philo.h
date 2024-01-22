@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/21 18:02:10 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/21 23:35:39 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,21 @@
 # include "ph_macros.h"
 # include "ph_structs.h"
 
+// ph_inits.c
+int	ph_inits(t_info *info, int ac, char **av);
+
 // ph_exit.c
-int		ph_error(t_info *info, char *mss);
-void	ph_free_all(t_info *info);
+int			ph_error(t_info *info, char *mss);
+void		ph_free_all(t_info *info);
 
 // ph_extra.c
-int		ph_check_info(char **argv);
+int			ph_check_info(char **argv);
+uint64_t	ph_gtime(void);
+int			ph_usleep(useconds_t time);
 
 // ft_utils.c
-int		ft_atoi(const char *nptr);
-void	ft_putstr(char *s);
-void	ft_putendl_fd(char *s, int fd);
+int			ft_atoi(const char *nptr);
+void		ft_putstr(char *s);
+void		ft_putendl_fd(char *s, int fd);
 
 #endif

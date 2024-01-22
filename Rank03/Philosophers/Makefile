@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>	    +#+  +:+	   +#+	       #
 #						  +#+#+#+#+#+	+#+	       #
 #    Created: 2024/01/19 21:52:10 by marcosv2	       #+#    #+#	       #
-#    Updated: 2024/01/22 04:18:55 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/01/22 14:40:06 by marcosv2         ###   ########.fr        #
 #									       #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME	= philo
 MAKE	= make
 C_COMP	= cc
 C_FLAG	= -Wall -Werror -Wextra
+C_MDIR	= mkdir -p
 C_REMO	= rm -rf
 C_PUTS	= printf
 
@@ -61,7 +62,7 @@ $(D_OBJS)	:
 	@clear
 	@$(C_PUTS) "$(P_LGREN)Starting $(NAME) compilation...$(P_WHITE)"
 	@$(C_PUTS) "\n\t$(P_MAGEN)Creating $(NAME) objects directory...$(P_WHITE)\n"
-	@mkdir $(D_OBJS)
+	@$(C_MDIR) $(D_OBJS)
 
 clean		:
 	@$(C_PUTS) "$(P_NWINE)Cleaning $(NAME) objects...$(P_WHITE)\n"

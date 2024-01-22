@@ -36,11 +36,11 @@ int	ph_check_info(char **argv)
 
 uint64_t	ph_gtime(void)
 {
-	struct timeval	tm;
+	struct timeval	tv;
 
-	if (gettimeofday(&tm, NULL))
+	if (gettimeofday(&tv, NULL))
 		return (ph_error(NULL, ERR_GTM));
-	return ((tm.tv_sec * (uint64_t)1000) + (tm.tv_usec / 1000));
+	return ((tv.tv_sec * (uint64_t)1000) + (tv.tv_usec / 1000));
 }
 
 int	ph_usleep(useconds_t time)

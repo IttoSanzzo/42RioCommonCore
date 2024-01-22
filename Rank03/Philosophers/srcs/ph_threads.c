@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:03:22 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 01:32:28 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:29:57 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	*ph_monitor(void *philo_arg)
 			philo->info->died = 1;
 		pthread_mutex_unlock(&philo->lock);
 	}
-	return (NULL);
+	return ((void *)0);
 }
 
 static void	*ph_supervisor(void *philo_arg)
@@ -32,10 +32,10 @@ static void	*ph_supervisor(void *philo_arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)philo_arg;
-	while (!philo->info->died)
+	while (philo->info->died == 0)
 	{
 		pthread_mutex_lock(&philo->lock);
-		if (ph_gtime() >= philo->tm_to_die && !philo->eating)
+		if (ph_gtime() >= philo->tm_to_die && philo->eating == 0)
 			ph_mss(MSS_DIED, philo);
 		if (philo->eats == philo->info->eat_goal)
 		{
@@ -46,7 +46,7 @@ static void	*ph_supervisor(void *philo_arg)
 		}
 		pthread_mutex_unlock(&philo->lock);
 	}
-	return (NULL);
+	return ((void *)0);
 }
 
 static void	*ph_routine(void *philo_arg)
@@ -57,14 +57,14 @@ static void	*ph_routine(void *philo_arg)
 	philo->tm_to_die = philo->info->tm_die + ph_gtime();
 	if (pthread_create(&philo->t1, NULL, &ph_supervisor, (void *)philo))
 		return ((void *)1);
-	while (!philo->info->died)
+	while (philo->info->died == 0)
 	{
 		ph_act_eat(philo);
 		ph_mss(MSS_THINKING, philo);
 	}
 	if (pthread_join(philo->t1, NULL))
 		return ((void *)1);
-	return (NULL);
+	return ((void *)0);
 }
 
 int	ph_th_init(t_info *info)
@@ -72,11 +72,11 @@ int	ph_th_init(t_info *info)
 	int			i;
 	pthread_t	t0;
 
+	i = -1;
 	info->start_tm = ph_gtime();
 	if (info->eat_goal > 0)
 		if (pthread_create(&t0, NULL, &ph_monitor, &info->philos[0]))
 			return (ph_error(info, ERR_TH));
-	i = -1;
 	while (++i < info->ph_num)
 	{
 		if (pthread_create(&info->tid[i], NULL, &ph_routine, &info->philos[i]))
@@ -98,10 +98,9 @@ int	ph_loner(t_info *info)
 	info->start_tm = ph_gtime();
 	if (pthread_create(&info->tid[0], NULL, &ph_routine, &info->philos[0]))
 		return (ph_error(info, ERR_TH));
-	if (pthread_join(info->tid[0], NULL))
-		return (ph_error(info, ERR_JOIN));
+	pthread_detach(info->tid[0]);
 	while (info->died == 0)
-		ph_usleep(0);
+		ph_usleep(10);
 	ph_free_all(info);
 	return (0);
 }

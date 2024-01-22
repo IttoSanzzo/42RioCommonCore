@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:41:03 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 00:34:05 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:25:11 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ph_init_forks(t_info *info)
 	i = 0;
 	while (++i < info->ph_num)
 	{
-		info->philos[i].l_fork = &info->forks[0];
+		info->philos[i].l_fork = &info->forks[i];
 		info->philos[i].r_fork = &info->forks[i - 1];
 	}
 }
@@ -75,7 +75,6 @@ static void	ph_init_philos(t_info *info)
 		info->philos[i].id = i + 1;
 		info->philos[i].eats = 0;
 		info->philos[i].eating = 0;
-		info->philos[i].status = 0;
 		info->philos[i].tm_to_die = info->tm_die;
 		pthread_mutex_init(&info->philos[i].lock, NULL);
 	}
@@ -83,7 +82,9 @@ static void	ph_init_philos(t_info *info)
 
 int	ph_inits(t_info *info, int ac, char **av)
 {
-	if (ph_init_info(info, ac, av) || ph_init_allocs(info))
+	if (ph_init_info(info, ac, av))
+		return (1);
+	if (ph_init_allocs(info))
 		return (1);
 	ph_init_forks(info);
 	ph_init_philos(info);

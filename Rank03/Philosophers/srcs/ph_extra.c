@@ -39,7 +39,7 @@ uint64_t	ph_gtime(void)
 	struct timeval	tm;
 
 	if (gettimeofday(&tm, NULL))
-		return (error(ERR_GTM, NULL));
+		return (ph_error(NULL, ERR_GTM));
 	return ((tm.tv_sec * (uint64_t)1000) + (tm.tv_usec / 1000));
 }
 
@@ -51,4 +51,20 @@ int	ph_usleep(useconds_t time)
 	while ((ph_gtime() - start) < time)
 		usleep(time / 10);
 	return (0);
+}
+
+void	ph_mss(char *s, t_philo *philo)
+{
+	uint64_t	time;
+
+	pthread_mutex_lock(&philo->info->write);
+	time = ph_gtime() - philo->info->start_tm;
+	if (!ft_strcmp(MSS_DIED, s) && !philo->info->died)
+	{
+		printf("%lu %d %s\n", time, philo->id, s);
+		philo->info->died = 1;
+	}
+	if (!philo->info->died)
+		printf("%lu %d %s\n", time, philo->id, s);
+	pthread_mutex_unlock(&philo->info->write);
 }

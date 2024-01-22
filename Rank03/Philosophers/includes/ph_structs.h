@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:01:56 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 00:17:54 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 00:36:58 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ typedef struct s_info
 	t_philo			*philos;
 	pthread_t		*tid;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	*lock;
-	pthread_mutex_t	*write;
+	pthread_mutex_t	lock;
+	pthread_mutex_t	write;
 }	t_info;
 
 #endif

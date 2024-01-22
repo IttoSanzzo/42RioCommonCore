@@ -6,31 +6,17 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:03:22 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/22 00:33:01 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/01/22 01:32:28 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	ph_loner(t_info *info)
-{
-	info->start_tm = ph_gtime();
-	if (pthread_create(&info->tid[0], NULL, &ph_routine, &info->philos[0]))
-		return (ph_error(info, ERR_TH));
-	pthread_detach(info->tid[0]);
-	while (info->died == 0)
-		ph_usleep(0);
-	ph_free_all(info);
-	return (0);
-}
 
 static void	*ph_monitor(void *philo_arg)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)philo_arg;
-	pthread_mutex_lock(&philo->info->write);
-	pthread_mutex_unlock(&philo->info->write);
 	while (!philo->info->died)
 	{
 		pthread_mutex_lock(&philo->lock);
@@ -71,7 +57,7 @@ static void	*ph_routine(void *philo_arg)
 	philo->tm_to_die = philo->info->tm_die + ph_gtime();
 	if (pthread_create(&philo->t1, NULL, &ph_supervisor, (void *)philo))
 		return ((void *)1);
-	while (philo->info->died == 0)
+	while (!philo->info->died)
 	{
 		ph_act_eat(philo);
 		ph_mss(MSS_THINKING, philo);
@@ -104,5 +90,18 @@ int	ph_th_init(t_info *info)
 	if (info->eat_goal > 0)
 		if (pthread_join(t0, NULL))
 			return (ph_error(info, ERR_JOIN));
+	return (0);
+}
+
+int	ph_loner(t_info *info)
+{
+	info->start_tm = ph_gtime();
+	if (pthread_create(&info->tid[0], NULL, &ph_routine, &info->philos[0]))
+		return (ph_error(info, ERR_TH));
+	if (pthread_join(info->tid[0], NULL))
+		return (ph_error(info, ERR_JOIN));
+	while (info->died == 0)
+		ph_usleep(0);
+	ph_free_all(info);
 	return (0);
 }

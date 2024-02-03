@@ -6,14 +6,13 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:03 by marcosv2          #+#    #+#              #
-#    Updated: 2024/02/02 15:11:38 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/02/02 22:47:12 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Comamad Miscs
 
 NAME	= megaphone
-MAKE	= make
 C_COMP	= c++
 C_FLAG	= -Wall -Werror -Wextra -std=c++98
 C_MDIR	= mkdir -p

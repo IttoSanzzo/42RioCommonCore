@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:33 by marcosv2          #+#    #+#              #
-#    Updated: 2024/02/02 22:57:58 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/02/03 13:05:43 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ D_OBJS	= objs/
 
 # Sources & Objects
 
-N_MAIN	=	phonebook.cpp
+N_MAIN	=	main.cpp		\
+			PhoneBook.cpp	\
+			Contact.cpp
 F_SRCS	= $(addprefix $(D_SRCS)/, $(N_MAIN))
 N_OBJS	= $(N_MAIN:.cpp=.opp)
 

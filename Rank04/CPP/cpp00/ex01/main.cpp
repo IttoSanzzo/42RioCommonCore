@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 22:55:29 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/02/02 22:57:07 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/02/02 22:57:18 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/02/03 12:56:53 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "main.hpp"
 
-#include <iostream>
-
-#endif
+int	main(void) {
+	return (0);
+}

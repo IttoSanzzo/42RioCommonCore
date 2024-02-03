@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 22:57:18 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/02/02 22:59:30 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/02/03 12:50:44 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/02/03 13:04:17 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#ifndef CPP00_MAIN_HPP
+# define CPP00_MAIN_HPP
 
-int	main(void)
-{
-	return (0);
-}
+# include "PhoneBook.hpp"
+# include <iostream>
+# include <string>
+
+# define FIELD_WIDTH 10
+
+#endif

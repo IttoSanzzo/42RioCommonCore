@@ -18,4 +18,4 @@ Documents
 *.a
 *.out
 *.settings.json
-*/.vscode/
+*.vscode/

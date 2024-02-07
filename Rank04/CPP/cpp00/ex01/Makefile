@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:33 by marcosv2          #+#    #+#              #
-#    Updated: 2024/02/03 13:05:43 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/02/06 23:09:19 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 NAME	= phonebook
 C_COMP	= c++
 C_FLAG	= -Wall -Werror -Wextra -std=c++98
+C_MACR	= -D CLEAR_FUN=0 -D MAX_CAP=8
 C_MDIR	= mkdir -p
 C_REMO	= rm -rf
 C_PUTS	= printf
@@ -29,7 +30,8 @@ D_OBJS	= objs/
 
 N_MAIN	=	main.cpp		\
 			PhoneBook.cpp	\
-			Contact.cpp
+			Contact.cpp		\
+			ft_utils.cpp
 F_SRCS	= $(addprefix $(D_SRCS)/, $(N_MAIN))
 N_OBJS	= $(N_MAIN:.cpp=.opp)
 
@@ -52,12 +54,12 @@ all		: $(NAME)
 
 $(NAME)		: $(D_OBJS) $(F_OBJS)
 	@$(C_PUTS) "\n\t$(P_NCYAN)Finishing binary..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
-	@$(C_COMP) $(C_FLAG) $(D_HDRS) -o $@ $(F_OBJS)
+	@$(C_COMP) $(C_FLAG) $(C_MACR) $(D_HDRS) -o $@ $(F_OBJS)
 	@$(C_PUTS) "$(P_GREEN)Done!$(P_WHITE)\n"
 
 $(D_OBJS)%.opp	: $(D_SRCS)/%.cpp
 	@$(C_PUTS) "\t$(P_PRPLE)Generating $(NAME)..: %-33.33s\r $(P_WHITE)" $@
-	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@
+	@$(C_COMP) $(C_FLAG) $(C_MACR) $(D_HDRS) -c $< -o $@
 
 $(D_OBJS)	:
 	@clear

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 22:47:25 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/02/06 23:09:04 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/02/07 00:34:15 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	search_contact(PhoneBook &phonebook) {
 	} while (index.empty());
 	if (check_index(index))
 		return ;
-	i = atoi(index.c_str());
+	i = std::atoi(index.c_str());
 	if (i < 1 || i > MAX_CAP)
 		std::cout << C_RED << "Index is out of range!\n" << C_DEF;
 	else

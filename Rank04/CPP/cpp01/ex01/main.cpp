@@ -6,17 +6,18 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:44:05 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/04 21:15:17 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:10:03 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
 int	main(void) {
-	Zombie	*zb = newZombie("Chariot");
+	Zombie	*zb = zombieHorde(5, "Chariot");
 	
-	zb->announce();
-	randomChump("Mari");
-	delete (zb);
+	for (int i = 0; i < 5; i++) {
+		zb[2].announce();
+	}
+	delete[] zb;
 	return (0);
 }

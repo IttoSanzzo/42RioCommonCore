@@ -6,13 +6,13 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:33 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/04 20:10:28 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/04 21:40:43 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Comamad Miscs
 
-NAME	= Zombie
+NAME	= ZombieHorde
 C_COMP	= c++
 C_FLAG	= -Wall -Werror -Wextra -std=c++98
 C_MDIR	= mkdir -p
@@ -29,8 +29,7 @@ D_OBJS	= objs/
 
 N_MAIN	=	main.cpp		\
 			Zombie.cpp		\
-			newZombie.cpp	\
-			randomChump.cpp
+			zombieHorde.cpp
 F_SRCS	= $(addprefix $(D_SRCS)/, $(N_MAIN))
 N_OBJS	= $(N_MAIN:.cpp=.opp)
 

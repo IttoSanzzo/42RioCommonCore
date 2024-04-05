@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 20:52:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/04 20:54:26 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/04/04 21:33:00 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/04/04 22:09:59 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	randomChump(std::string name) {
-	Zombie	z = Zombie(name);
-	z.announce();
+Zombie*	zombieHorde(int N, std::string name) {
+	Zombie	*zh = new Zombie[N];
+
+(void)name;
+	for (int i = 0; i < N; i++) {
+		zh[i].setName(name);
+	}
+	return (zh);
 }

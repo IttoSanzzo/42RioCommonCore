@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 23:51:43 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/05 01:34:08 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/05 02:27:12 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void ft_sedl(std::string& oldstr, std::string& newstr, std::string& content) {
 	while (found_p != std::string::npos) {
 		content.erase(found_p, oldstr.length());
 		content.insert(found_p, newstr);
-		std::cout << content;
 		found_p = content.find(oldstr, found_p + newstr.length());
 	}	
 }

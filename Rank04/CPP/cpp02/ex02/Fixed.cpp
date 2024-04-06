@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 02:27:54 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/06 05:35:17 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/06 05:54:55 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ Fixed	Fixed::operator-(const Fixed& fix) {
 
 Fixed	Fixed::operator*(const Fixed& fix) {
 	Fixed	ret;
-	ret.fp_value = this->fp_value * fix.fp_value;
+	ret.fp_value = (this->fp_value * fix.fp_value) >> fr_bits;
 	return (ret);
 }
 
 Fixed	Fixed::operator/(const Fixed& fix) {
 	Fixed	ret;
-	ret.fp_value = this->fp_value / fix.fp_value;
+	ret.fp_value = (this->fp_value << fr_bits) / fix.fp_value;
 	return (ret);
 }
 
@@ -133,7 +133,7 @@ int		Fixed::toInt(void) const {
 Fixed&	Fixed::min(Fixed& first, Fixed& second) {
 	if (first.toFloat() > second.toFloat())
 		return ((Fixed&)second);
-	return ((Fixed&)first);
+	return (first);
 }
 
 Fixed&	Fixed::min(const Fixed& first, const Fixed& second) {
@@ -145,7 +145,7 @@ Fixed&	Fixed::min(const Fixed& first, const Fixed& second) {
 Fixed&	Fixed::max(Fixed& first, Fixed& second) {
 	if (first.toFloat() < second.toFloat())
 		return ((Fixed&)second);
-	return ((Fixed&)first);
+	return (first);
 }
 
 Fixed&	Fixed::max(const Fixed& first, const Fixed& second) {

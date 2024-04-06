@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 22:35:34 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/05 23:22:32 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/05 23:45:22 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 class	Harl {
 	private:
-		enum	LEVELS {DEBUG, INFO, WARNING, ERROR};
 		void	debug(void);
 		void	info(void);
 		void	warning(void);

@@ -1,18 +1,18 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile-Mancpp-0                                  :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:33 by marcosv2          #+#    #+#              #
-#    Updated: 2024/02/02 22:48:10 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/06 06:12:47 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Comamad Miscs
 
-NAME	= 
+NAME	= BSP
 C_COMP	= c++
 C_FLAG	= -Wall -Werror -Wextra -std=c++98
 C_MDIR	= mkdir -p
@@ -27,7 +27,8 @@ D_OBJS	= objs/
 
 # Sources & Objects
 
-N_MAIN	=	
+N_MAIN	=	main.cpp	\
+			Fixed.cpp
 F_SRCS	= $(addprefix $(D_SRCS)/, $(N_MAIN))
 N_OBJS	= $(N_MAIN:.cpp=.opp)
 

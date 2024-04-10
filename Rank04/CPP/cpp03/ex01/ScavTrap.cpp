@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 01:06:19 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 01:19:51 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 02:14:27 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 ScavTrap::~ScavTrap(void) {
 	std::cout << "ScavTrap " << this->getName() << " is destructed!" << std::endl;
+}
+
+ScavTrap::ScavTrap(void) : ClapTrap("Mistake") {
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackDamage(20);
+	std::cout << "ScavTrap " << this->getName() << " is constructed!" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name){

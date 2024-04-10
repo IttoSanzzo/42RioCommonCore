@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:14:53 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 00:54:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 02:08:59 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ClapTrap {
 		int			attackDamage;
 	public:
 		~ClapTrap(void);
+		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap& src);
 		ClapTrap&		operator=(ClapTrap& src);

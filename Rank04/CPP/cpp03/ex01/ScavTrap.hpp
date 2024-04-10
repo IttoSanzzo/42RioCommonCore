@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 01:00:09 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 01:19:52 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 02:14:29 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 class ScavTrap : virtual public ClapTrap {
 	private:
-		ScavTrap(void);
 	public:
 		~ScavTrap(void);
+		ScavTrap(void);
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap& src);
 		ScavTrap&	operator=(ScavTrap& src);

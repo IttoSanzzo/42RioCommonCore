@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:33 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/09 22:11:45 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/10 01:18:42 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,9 @@ D_OBJS	= objs/
 
 # Sources & Objects
 
-N_MAIN	=	main.cpp	\
-			ClapTrap.cpp
+N_MAIN	=	main.cpp		\
+			ClapTrap.cpp	\
+			ScavTrap.cpp
 F_SRCS	= $(addprefix $(D_SRCS)/, $(N_MAIN))
 N_OBJS	= $(N_MAIN:.cpp=.opp)
 

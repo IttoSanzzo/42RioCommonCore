@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:33 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/06 06:12:47 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/09 21:56:10 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ D_OBJS	= objs/
 # Sources & Objects
 
 N_MAIN	=	main.cpp	\
-			Fixed.cpp
+			Fixed.cpp	\
+			Point.cpp	\
+			bsp.cpp
 F_SRCS	= $(addprefix $(D_SRCS)/, $(N_MAIN))
 N_OBJS	= $(N_MAIN:.cpp=.opp)
 

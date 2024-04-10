@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 01:00:09 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 02:14:29 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 04:03:52 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap {
-	private:
 	public:
 		~ScavTrap(void);
 		ScavTrap(void);
 		ScavTrap(std::string name);
-		ScavTrap(ScavTrap& src);
-		ScavTrap&	operator=(ScavTrap& src);
+		ScavTrap(const ScavTrap& src);
+		ScavTrap&	operator=(const ScavTrap& src);
 		void		attack(const std::string& target);
 		void		guardGate(void);
 };

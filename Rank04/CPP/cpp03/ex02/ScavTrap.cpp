@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 01:06:19 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 02:14:27 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 04:03:47 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,25 @@ ScavTrap::~ScavTrap(void) {
 	std::cout << "ScavTrap " << this->getName() << " is destructed!" << std::endl;
 }
 
-ScavTrap::ScavTrap(void) : ClapTrap("Mistake") {
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+ScavTrap::ScavTrap(void) : ClapTrap(100, 50, 20, "Mistake") {
 	std::cout << "ScavTrap " << this->getName() << " is constructed!" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
-	this->setName(name);
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+ScavTrap::ScavTrap(std::string name) : ClapTrap(100, 50, 20, name) {
 	std::cout << "ScavTrap " << this->getName() << " is constructed!" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src){
-	*this = src;
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src.hitPoints, src.energyPoints, src.attackDamage, src.name) {
+	std::cout << "ScavTrap copied " << src.name << " constructor called!" << std::endl;
 }
 
-ScavTrap&	ScavTrap::operator=(ScavTrap& src) {
-	this->setName(src.getName());
-	this->setHitPoints(src.getHitPoints());
-	this->setEnergyPoints(src.getEnergyPoints());
-	this->setAttackDamage(src.getAttackDamage());
+ScavTrap&	ScavTrap::operator=(const ScavTrap& src) {
+	if (this != &src) {
+		this->setName(src.getName());
+		this->setHitPoints(src.getHitPoints());
+		this->setEnergyPoints(src.getEnergyPoints());
+		this->setAttackDamage(src.getAttackDamage());
+	}
 	return (*this);
 }
 

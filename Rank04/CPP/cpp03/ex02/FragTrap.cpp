@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 01:06:19 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 02:28:53 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 04:15:54 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,25 @@ FragTrap::~FragTrap(void) {
 	std::cout << "FragTrap " << this->getName() << " is destructed!" << std::endl;
 }
 
-FragTrap::FragTrap(void) : ClapTrap("Mistake") {
-	this->setHitPoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
+FragTrap::FragTrap(void) : ClapTrap(100, 100, 30, "Mistake") {
 	std::cout << "FragTrap " << this->getName() << " is constructed!" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name){
-	this->setName(name);
-	this->setHitPoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
+FragTrap::FragTrap(std::string name) : ClapTrap(100, 100, 30, name) {
 	std::cout << "FragTrap " << this->getName() << " is constructed!" << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap &src) : ClapTrap(src){
-	*this = src;
+FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src.hitPoints, src.energyPoints, src.attackDamage, src.name) {
+	std::cout << "FragTrap copied " << src.name << " constructor called!" << std::endl;
 }
 
-FragTrap&	FragTrap::operator=(FragTrap& src) {
-	this->setName(src.getName());
-	this->setHitPoints(src.getHitPoints());
-	this->setEnergyPoints(src.getEnergyPoints());
-	this->setAttackDamage(src.getAttackDamage());
+FragTrap&	FragTrap::operator=(const FragTrap& src) {
+	if (this != &src) {
+		this->setName(src.getName());
+		this->setHitPoints(src.getHitPoints());
+		this->setEnergyPoints(src.getEnergyPoints());
+		this->setAttackDamage(src.getAttackDamage());
+	}
 	return (*this);
 }
 

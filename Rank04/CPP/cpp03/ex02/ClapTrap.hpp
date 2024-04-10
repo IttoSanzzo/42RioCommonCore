@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:14:53 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 02:08:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 04:03:54 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string	name;
 		int			hitPoints;
 		int			energyPoints;
@@ -24,20 +24,21 @@ class ClapTrap {
 	public:
 		~ClapTrap(void);
 		ClapTrap(void);
+		ClapTrap(int hp, int ep, int ad, std::string name);
 		ClapTrap(std::string name);
-		ClapTrap(ClapTrap& src);
-		ClapTrap&		operator=(ClapTrap& src);
+		ClapTrap(const ClapTrap& src);
+		ClapTrap&		operator=(const ClapTrap& src);
 		void			attack(const std::string& target);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 		void			setName(std::string name);
-		std::string		getName(void);
+		std::string		getName(void) const;
 		void			setHitPoints(int hitpts);
-		int				getHitPoints(void);
+		int				getHitPoints(void) const;
 		void			setEnergyPoints(int energypts);
-		int				getEnergyPoints(void);
+		int				getEnergyPoints(void) const;
 		void			setAttackDamage(int attackdmg);
-		int				getAttackDamage(void);
+		int				getAttackDamage(void) const;
 };
 
 #endif

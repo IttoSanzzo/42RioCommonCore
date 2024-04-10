@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:22:02 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/09 22:49:06 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 02:06:16 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap destructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(void) {
+	this->name = "Mistake";
+	this->hitPoints = 10;
+	this->energyPoints = 10;
+	this->attackDamage = 0;
+	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name) {

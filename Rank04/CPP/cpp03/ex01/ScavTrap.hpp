@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 01:00:09 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 04:03:52 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/10 04:10:21 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap {
+class ScavTrap : public ClapTrap {
 	public:
 		~ScavTrap(void);
 		ScavTrap(void);

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 20:08:02 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/11 20:13:46 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/12 02:28:15 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define ICE_HPP
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class Ice : public AMateria {
 	public:
-		~Ice(void);
+		virtual	~Ice(void);
 		Ice(void);
 		Ice(const Ice& src);
 		Ice&		operator=(const Ice& src);

@@ -19,8 +19,7 @@ Cure::Cure(void) {
 	this->AMateria::type = "cure";
 }
 
-Cure::Cure(const Cure& src) {
-	this->type = src.type;
+Cure::Cure(const Cure& src) : AMateria(src) {
 }
 
 Cure&	Cure::operator=(const Cure& src) {

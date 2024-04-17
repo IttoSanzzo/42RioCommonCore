@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:28:52 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/11 17:34:28 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/17 09:10:24 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongCat::~WrongCat(void) {
 }
 
 WrongCat::WrongCat(void) {
-	this->type = "wrongcat";
+	this->type = "WrongCat";
 	std::cout << "WrongCat default constructor called!" << std::endl;
 }
 

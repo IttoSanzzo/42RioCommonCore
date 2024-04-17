@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 15:01:33 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/12 01:26:38 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/17 09:53:52 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,9 @@ D_OBJS	= objs/
 # Sources & Objects
 
 N_MAIN	=	AMateria.cpp		\
-			ICharacter.cpp		\
 			Character.cpp		\
 			Cure.cpp			\
 			Ice.cpp				\
-			IMateriaSource.cpp	\
 			MateriaSource.cpp	\
 			AMateriaNode.cpp	\
 			LinkedList.cpp		\

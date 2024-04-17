@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:38:30 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 09:44:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/17 09:48:22 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class Animal {
 	protected:
 		std::string	type;
+	public:
+		virtual	~Animal(void);
 		Animal(void);
 		Animal(const Animal& src);
 		Animal&	operator=(const Animal& src);
-	public:
-		virtual	~Animal(void);
 		virtual void	makeSound(void) const = 0;
 		std::string		getType(void) const;
 };

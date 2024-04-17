@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/17 18:13:13 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/17 20:26:53 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,15 +31,24 @@ D_OBJS	= objs/
 # Sources & Objects
 
 DS_MAIN	=	cb_main/
-N_MAIN	=	main.c
+DS_PARS	=	cb_parse/
+DS_UTIL	=	cb_utils/
+
+N_MAIN	=	main.c		\
+			cb_init.c	\
+			cb_exit.c
+N_PARS	=	cb_arguments.c
+N_UTIL	=	cb_get_data.c
+
 F_SRCS	= $(addprefix $(D_SRCS)$(DS_MAIN), $(N_MAIN))
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PARS), $(N_PARS))
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_UTIL), $(N_UTIL))
 
 #F_SRCS	+= $(addprefix $(D_SRCS)$(DS_), $(N_))
 
-
 N_OBJS	=	$(N_MAIN:.c=.o)	\
-#			$(N_:.c=.o)
-
+			$(N_PARS:.c=.o)	\
+			$(N_UTIL:.c=.o)
 F_OBJS	= $(addprefix $(D_OBJS), $(N_OBJS))
 
 # Libft

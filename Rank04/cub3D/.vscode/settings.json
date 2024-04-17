@@ -3,6 +3,7 @@
 		".env.*": "dotenv",
 		".prettierrc": "json",
 		"*.css": "css",
-		"libft.h": "c"
+		"libft.h": "c",
+		"cube.h": "c"
 	}
 }

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cb_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 17:54:27 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 20:54:42 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/04/17 20:16:43 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/04/17 20:53:23 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int	main(int ac, char *av[])
+static void	cb_free_all(t_data *data)
 {
-	t_data	data;
+	ft_nfreetab(&(data->map.layout));
+	ft_nfreestr(&(data->tx.no_t));
+	ft_nfreestr(&(data->tx.ea_t));
+	ft_nfreestr(&(data->tx.so_t));
+	ft_nfreestr(&(data->tx.we_t));
+}
 
-	if (ac != 2)
-		return (ft_putstr_fd(ERR_MSS_N, 2), ft_putstr_fd(ERR_MSS_AC, 2), 1);
-	cb_base_init(&data);
-	cb_arguments(&data, av[1]);
-	cb_exit(0);
+void	cb_exit(int exit_value)
+{
+	cb_free_all(cb_get_data(NULL));
+	exit (exit_value);
 }

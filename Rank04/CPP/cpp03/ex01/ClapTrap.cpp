@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 22:22:02 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/10 04:03:57 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/17 08:41:13 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ ClapTrap::ClapTrap(int hp, int ep, int ad, std::string name) {
 	this->hitPoints = hp;
 	this->energyPoints = ep;
 	this->attackDamage = ad;
+	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name) {

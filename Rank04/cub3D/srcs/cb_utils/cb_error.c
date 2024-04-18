@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_exit.c                                          :+:      :+:    :+:   */
+/*   cb_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 20:16:43 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 22:48:28 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/04/17 21:03:14 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/04/17 23:11:02 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void	cb_free_all(t_data *data)
+void	cb_error(char *error)
 {
-	ft_nfreetab(&(data->parse.import));
-	ft_nfreetab(&(data->map.layout));
-	ft_nfreestr(&(data->tx.no_t));
-	ft_nfreestr(&(data->tx.ea_t));
-	ft_nfreestr(&(data->tx.so_t));
-	ft_nfreestr(&(data->tx.we_t));
-}
-
-void	cb_exit(int exit_value)
-{
-	cb_free_all(cb_get_data(NULL));
-	exit (exit_value);
+	ft_putendl_fd(ERR_MSS_N, STDERR);
+	ft_putendl_fd(error, STDERR);
+	cb_exit(1);
 }

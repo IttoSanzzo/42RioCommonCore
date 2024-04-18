@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:47 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 20:53:26 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/17 22:48:25 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	cb_map_init(t_data *data)
 void	cb_base_init(t_data *data)
 {
 	data->mlx.state = 0;
+	data->parse.import = NULL;
 	cb_get_data(data);
 	cb_texture_init(data);
 	cb_map_init(data);

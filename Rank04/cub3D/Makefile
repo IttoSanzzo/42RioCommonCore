@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/17 20:26:53 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/17 23:06:42 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,13 @@ DS_MAIN	=	cb_main/
 DS_PARS	=	cb_parse/
 DS_UTIL	=	cb_utils/
 
-N_MAIN	=	main.c		\
-			cb_init.c	\
+N_MAIN	=	main.c				\
+			cb_init.c			\
 			cb_exit.c
-N_PARS	=	cb_arguments.c
-N_UTIL	=	cb_get_data.c
+N_PARS	=	cb_arguments.c		\
+			cb_base_format.c
+N_UTIL	=	cb_get_data.c		\
+			cb_error.c
 
 F_SRCS	= $(addprefix $(D_SRCS)$(DS_MAIN), $(N_MAIN))
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PARS), $(N_PARS))

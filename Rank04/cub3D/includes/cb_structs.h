@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 20:46:17 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/17 22:45:53 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,14 @@ typedef struct s_map
 	int		pov_o;
 }	t_map;
 
+typedef struct s_parse
+{
+	char		**import;
+}	t_parse;
+
 typedef struct s_data
 {
+	t_parse		parse;
 	t_textures	tx;
 	t_map		map;
 	t_mlx		mlx;

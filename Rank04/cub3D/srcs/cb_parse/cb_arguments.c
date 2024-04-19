@@ -6,11 +6,35 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:14:04 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 23:12:18 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:01:24 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+static void	cb_def_textures(t_data *data)
+{
+	if (data->tx.no_t == NULL)
+		data->tx.no_t = ft_strdup(DEF_TX_NO);
+	if (data->tx.ea_t == NULL)
+		data->tx.ea_t = ft_strdup(DEF_TX_EA);
+	if (data->tx.so_t == NULL)
+		data->tx.so_t = ft_strdup(DEF_TX_SO);
+	if (data->tx.we_t == NULL)
+		data->tx.we_t = ft_strdup(DEF_TX_WE);
+	if (data->tx.c_set == 0)
+	{
+		data->tx.f_cl[0] = DEF_F_R;
+		data->tx.f_cl[1] = DEF_F_G;
+		data->tx.f_cl[2] = DEF_F_B;
+	}
+	if (data->tx.c_set == 0)
+	{
+		data->tx.c_cl[0] = DEF_C_R;
+		data->tx.c_cl[1] = DEF_C_G;
+		data->tx.c_cl[2] = DEF_C_B;
+	}
+}
 
 static void	cb_check_cub(char *file)
 {
@@ -23,34 +47,14 @@ static void	cb_check_cub(char *file)
 	cb_error(ERR_MSS_CUB);
 }
 
-static void	cb_import_file(t_data *data, char *file)
-{
-	int		fd;
-	char	*line;
-	char	*raw;
-
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		cb_error(ERR_MSS_NF);
-	raw = ft_strdup("");
-	line = get_next_line(fd);
-	while (line)
-	{
-		ft_freejoin(&raw, &line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	data->parse.import = ft_split(raw, '\n');
-	ft_nfreestr(&raw);
-}
-
 void	cb_arguments(t_data *data, char *file)
 {
 	cb_check_cub(file);
-	cb_import_file(data, file);
+	if (ft_ftot(file, &(data->parse.import), '\n') == -1)
+		cb_error(ERR_MSS_NF);
 	cb_base_format_import(data);
-	
-	ft_puttab(data->parse.import, "");
+
+	cb_def_textures(data);
 	
 	(void)data;
 }

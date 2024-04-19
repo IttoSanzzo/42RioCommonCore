@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 20:08:31 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/01/19 20:08:39 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 10:10:36 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char	*ft_itoa(int n);
 int		ft_atoi(const char *nptr);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_ftos(char *file, char **output);
+int		ft_ftot(char *file, char ***output, char c);
 
 //// ft_mem
 t_clist	*ft_nfreeclst(t_clist **mem);
@@ -68,6 +70,7 @@ char	**ft_nfreetab(char ***mem);
 char	*ft_nfreestr(char **mem);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_gint(int id, size_t act, int val);
+int		**ft_nfreeitab(int ***itab);
 
 //// ft_put
 void	ft_puttab(char **tab, char *prompt);
@@ -160,6 +163,7 @@ int		ft_getstr_p(char **tab, char const *name);
 int		ft_getarg_p(char **tab, char const *name);
 int		ft_getchar(void);
 int		ft_getchar_unb(int dsecs);
+void	ft_endl(unsigned int n);
 
 //// ft_list
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));

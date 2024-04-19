@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/17 23:06:42 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/19 10:13:35 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,6 +110,11 @@ re		: fclean all
 val		:
 	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
+uplibft	:
+	@rm -rf ./libft/
+	@git clone git@github.com:IttoSanzzo/libft.git
+	@rm -rf ./libft/.git
+
 # Phony
 
-.PHONY: all clean fclean re val
+.PHONY: all clean fclean re val uplibft

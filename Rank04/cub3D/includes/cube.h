@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:14:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 23:03:27 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 09:20:37 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "./cb_macros.h"
 # include "./cb_structs.h"
 # include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
 //// cb_main
 // main.c

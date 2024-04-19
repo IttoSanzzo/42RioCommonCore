@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/17 22:45:53 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:00:25 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_mlx
 
 typedef struct s_textures
 {
+	int		f_set;
+	int		c_set;
 	int		f_cl[3];
 	int		c_cl[3];
 	char	*no_t;
@@ -32,14 +34,16 @@ typedef struct s_textures
 
 typedef struct s_map
 {
-	char	**layout;
+	int		**layout;
 	int		pov_s[2];
 	int		pov_o;
 }	t_map;
 
 typedef struct s_parse
 {
-	char		**import;
+	char	**elements;
+	char	**import;
+	char	**layout;
 }	t_parse;
 
 typedef struct s_data

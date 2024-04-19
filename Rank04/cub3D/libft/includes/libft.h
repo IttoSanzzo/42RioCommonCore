@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 20:08:31 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 10:10:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:30:22 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ char	*ft_strdup(const char *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strchp(char *s, char c);
+void	ft_strchrep(char *str, char trg, char rep);
 
 //// ft_strman
 char	*ft_stradd_bgn(char **old, char add);
@@ -137,6 +138,7 @@ char	**ft_freetab(char **tab);
 char	**ft_tabdup(char **old);
 void	ft_tabrem_qbl(char **tab);
 int		ft_tablen(char **tab);
+void	ft_tabchrep(char **tab, char trg, char rep);
 
 //// ft_ansi
 void	ft_ansi_drl(char *prompt);
@@ -164,6 +166,8 @@ int		ft_getarg_p(char **tab, char const *name);
 int		ft_getchar(void);
 int		ft_getchar_unb(int dsecs);
 void	ft_endl(unsigned int n);
+int		ft_check_file(char *file);
+int		ft_check_ext(char *file, char *ext);
 
 //// ft_list
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));

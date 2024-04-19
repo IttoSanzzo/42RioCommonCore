@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:14:04 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 11:01:24 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 15:32:33 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void	cb_def_textures(t_data *data)
 		data->tx.so_t = ft_strdup(DEF_TX_SO);
 	if (data->tx.we_t == NULL)
 		data->tx.we_t = ft_strdup(DEF_TX_WE);
-	if (data->tx.c_set == 0)
+	if (data->tx.c_lock == 0)
 	{
 		data->tx.f_cl[0] = DEF_F_R;
 		data->tx.f_cl[1] = DEF_F_G;
 		data->tx.f_cl[2] = DEF_F_B;
 	}
-	if (data->tx.c_set == 0)
+	if (data->tx.c_lock == 0)
 	{
 		data->tx.c_cl[0] = DEF_C_R;
 		data->tx.c_cl[1] = DEF_C_G;
@@ -36,25 +36,41 @@ static void	cb_def_textures(t_data *data)
 	}
 }
 
-static void	cb_check_cub(char *file)
+static void	cb_check_map_empty_lines(char *istream)
 {
 	int	i;
+	int	flag;
 
-	i = ft_strlen(file);
-	while (file[--i])
-		if (file[i] == '.' && !ft_strncmp((char *)(file + i), ".cub", 5))
-			return ;
-	cb_error(ERR_MSS_CUB);
+	i = -1;
+	flag = 0;
+	while(istream[++i])
+	{
+		if (istream[i] == '\n' && istream[i + 1] == '\n' && flag)
+			cb_error(ERR_MSS_MEL);
+		if (istream[i] == '\n')
+		{
+			if (istream[i + 1] != '\n')
+				i++;
+			while (istream[i] == ' ' || istream[i] == '\t')
+				i++;
+			if (flag == 0 && ft_isdigit(istream[i]))
+				flag = 1;
+		}
+	}
+	if (istream[i - 2] == '\n')
+		cb_error(ERR_MSS_MEL);
 }
 
 void	cb_arguments(t_data *data, char *file)
 {
-	cb_check_cub(file);
-	if (ft_ftot(file, &(data->parse.import), '\n') == -1)
-		cb_error(ERR_MSS_NF);
+	if (!ft_check_ext(file, "cub"))
+		cb_error(ERR_MSS_CUB);
+	if (ft_check_file(file) == -1)
+		cb_error(ERR_MSS_FNF);
+	ft_ftos(file, &data->parse.istream);
+	cb_check_map_empty_lines(data->parse.istream);
+	data->parse.import = ft_split(data->parse.istream, '\n');
 	cb_base_format_import(data);
-
 	cb_def_textures(data);
 	
-	(void)data;
 }

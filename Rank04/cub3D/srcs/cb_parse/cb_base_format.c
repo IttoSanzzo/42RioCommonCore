@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 23:01:31 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 10:52:16 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:58:21 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	cb_part(t_data *data)
 void	cb_base_format_import(t_data *data)
 {
 	cb_part(data);
-
+	cb_parse_elements(data);
 	
 	/*
 	ft_puttab(data->parse.elements, "Element..: ");

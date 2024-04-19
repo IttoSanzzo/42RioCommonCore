@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 10:59:33 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 15:28:35 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@
 # define ERR_MSS_N "\033[38;5;196mError\033[0m"
 # define ERR_MSS_AC "Wrong argument count... \"./cub3D <map_file>\""
 # define ERR_MSS_CUB "Wrong file type... \"*.cub\""
-# define ERR_MSS_NF "File not found or missing permissions..."
+# define ERR_MSS_FNF "File not found or missing permissions..."
+# define ERR_MSS_MEL "There are empty lines in the map layout!"
+# define ERR_MSS_NEM "New line in the end of the map"
 # define ERR_MSS_NVM "There's no valid map in the .cub file!"
+# define ERR_MSS_IEL "There are invalid elements in the .cub file!"
+# define ERR_MSS_DEL "There are repeated elements in the .cub file!"
+# define ERR_MSS_IRV "There's a invalid rgb value in the .cub file!"
+# define ERR_MSS_MEV "There's element without any value in the .cub file!"
+# define ERR_MSS_TNF "Texture file not found or missing permissions..."
+# define ERR_MSS_XPM "Wrong texture file type... \"*.xpm\""
 
 // Defaults
 # define DEF_TX_NO "./assets/wall_no.xpm"

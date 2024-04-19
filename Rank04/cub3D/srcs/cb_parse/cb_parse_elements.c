@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 11:40:55 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 14:27:02 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 15:37:36 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	cb_set_fc_rgb(int rgb[3], int lock, char ***parse)
 	int	i;
 	int	y;
 
-	if(!parse[0][1])
+	if (!parse[0][1])
 		cb_error(ERR_MSS_MEV);
 	if (lock)
 		cb_error(ERR_MSS_DEL);

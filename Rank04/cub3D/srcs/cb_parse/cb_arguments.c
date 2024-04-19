@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:14:04 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 15:32:33 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 19:25:36 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	cb_check_map_empty_lines(char *istream)
 
 	i = -1;
 	flag = 0;
-	while(istream[++i])
+	while (istream[++i])
 	{
 		if (istream[i] == '\n' && istream[i + 1] == '\n' && flag)
 			cb_error(ERR_MSS_MEL);
@@ -72,5 +72,5 @@ void	cb_arguments(t_data *data, char *file)
 	data->parse.import = ft_split(data->parse.istream, '\n');
 	cb_base_format_import(data);
 	cb_def_textures(data);
-	
+	//TODO root
 }

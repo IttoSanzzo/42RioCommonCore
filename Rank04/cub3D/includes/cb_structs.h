@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 14:57:17 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:46:41 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ typedef struct s_textures
 typedef struct s_map
 {
 	int		**layout;
-	int		pov_s[2];
-	int		pov_o;
+	int		pvx;
+	int		pvy;
+	int		pvo;
 }	t_map;
 
 typedef struct s_parse

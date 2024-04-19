@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/19 11:42:29 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/19 17:14:24 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,9 @@ N_MAIN	=	main.c				\
 			cb_exit.c
 N_PARS	=	cb_arguments.c		\
 			cb_base_format.c	\
-			cb_parse_elements.c
+			cb_parse_elements.c	\
+			cb_parse_map.c		\
+			cb_layout_to_map.c
 N_UTIL	=	cb_get_data.c		\
 			cb_error.c
 

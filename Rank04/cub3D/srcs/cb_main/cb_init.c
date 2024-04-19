@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:47 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 14:57:47 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:46:46 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static void	cb_texture_init(t_data *data)
 static void	cb_map_init(t_data *data)
 {
 	data->map.layout = NULL;
-	data->map.pov_s[0] = 0;
-	data->map.pov_s[1] = 0;
-	data->map.pov_o = 0;
+	data->map.pvx = 0;
+	data->map.pvy = 0;
+	data->map.pvo = -1;
 }
 
 void	cb_base_init(t_data *data)

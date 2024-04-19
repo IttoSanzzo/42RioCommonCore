@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 20:08:31 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 11:30:22 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:58:03 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	ft_putclstpos(t_clist *lst, int pos);
 void	ft_putnclst(t_clist *lst, int n);
 void	ft_putclst(t_clist *lst);
 void	ft_putclstval(t_clist *lst);
+void	ft_putitab(int **tab, char *prompt, char *divider, int stop);
 
 //// ft_str
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
@@ -113,6 +114,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strchp(char *s, char c);
 void	ft_strchrep(char *str, char trg, char rep);
+char	*ft_strchrem(char **str, char c);
 
 //// ft_strman
 char	*ft_stradd_bgn(char **old, char add);
@@ -139,6 +141,7 @@ char	**ft_tabdup(char **old);
 void	ft_tabrem_qbl(char **tab);
 int		ft_tablen(char **tab);
 void	ft_tabchrep(char **tab, char trg, char rep);
+char	**ft_tabchrem(char ***tab, char c);
 
 //// ft_ansi
 void	ft_ansi_drl(char *prompt);

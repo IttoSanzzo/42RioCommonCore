@@ -4,6 +4,9 @@
 		".prettierrc": "json",
 		"*.css": "css",
 		"libft.h": "c",
-		"cube.h": "c"
-	}
+		"cube.h": "c",
+		"map": "c",
+		"format": "c"
+	},
+	"C_Cpp.default.compilerPath": "/usr/bin/cc"
 }

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:14:04 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 19:25:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/20 06:47:30 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,4 @@ void	cb_arguments(t_data *data, char *file)
 	data->parse.import = ft_split(data->parse.istream, '\n');
 	cb_base_format_import(data);
 	cb_def_textures(data);
-	//TODO root
 }

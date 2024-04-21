@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/19 17:14:24 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/21 18:57:39 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ C_FLAG	= -Wall -Werror -Wextra
 C_REMO	= rm -rf
 C_MDIR	= mkdir -p
 C_PUTS	= printf
+C_LIBX	= -lX11 -lXext -lmlx
 
 # Dirs
 
@@ -33,6 +34,7 @@ D_OBJS	= objs/
 DS_MAIN	=	cb_main/
 DS_PARS	=	cb_parse/
 DS_UTIL	=	cb_utils/
+DS_MLX	=	cb_mlx/
 
 N_MAIN	=	main.c				\
 			cb_init.c			\
@@ -43,17 +45,22 @@ N_PARS	=	cb_arguments.c		\
 			cb_parse_map.c		\
 			cb_layout_to_map.c
 N_UTIL	=	cb_get_data.c		\
-			cb_error.c
+			cb_error.c			\
+			cb_rgb.c
+N_MLX	=	cb_mlx_init.c		\
+			cb_mlx_events.c
 
 F_SRCS	= $(addprefix $(D_SRCS)$(DS_MAIN), $(N_MAIN))
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PARS), $(N_PARS))
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_UTIL), $(N_UTIL))
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_MLX), $(N_MLX))
 
 #F_SRCS	+= $(addprefix $(D_SRCS)$(DS_), $(N_))
 
 N_OBJS	=	$(N_MAIN:.c=.o)	\
 			$(N_PARS:.c=.o)	\
-			$(N_UTIL:.c=.o)
+			$(N_UTIL:.c=.o)	\
+			$(N_MLX:.c=.o)
 F_OBJS	= $(addprefix $(D_OBJS), $(N_OBJS))
 
 # Libft
@@ -78,12 +85,12 @@ all		: $(NAME)
 
 $(NAME)		: $(F_LBFT) $(D_OBJS) $(F_OBJS)
 	@$(C_PUTS) "\n\t$(P_NCYAN)Finishing binary..: $(P_LBLUE)$(NAME)$(P_WHITE)\n"
-	@$(C_COMP) $(C_FLAG) -o $@ $(F_OBJS) $(F_LBFT)
+	@$(C_COMP) $(C_FLAG) -o $@ $(F_OBJS) $(F_LBFT) $(C_LIBX)
 	@$(C_PUTS) "$(P_GREEN)Done!$(P_WHITE)\n"
 
 $(D_OBJS)%.o	: $(D_SRCS)*/%.c
 	@$(C_PUTS) "\t$(P_PRPLE)Generating $(NAME)..: %-33.33s\r $(P_WHITE)" $@
-	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@ $(C_RDLN)
+	@$(C_COMP) $(C_FLAG) $(D_HDRS) -c $< -o $@ $(C_LIBX)
 
 $(D_OBJS)	:
 	@$(C_PUTS) "$(P_LGREN)Starting $(NAME) compilation...$(P_WHITE)"
@@ -92,14 +99,19 @@ $(D_OBJS)	:
 
 $(F_LBFT)	:
 	@clear
-	@$(MAKE) --no-print-directory -C $(D_LBFT)
+	@$(MAKE) all --no-print-directory -C $(D_LBFT)
+
+#confmlx	:
+#@$(MAKE) all --no-print-directory -C ./minilibx-linux/
 
 clean		:
+#@$(MAKE) clean --no-print-directory -C ./minilibx-linux/
 	@$(MAKE) clean --no-print-directory -C $(D_LBFT)
 	@$(C_PUTS) "$(P_NWINE)Cleaning $(NAME) objects...$(P_WHITE)\n"
 	@${C_REMO} $(D_OBJS)
 
 fclean		:
+#@$(MAKE) clean --no-print-directory -C ./minilibx-linux/
 	@$(MAKE) fclean --no-print-directory -C $(D_LBFT)
 	@$(C_PUTS) "$(P_NWINE)Cleaning $(NAME) objects...$(P_WHITE)\n"
 	@${C_REMO} $(D_OBJS)
@@ -118,6 +130,17 @@ uplibft	:
 	@git clone git@github.com:IttoSanzzo/libft.git
 	@rm -rf ./libft/.git
 
+setlib	:
+	@cp ~/Downloads/minilibx-linux.tgz ./
+	@tar zxvf minilibx-linux.tgz
+	@${C_REMO} minilibx-linux.tgz
+	@$(MAKE) --no-print-directory -C ./minilibx-linux/
+	@$(C_PUTS) "$(P_GREEN)Done!$(P_WHITE)\n"
+
+rmvlib	:
+	@${C_REMO} ./minilibx-linux
+	@$(C_PUTS) "$(P_GREEN)Done!$(P_WHITE)\n"
+
 # Phony
 
-.PHONY: all clean fclean re val uplibft
+.PHONY: all clean fclean re val uplibft setlib rmvlib confmlx

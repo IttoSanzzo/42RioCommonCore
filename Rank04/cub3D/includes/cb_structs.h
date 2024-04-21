@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 18:46:41 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:28:38 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,20 @@
 
 typedef struct s_mlx
 {
-	int		state;
+	void	*con;
+	void	*win;
 }	t_mlx;
+
+typedef struct s_img
+{
+	int		sx;
+	int		sy;
+	int		line_len;
+	int		endian;
+	int		bpp;
+	char	*addr;
+	void	*ptr;
+}	t_img;
 
 typedef struct s_textures
 {
@@ -32,13 +44,24 @@ typedef struct s_textures
 	char	*we_t;
 }	t_textures;
 
-typedef struct s_map
+typedef struct s_assets
 {
+	int		f_cl;
+	int		c_cl;
+	t_img	no_t;
+	t_img	ea_t;
+	t_img	so_t;
+	t_img	we_t;
+}	t_assets;
+
+typedef struct s_ray
+{
+	t_assets	assets;
 	int		**layout;
 	int		pvx;
 	int		pvy;
 	int		pvo;
-}	t_map;
+}	t_ray;
 
 typedef struct s_parse
 {
@@ -53,8 +76,9 @@ typedef struct s_data
 {
 	t_parse		parse;
 	t_textures	tx;
-	t_map		map;
+	t_ray		ray;
 	t_mlx		mlx;
+	t_img		img;
 }	t_data;
 
 #endif

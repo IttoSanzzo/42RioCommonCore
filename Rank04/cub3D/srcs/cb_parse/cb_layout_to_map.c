@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:12:55 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 19:24:04 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:34:44 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	cb_get_max_len(char **tab)
 	return (tl);
 }
 
-static void	cb_create_map_base(char **tab, t_map *map)
+static void	cb_create_layout_base(char **tab, t_ray *ray)
 {
 	int	y;
 	int	x;
@@ -38,21 +38,21 @@ static void	cb_create_map_base(char **tab, t_map *map)
 
 	yl = ft_tablen(tab) + 3;
 	xl = cb_get_max_len(tab) + 3;
-	map->layout = ft_calloc(yl, sizeof(int *));
+	ray->layout = ft_calloc(yl, sizeof(int *));
 	y = -1;
 	while (++y < yl - 1)
-		map->layout[y] = ft_calloc(xl, sizeof(int));
+		ray->layout[y] = ft_calloc(xl, sizeof(int));
 	y = -1;
 	while (++y < yl - 1)
 	{
 		x = -1;
 		while (++x < xl - 1)
-			map->layout[y][x] = -1;
-		map->layout[y][x] = -2;
+			ray->layout[y][x] = -1;
+		ray->layout[y][x] = -2;
 	}
 }
 
-static void	cb_overwrite(char **tab, t_map *map)
+static void	cb_overwrite(char **tab, t_ray *ray)
 {
 	int	x;
 	int	y;
@@ -62,33 +62,33 @@ static void	cb_overwrite(char **tab, t_map *map)
 	{
 		x = -1;
 		while (tab[y][++x])
-			map->layout[y + 1][x + 1] = tab[y][x] - '0';
+			ray->layout[y + 1][x + 1] = tab[y][x] - '0';
 	}
 }
 
-static void	cb_check_open(int **map)
+static void	cb_check_open(int **ray)
 {
 	int	y;
 	int	x;
 
 	y = -1;
-	while (map[++y])
+	while (ray[++y])
 	{
 		x = -1;
-		while (map[y][++x] != -2)
+		while (ray[y][++x] != -2)
 		{
-			if (map[y][x] == 0 && (map[y - 1][x] == -1
-				|| map[y + 1][x] == -1
-				|| map[y][x - 1] == -1
-				|| map[y][x + 1] == -1))
+			if (ray[y][x] == 0 && (ray[y - 1][x] == -1
+				|| ray[y + 1][x] == -1
+				|| ray[y][x - 1] == -1
+				|| ray[y][x + 1] == -1))
 				cb_error(ERR_MSS_OWL);
 		}
 	}
 }
 
-void	cb_layout_to_map(char **tab, t_map *map)
+void	cb_layout_to_map(char **tab, t_ray *ray)
 {
-	cb_create_map_base(tab, map);
-	cb_overwrite(tab, map);
-	cb_check_open(map->layout);
+	cb_create_layout_base(tab, ray);
+	cb_overwrite(tab, ray);
+	cb_check_open(ray->layout);
 }

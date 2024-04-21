@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:14:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 17:14:11 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:57:19 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include "/home/Itto/.includes/mlx.h"
 
 //// cb_main
 int		main(int ac, char *av[]);
@@ -31,10 +34,16 @@ void	cb_arguments(t_data *data, char *file);
 void	cb_base_format_import(t_data *data);
 void	cb_parse_elements(t_data *data);
 void	cb_parse_map(t_data *data);
-void	cb_layout_to_map(char **tab, t_map *map);
+void	cb_layout_to_map(char **tab, t_ray *ray);
+
+//// cb_mlx
+void	cb_mlx_init(t_data *data);
+void	cb_mlx_events_init(t_data *data, t_mlx *mlx);
 
 //// cb_utils
 t_data	*cb_get_data(t_data *data);
 void	cb_error(char *error);
+int		cb_rgb(int r, int g, int b);
+int		cb_argb(int r, int g, int b, int a);
 
 #endif

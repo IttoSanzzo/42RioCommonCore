@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cb_rgb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 17:54:27 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/21 18:29:14 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/04/21 18:56:46 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/04/21 18:57:44 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int	main(int ac, char *av[])
+int	cb_rgb(int r, int g, int b)
 {
-	t_data	data;
+	return (1 << 24 | r << 16 | g << 8 | b);
+}
 
-	if (ac != 2)
-		return (ft_putendl_fd(ERR_MSS_N, 2), ft_putendl_fd(ERR_MSS_AC, 2), 1);
-	cb_base_init(&data);
-	cb_arguments(&data, av[1]);
-	cb_mlx_init(&data);
-	mlx_loop(data.mlx.con);
-	cb_exit(0);
+int	cb_argb(int r, int g, int b, int a)
+{
+	return (a << 24 | r << 16 | g << 8 | b);
 }

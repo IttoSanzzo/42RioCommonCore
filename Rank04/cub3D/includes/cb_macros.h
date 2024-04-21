@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 19:20:12 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:42:55 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define ERR_MSS_MSP "There are multiple start points in the map!"
 # define ERR_MSS_NSP "There'a no start point in the map!"
 # define ERR_MSS_OWL "There'a open wall in the map!"
+# define ERR_MSS_XINIT "There was a problem starting mlx"
+# define ERR_MSS_FXPM "There was a .xpm loading issue."
 
 // Defaults
 # define DEF_TX_NO "./assets/wall_no.xpm"
@@ -43,8 +45,16 @@
 # define DEF_F_G 255
 # define DEF_F_B 255
 
+// Window Aspects
+# define W_NAME "cub3D"
+# define W_WIDE 1024
+# define W_HIGH 512
+
 // STRCMPS
 # define MAP_VALID " 01NEWS"
 # define POV_ORIEN "NEWS"
+
+// Colors
+# define  H_DARKGREY #3A3B3C
 
 #endif

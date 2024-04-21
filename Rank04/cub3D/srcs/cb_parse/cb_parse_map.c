@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:43:41 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 19:24:06 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:33:35 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ static void	cb_get_pov(char **map, int *pvx, int *pvy, int *pvo)
 		cb_error(ERR_MSS_NSP);
 }
 
-static void	cb_check_map_chars(char **map)
+static void	cb_check_map_chars(char **ray)
 {
 	int	y;
 	int	x;
 
 	y = -1;
-	while (map[++y])
+	while (ray[++y])
 	{
 		x = -1;
-		while (map[y][++x])
+		while (ray[y][++x])
 		{
-			if (!ft_strchr(MAP_VALID, map[y][x]))
+			if (!ft_strchr(MAP_VALID, ray[y][x]))
 				cb_error(ERR_MSS_IMO);
 		}
 	}
@@ -70,7 +70,7 @@ static void	cb_check_map_chars(char **map)
 void	cb_parse_map(t_data *data)
 {
 	cb_check_map_chars(data->parse.layout);
-	cb_get_pov(data->parse.layout, &data->map.pvx,
-		&data->map.pvy, &data->map.pvo);
-	cb_layout_to_map(data->parse.layout, &data->map);
+	cb_get_pov(data->parse.layout, &data->ray.pvx,
+		&data->ray.pvy, &data->ray.pvo);
+	cb_layout_to_map(data->parse.layout, &data->ray);
 }

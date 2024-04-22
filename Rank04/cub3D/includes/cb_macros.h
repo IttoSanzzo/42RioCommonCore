@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 01:51:29 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:25:44 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@
 # define DEF_F_B 255
 
 // Tweakable Values
-# define PI 3.1415926535
+# define PI 3.14159265359
 # define MAP_S 64
+# define K_MS 0.2
+# define K_LS 0.01
 
 // Window Aspects
 # define W_NAME "cub3D"

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 00:39:19 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 00:40:03 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:51:04 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	cbd_clrc(int color)
     {
         x = -1;
         while (++x < W_WIDE)
-			cb_ipp(&data->img, x, y, color);
+			cb_ipp(&data->img, color, x, y);
     }
 }

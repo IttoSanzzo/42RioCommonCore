@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 01:46:34 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:59:02 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,22 @@
 # define CB_STRUCTS_H
 
 /// Structs
+
+typedef struct s_cbr
+{
+	int	color;
+	int	wd;
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
+	int	es;
+}	t_cbr;
 
 typedef struct s_mlx
 {
@@ -69,6 +85,7 @@ typedef struct s_ray
 	t_assets	assets;
 	t_keys		keys;
 	int			**layout;
+	int			**map;
 	int			mlx;
 	int			mly;
 	float		pvx;

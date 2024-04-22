@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/22 01:57:17 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/22 17:28:16 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ N_DRAW	=	cb_ipp.c			\
 			cbd_clrc.c			\
 			cbd_rect.c			\
 			cbd_point.c			\
+			cbd_line.c			\
 			cbd_pov.c			\
 			cbd_map.c
 N_MLX	=	cb_mlx_init.c		\

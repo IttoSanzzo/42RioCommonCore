@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 08:42:20 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 01:07:06 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:56:33 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ static int	cb_hand_keyp(int keysym, t_data *data)
 	else if (keysym == XK_Right)
 		data->ray.keys.k_r = 1;
 	else if (keysym == XK_D || keysym == XK_d)
-		data->ray.keys.k_d = 1;
+		data->ray.keys.k_d = +1;
 	else if (keysym == XK_A || keysym == XK_a)
-		data->ray.keys.k_a = 1;
+		data->ray.keys.k_a = -1;
 	else if (keysym == XK_W || keysym == XK_w)
-		data->ray.keys.k_w = 1;
+		data->ray.keys.k_w = -1;
 	else if (keysym == XK_S || keysym == XK_s)
-		data->ray.keys.k_s = 1;
+		data->ray.keys.k_s = +1;
 	return (0);
 }
 

@@ -6,13 +6,13 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 00:41:03 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 00:42:13 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:52:38 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	cbd_rect(int color, int x, int y, int width, int high)
+void	cbd_rect(int color, int c[2], int s[2])
 {
 	static t_data	*data;
     int	i;
@@ -20,11 +20,11 @@ void	cbd_rect(int color, int x, int y, int width, int high)
 
 	if (data == NULL)
 		data = cb_get_data(NULL);
-    i = y - 1;
-    while (++i < y + high)
+    i = c[1] - 1;
+    while (++i < c[1] + s[1])
     {
-        j = x - 1;
-        while (++j < x + width)
-            cb_ipp(&data->img, j, i, color);
+        j = c[0] - 1;
+        while (++j < c[0] + s[0])
+            cb_ipp(&data->img, color, j, i);
 	}
 }

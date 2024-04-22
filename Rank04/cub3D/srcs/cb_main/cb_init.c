@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:47 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 01:46:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:22:03 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ static void	cb_texture_init(t_data *data)
 static void	cb_ray_init(t_data *data)
 {
 	data->ray.layout = NULL;
+	data->ray.map = NULL;
 	data->ray.mlx = 0;
 	data->ray.mly = 0;
 	data->ray.pvx = 0;
 	data->ray.pvy = 0;
-	data->ray.pva = -1;
 	data->ray.pdx = 0;
 	data->ray.pdy = 0;
+	data->ray.pva = -1;
 }
 
 static void	cb_parse_init(t_data *data)
@@ -60,6 +61,12 @@ void	cb_base_init(t_data *data)
 	data->img.ptr = NULL;
 	data->mlx.con = NULL;
 	data->mlx.win = NULL;
+	data->ray.keys.k_w = 0;
+	data->ray.keys.k_a = 0;
+	data->ray.keys.k_s = 0;
+	data->ray.keys.k_d = 0;
+	data->ray.keys.k_l = 0;
+	data->ray.keys.k_r = 0;
 	cb_parse_init(data);
 	cb_get_data(data);
 	cb_texture_init(data);

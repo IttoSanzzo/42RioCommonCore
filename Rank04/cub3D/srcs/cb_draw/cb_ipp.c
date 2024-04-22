@@ -6,13 +6,13 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 00:36:31 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 00:37:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:50:39 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	cb_ipp(t_img *img, int x, int y, int color)
+void	cb_ipp(t_img *img, int color, int x, int y)
 {
     char    *pixel;
 

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 00:53:39 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 00:56:54 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:34:27 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,15 @@
 void	cbd_pov(void)
 {
 	static t_data	*data;
+	static t_ray	*ray;
+	
 
-	if (data == NULL)
+	if (ray == NULL)
+	{
 		data = cb_get_data(NULL);
-	cbd_point(cb_rgb(255, 255, 0), data->ray.pvx, data->ray.pvy, 8);
+		ray = &data->ray;
+	}
+	cbd_point(cb_rgb(255, 255, 0), 8 , ray->pvx, ray->pvy);
+	cbd_line(cb_rgb(255, 255, 0), 3, (int [2]){ray->pvx, ray->pvy},
+		(int [2]){ray->pvx + ray->pdx * 5, ray->pvy + ray->pdy * 5});
 }

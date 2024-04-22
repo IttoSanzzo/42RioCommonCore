@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/21 18:28:38 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 01:46:34 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,28 @@ typedef struct s_assets
 	t_img	we_t;
 }	t_assets;
 
+typedef struct s_keys
+{
+	int	k_w;
+	int	k_a;
+	int	k_s;
+	int	k_d;
+	int	k_l;
+	int	k_r;
+}	t_keys;
+
 typedef struct s_ray
 {
 	t_assets	assets;
-	int		**layout;
-	int		pvx;
-	int		pvy;
-	int		pvo;
+	t_keys		keys;
+	int			**layout;
+	int			mlx;
+	int			mly;
+	float		pvx;
+	float		pvy;
+	float		pdx;
+	float		pdy;
+	float		pva;
 }	t_ray;
 
 typedef struct s_parse

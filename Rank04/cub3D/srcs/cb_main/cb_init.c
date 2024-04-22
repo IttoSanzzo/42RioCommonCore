@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:47 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/21 18:27:14 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 01:46:55 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,13 @@ static void	cb_texture_init(t_data *data)
 static void	cb_ray_init(t_data *data)
 {
 	data->ray.layout = NULL;
+	data->ray.mlx = 0;
+	data->ray.mly = 0;
 	data->ray.pvx = 0;
 	data->ray.pvy = 0;
-	data->ray.pvo = -1;
+	data->ray.pva = -1;
+	data->ray.pdx = 0;
+	data->ray.pdy = 0;
 }
 
 static void	cb_parse_init(t_data *data)

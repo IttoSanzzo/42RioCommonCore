@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:14:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/21 18:57:19 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 01:44:48 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "/home/Itto/.includes/mlx.h"
@@ -39,11 +40,19 @@ void	cb_layout_to_map(char **tab, t_ray *ray);
 //// cb_mlx
 void	cb_mlx_init(t_data *data);
 void	cb_mlx_events_init(t_data *data, t_mlx *mlx);
+int		cb_render(t_data *data);
+void	cbd_map(void);
 
 //// cb_utils
 t_data	*cb_get_data(t_data *data);
 void	cb_error(char *error);
+
+//// cb_draw
+void	cb_ipp(t_img *img, int x, int y, int color);
 int		cb_rgb(int r, int g, int b);
-int		cb_argb(int r, int g, int b, int a);
+void	cbd_clrc(int color);
+void	cbd_rect(int color, int x, int y, int w, int h);
+void	cbd_point(int color, int x, int y, int s);
+void	cbd_pov(void);
 
 #endif

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_rgb.c                                           :+:      :+:    :+:   */
+/*   cb_ipp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 18:56:46 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/21 18:57:44 by marcosv2         ###   ########.fr       */
+/*   Created: 2024/04/22 00:36:31 by marcosv2          #+#    #+#             */
+/*   Updated: 2024/04/22 00:37:55 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int	cb_rgb(int r, int g, int b)
+void	cb_ipp(t_img *img, int x, int y, int color)
 {
-	return (1 << 24 | r << 16 | g << 8 | b);
-}
+    char    *pixel;
 
-int	cb_argb(int r, int g, int b, int a)
-{
-	return (a << 24 | r << 16 | g << 8 | b);
+	if (x > W_WIDE || x < 0 || y > W_HIGH || y < 0)
+		return ;
+    pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	*(int *)pixel = color;
 }

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/21 18:42:55 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 01:51:29 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@
 # define DEF_F_G 255
 # define DEF_F_B 255
 
+// Tweakable Values
+# define PI 3.1415926535
+# define MAP_S 64
+
 // Window Aspects
 # define W_NAME "cub3D"
 # define W_WIDE 1024
@@ -53,8 +57,5 @@
 // STRCMPS
 # define MAP_VALID " 01NEWS"
 # define POV_ORIEN "NEWS"
-
-// Colors
-# define  H_DARKGREY #3A3B3C
 
 #endif

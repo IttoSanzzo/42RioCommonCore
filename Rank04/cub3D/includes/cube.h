@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:14:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 16:49:19 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:08:47 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,15 @@ void	cb_mlx_init(t_data *data);
 void	cb_mlx_events_init(t_data *data, t_mlx *mlx);
 int		cb_render(t_data *data);
 
+//// cb_ray
+void	cb_check_moves(t_ray *ray);
+void	cb_calc_rays(t_data *data);
+void	cb_walls(t_data *data, t_ray *ray, t_inf *inf);
+
 //// cb_utils
 t_data	*cb_get_data(t_data *data);
 void	cb_error(char *error);
+float	cb_dist(float ax, float ay, float bx, float by);
 
 //// cb_draw
 int		cb_rgb(int r, int g, int b);
@@ -53,6 +59,7 @@ void	cbd_clrc(int color);
 void	cbd_rect(int color, int c[2], int s[2]);
 void	cbd_point(int color, int x, int y, int s);
 void	cbd_line(int color, int width, int s[2], int e[2]);
+void	cbd_sline(int color, int width, int s[2], int e[2]);
 void	cbd_pov(void);
 void	cbd_map(void);
 

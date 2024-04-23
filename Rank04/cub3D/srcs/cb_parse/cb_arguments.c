@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:14:04 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/20 06:47:30 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:00:04 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ static void	cb_def_textures(t_data *data)
 		data->tx.f_cl[1] = DEF_F_G;
 		data->tx.f_cl[2] = DEF_F_B;
 	}
-	if (data->tx.c_lock == 0)
+	if (data->tx.f_lock == 0)
 	{
 		data->tx.c_cl[0] = DEF_C_R;
 		data->tx.c_cl[1] = DEF_C_G;
 		data->tx.c_cl[2] = DEF_C_B;
 	}
+	data->ray.assets.c_cl = cb_rgb(data->tx.c_cl[0],
+		data->tx.c_cl[1], data->tx.c_cl[2]);
+	data->ray.assets.f_cl = cb_rgb(data->tx.f_cl[0],
+		data->tx.f_cl[1], data->tx.f_cl[2]);
 }
 
 static void	cb_check_map_empty_lines(char *istream)

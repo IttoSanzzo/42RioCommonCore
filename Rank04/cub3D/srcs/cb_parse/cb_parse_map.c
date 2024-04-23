@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:43:41 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 18:05:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:53:22 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,26 @@ static void	cb_map_trsl(t_ray *ray)
 	int	x;
 	int	yl;
 	int	xl;
+	int	i;
 
 	yl = ray->mly + 1;
 	xl = ray->mlx + 1;
 	ray->map = ft_calloc(yl, sizeof(int *));
+	ray->umap = ft_calloc((yl - 1) * (xl - 1) + 1, sizeof(int *));
+	ray->mlt = ray->mly * ray->mlx;
 	y = -1;
 	while (++y < yl - 1)
 		ray->map[y] = ft_calloc(xl, sizeof(int));
 	y = -1;
+	i = -1;
 	while (++y < yl - 1)
 	{
 		x = -1;
 		while (++x < xl - 1)
+		{
 			ray->map[y][x] = ray->layout[y + 1][x + 1];
+			ray->umap[++i] = ray->layout[y + 1][x + 1];
+		}
 	}
 }
 

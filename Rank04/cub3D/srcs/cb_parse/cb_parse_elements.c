@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 11:40:55 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 15:37:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:07:40 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ static void	cb_fc_split(char ***parse)
 	ft_nfreetab(&temp);
 }
 
-static void	cb_set_fc_rgb(int rgb[3], int lock, char ***parse)
+static void	cb_set_fc_rgb(int rgb[3], int *lock, char ***parse)
 {
 	int	i;
 	int	y;
 
 	if (!parse[0][1])
 		cb_error(ERR_MSS_MEV);
-	if (lock)
+	if (*lock)
 		cb_error(ERR_MSS_DEL);
-	lock = 1;
+	*lock = 1;
 	cb_fc_split(parse);
 	i = -1;
 	while (parse[0][++i])
@@ -85,9 +85,9 @@ static void	cb_set_element(t_textures *tx, char ***parse)
 	else if (!ft_strncmp(parse[0][0], "WE", 3))
 		cb_set_xpm(&tx->we_t, *parse + 1);
 	else if (!ft_strncmp(parse[0][0], "F", 2))
-		cb_set_fc_rgb(tx->f_cl, tx->f_lock, parse);
+		cb_set_fc_rgb(tx->f_cl, &tx->f_lock, parse);
 	else if (!ft_strncmp(parse[0][0], "C", 2))
-		cb_set_fc_rgb(tx->c_cl, tx->c_lock, parse);
+		cb_set_fc_rgb(tx->c_cl, &tx->c_lock, parse);
 	else
 		cb_error(ERR_MSS_IEL);
 	ft_nfreetab(parse);

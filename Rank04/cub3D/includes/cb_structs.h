@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 16:59:02 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:02:40 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,40 @@ typedef struct s_keys
 	int	k_r;
 }	t_keys;
 
+typedef struct s_inf
+{
+	int		r;
+	int		mx;
+	int		my;
+	int		mp;
+	int		dof;
+	float	rx;
+	float	ry;
+	float	ra;
+	float	xo;
+	float	yo;
+	float	atan;
+	float	ntan;
+	float	hx;
+	float	hy;
+	float	vx;
+	float	vy;
+	float	disth;
+	float	distv;
+	float	dist;
+}	t_inf;
+
 typedef struct s_ray
 {
 	t_assets	assets;
 	t_keys		keys;
+	t_inf		inf;
 	int			**layout;
 	int			**map;
+	int			*umap;
 	int			mlx;
 	int			mly;
+	int			mlt;
 	float		pvx;
 	float		pvy;
 	float		pdx;

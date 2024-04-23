@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:16:43 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 17:07:16 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:25:24 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	cb_free_all(t_data *data)
 	ft_nfreetab(&(data->parse.temp));
 	ft_nfreeitab(&(data->ray.layout));
 	ft_nfreeitab(&(data->ray.map));
+	ft_nfree((void *)&(data->ray.umap));
 	ft_nfreestr(&(data->tx.no_t));
 	ft_nfreestr(&(data->tx.ea_t));
 	ft_nfreestr(&(data->tx.so_t));

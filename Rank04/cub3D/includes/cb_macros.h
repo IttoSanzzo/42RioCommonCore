@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 18:25:44 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:14:16 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,23 @@
 # define DEF_TX_EA "./assets/wall_ea.xpm"
 # define DEF_TX_SO "./assets/wall_so.xpm"
 # define DEF_TX_WE "./assets/wall_we.xpm"
-# define DEF_C_R 255
-# define DEF_C_G 255
-# define DEF_C_B 255
-# define DEF_F_R 255
-# define DEF_F_G 255
-# define DEF_F_B 255
+# define DEF_C_R 10
+# define DEF_C_G 95
+# define DEF_C_B 250
+# define DEF_F_R 100
+# define DEF_F_G 100
+# define DEF_F_B 100
 
 // Tweakable Values
 # define PI 3.14159265359
+# define PL 1.57079632679
+# define PR 4.71238898038
+# define DR 0.0174533
+# define DS_DEF 1000000
+# define RAYS 60
 # define MAP_S 64
-# define K_MS 0.2
+# define WALL_S 320
+# define K_MS 0.35
 # define K_LS 0.01
 
 // Window Aspects

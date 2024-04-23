@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/22 17:28:16 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/22 23:05:23 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ DS_MAIN	=	cb_main/
 DS_PARS	=	cb_parse/
 DS_UTIL	=	cb_utils/
 DS_DRAW	=	cb_draw/
+DS_RAY	=	cb_ray/
 DS_MLX	=	cb_mlx/
 
 N_MAIN	=	main.c				\
@@ -46,15 +47,20 @@ N_PARS	=	cb_arguments.c		\
 			cb_parse_map.c		\
 			cb_layout_to_map.c
 N_UTIL	=	cb_get_data.c		\
-			cb_error.c
+			cb_error.c			\
+			cb_dist.c
 N_DRAW	=	cb_ipp.c			\
 			cb_rgb.c			\
 			cbd_clrc.c			\
 			cbd_rect.c			\
 			cbd_point.c			\
 			cbd_line.c			\
+			cbd_sline.c			\
 			cbd_pov.c			\
 			cbd_map.c
+N_RAY	=	cb_move.c			\
+			cb_ray.c			\
+			cb_walls.c
 N_MLX	=	cb_mlx_init.c		\
 			cb_mlx_events.c		\
 			cb_render.c			\
@@ -63,6 +69,7 @@ F_SRCS	= $(addprefix $(D_SRCS)$(DS_MAIN), $(N_MAIN))
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_PARS), $(N_PARS))
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_UTIL), $(N_UTIL))
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_DRAW), $(N_DRAW))
+F_SRCS	+= $(addprefix $(D_SRCS)$(DS_RAY), $(N_RAY))
 F_SRCS	+= $(addprefix $(D_SRCS)$(DS_MLX), $(N_MLX))
 
 #F_SRCS	+= $(addprefix $(D_SRCS)$(DS_), $(N_))
@@ -71,6 +78,7 @@ N_OBJS	=	$(N_MAIN:.c=.o)	\
 			$(N_PARS:.c=.o)	\
 			$(N_UTIL:.c=.o)	\
 			$(N_DRAW:.c=.o)	\
+			$(N_RAY:.c=.o)	\
 			$(N_MLX:.c=.o)
 F_OBJS	= $(addprefix $(D_OBJS), $(N_OBJS))
 

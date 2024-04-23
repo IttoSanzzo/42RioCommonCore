@@ -2,13 +2,11 @@ NO assets/wall_no.xpm
 EA assets/wall_ea.xpm
 SO assets/wall_so.xpm
 WE assets/wall_we.xpm
-F 184,113,  70
-C 51,   0,   155
 11111111
-1N100001
 10100001
 10100001
-10000001
+10100001
+100N0001
 10000101
 10000001
 11111111

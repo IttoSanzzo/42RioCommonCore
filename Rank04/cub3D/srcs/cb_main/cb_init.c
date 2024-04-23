@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:47 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 17:22:03 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:24:57 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	cb_ray_init(t_data *data)
 {
 	data->ray.layout = NULL;
 	data->ray.map = NULL;
+	data->ray.umap = NULL;
 	data->ray.mlx = 0;
 	data->ray.mly = 0;
 	data->ray.pvx = 0;

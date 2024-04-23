@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:52:21 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 17:24:38 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:24:51 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ static void	cb_vert_ray(t_data *data, t_ray *ray, t_inf *inf)
 
 void	cb_calc_rays(t_data *data)
 {
-	cb_upt_r(&data->ray.inf.ra, data->ray.pva - DR * (RAYS / 2));
+	cb_upt_r(&data->ray.inf.ra, data->ray.pva - DR / 2 * (RAYS / 2));
 	data->ray.inf.r = -1;
 	while (++data->ray.inf.r < RAYS)
 	{
@@ -144,9 +144,7 @@ void	cb_calc_rays(t_data *data)
 			data->ray.inf.text = data->ray.inf.vtex;
 			data->ray.inf.dist = data->ray.inf.distv;
 		}
-		cbd_line(cb_rgb(255, 0, 0), 2, (int [2]){data->ray.pvx, data->ray.pvy},
-			(int [2]){data->ray.inf.rx, data->ray.inf.ry});
 		cb_walls(&data->ray, &data->ray.inf, &data->ray.wall);
-		cb_upt_r(&data->ray.inf.ra, data->ray.inf.ra + DR);
+		cb_upt_r(&data->ray.inf.ra, data->ray.inf.ra + DR / 2);
 	}
 }

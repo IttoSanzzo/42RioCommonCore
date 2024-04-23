@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 13:41:30 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:05:08 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 # define ERR_MSS_FXPM "There was a .xpm loading issue."
 
 // Defaults
-# define DEF_TX_NO "./assets/wall_no.xpm"
-# define DEF_TX_EA "./assets/wall_ea.xpm"
-# define DEF_TX_SO "./assets/wall_so.xpm"
-# define DEF_TX_WE "./assets/wall_we.xpm"
+# define DEF_TX_NO "./assets/jap_wall_1.xpm"
+# define DEF_TX_EA "./assets/jap_wall_2.xpm"
+# define DEF_TX_SO "./assets/jap_wall_3.xpm"
+# define DEF_TX_WE "./assets/jap_wall_4.xpm"
 # define DEF_C_R 10
 # define DEF_C_G 95
 # define DEF_C_B 250

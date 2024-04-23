@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 12:06:19 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 13:41:30 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define DEF_F_R 100
 # define DEF_F_G 100
 # define DEF_F_B 100
+# define ICOL 0xff0000
 
 // Tweakable Values
 # define PI 3.14159265359

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 11:07:26 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:12:17 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_inf
 	t_img	*text;
 	t_img	*vtex;
 	t_img	*htex;
+	int		color;
 	int		r;
 	int		mx;
 	int		my;

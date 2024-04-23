@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:52:21 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 12:59:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 13:32:09 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ void	cb_calc_rays(t_data *data)
 		}
 		cbd_line(cb_rgb(255, 0, 0), 2, (int [2]){data->ray.pvx, data->ray.pvy},
 			(int [2]){data->ray.inf.rx, data->ray.inf.ry});
-		cb_walls(data, &data->ray, &data->ray.inf);
+		cb_walls(&data->ray, &data->ray.inf);
 		cb_upt_r(&data->ray.inf.ra, data->ray.inf.ra + DR);
 	}
 }

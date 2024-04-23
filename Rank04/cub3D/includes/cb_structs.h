@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 16:12:17 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:24:06 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,23 @@ typedef struct s_inf
 	float	dist;
 }	t_inf;
 
+typedef struct s_wall
+{
+	float	ca;
+	int		lineh;
+	int		lineo;
+	float	ty_st;
+	float	ty_of;
+	float	ty;
+	float	tx;
+	int		y;
+}	t_wall;
+
 typedef struct s_ray
 {
 	t_assets	assets;
 	t_keys		keys;
+	t_wall		wall;
 	t_inf		inf;
 	int			**layout;
 	int			**map;

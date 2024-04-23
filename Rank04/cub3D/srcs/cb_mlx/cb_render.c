@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 00:57:53 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 16:25:14 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:11:38 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	cb_render(t_data *data)
 	cb_check_moves(&data->ray);
 	cb_calc_rays(data);
 	cbd_pov();
-	ft_printf("len: %d\n", data->img.line_len);
 	mlx_put_image_to_window(data->mlx.con, data->mlx.win, data->img.ptr, 0, 0);
 	return (0);
 }

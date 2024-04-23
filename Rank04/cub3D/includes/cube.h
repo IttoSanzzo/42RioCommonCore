@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:14:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 16:20:20 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:24:59 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		cb_render(t_data *data);
 //// cb_ray
 void	cb_check_moves(t_ray *ray);
 void	cb_calc_rays(t_data *data);
-void	cb_walls(t_ray *ray, t_inf *inf);
+void	cb_walls(t_ray *ray, t_inf *inf, t_wall *wall);
 
 //// cb_utils
 t_data	*cb_get_data(t_data *data);

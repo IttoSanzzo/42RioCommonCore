@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/23 16:17:58 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/23 16:42:47 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ N_UTIL	=	cb_get_data.c		\
 			cb_error.c			\
 			cb_dist.c			\
 			cb_upt_r.c			\
-			cb_gpc.c
+			cb_gpc.c			
 N_DRAW	=	cb_ipp.c			\
 			cb_rgb.c			\
 			cbd_clrc.c			\

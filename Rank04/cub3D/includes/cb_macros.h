@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 18:30:12 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:00:15 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,15 @@
 # define RAYS 120
 # define MAP_S 64
 # define WALL_S 640
-# define WALL_O 320
+# define WALL_O 270
 # define M_WO 20
-# define K_MS 0.45
-# define K_LS 0.01
+# define K_MS 0.75
+# define K_LS 0.04
 
 // Window Aspects
 # define W_NAME "cub3D"
 # define W_WIDE 960
-# define W_HIGH 640
+# define W_HIGH 540
 
 // STRCMPS
 # define MAP_VALID " 01NEWS"

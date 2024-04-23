@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:12:55 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 17:11:00 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:33:24 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void	cb_create_layout_base(char **tab, t_ray *ray)
 
 	yl = ft_tablen(tab) + 3;
 	xl = cb_get_max_len(tab) + 3;
-	ray->mlx = yl - 3;
-	ray->mly = xl - 3;
+	ray->mlx = xl - 3;
+	ray->mly = yl - 3;
 	ray->layout = ft_calloc(yl, sizeof(int *));
 	y = -1;
 	while (++y < yl - 1)
@@ -64,7 +64,11 @@ static void	cb_overwrite(char **tab, t_ray *ray)
 	{
 		x = -1;
 		while (tab[y][++x])
+		{
+			if (tab[y][x] == ' ')
+				continue ;	
 			ray->layout[y + 1][x + 1] = tab[y][x] - '0';
+		}
 	}
 }
 

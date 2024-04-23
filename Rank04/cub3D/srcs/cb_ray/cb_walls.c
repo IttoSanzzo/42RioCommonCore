@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 23:06:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 23:31:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 11:40:52 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	cb_walls(t_data *data, t_ray *ray, t_inf *inf)
 
 	ca = ray->pva - inf->ra;
 	if (ca < 0)
-			ca += 2 * PI;
+		ca += 2 * PI;
 	if (ca > 2 * PI)
-			ca -= 2 * PI;
+		ca -= 2 * PI;
 	inf->dist *= cos(ca);
 	lineh = (MAP_S * WALL_S) / inf->dist;
 	if (lineh > WALL_S)

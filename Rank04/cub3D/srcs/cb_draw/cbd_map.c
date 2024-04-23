@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 01:15:26 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 17:23:48 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 11:57:08 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	cbd_map(void)
 {
 	static t_data	*data;
-	int	x;
-	int	y;
-	int	xo;
-	int	yo;
+	int				x;
+	int				y;
+	int				xo;
+	int				yo;
 
 	if (data == NULL)
 		data = cb_get_data(NULL);

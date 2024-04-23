@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:49:00 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 20:04:34 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:10:31 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,22 @@
 static void	cb_move(t_ray *ray, int vd, int hd)
 {
 	float	angle;
+	float	fx;
+	float	fy;
+	int		xo;
+	int		yo;
 
 	angle = ray->pva + PI;
-	ray->pvx += vd * K_MS * cos(angle) + hd * K_MS * sin(angle);
-	ray->pvy += vd * K_MS * sin(angle) - hd * K_MS * cos(angle);
+	fx = vd * K_MS * cos(angle) + hd * K_MS * sin(angle);
+	fy = vd * K_MS * sin(angle) - hd * K_MS * cos(angle);
+	xo = M_WO * (fx > 0) + -M_WO * (fx < 0);
+	yo = M_WO * (fy > 0) + -M_WO * (fy < 0);
+	if (ray->umap[(int)(ray->pvy / MAP_S) * ray->mlx
+		+ (int)(ray->pvx + xo) / MAP_S] == 0)
+		ray->pvx += fx;
+	if (ray->umap[(int)(ray->pvy + yo) / MAP_S * ray->mlx
+		+ (int)(ray->pvx / MAP_S)] == 0)
+		ray->pvy += fy;
 }
 
 void	cb_check_moves(t_ray *ray)

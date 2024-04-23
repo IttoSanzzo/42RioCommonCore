@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:22:06 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 00:14:16 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:06:19 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@
 # define PR 4.71238898038
 # define DR 0.0174533
 # define DS_DEF 1000000
+# define MRD 8
 # define RAYS 60
 # define MAP_S 64
 # define WALL_S 320
-# define K_MS 0.35
+# define M_WO 20
+# define K_MS 0.45
 # define K_LS 0.01
 
 // Window Aspects

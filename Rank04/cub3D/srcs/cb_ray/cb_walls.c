@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 23:06:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 18:24:30 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:36:31 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	cb_walls(t_ray *ray, t_inf *inf, t_wall *wall)
 		wall->ty_of = (wall->lineh - WALL_S) / 2.0;
 		wall->lineh = WALL_S;
 	}
-	wall->lineo = WALL_O - (wall->lineh>>1);
+	wall->lineo = WALL_O - (wall->lineh >> 1);
 	wall->ty = wall->ty_of * wall->ty_st;
 	cb_get_tx(inf, wall);
 	wall->y = -1;

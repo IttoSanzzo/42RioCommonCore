@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 08:42:20 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 17:56:33 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:39:23 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	cb_hand_keyp(int keysym, t_data *data)
 	return (0);
 }
 
-void     cb_mlx_events_init(t_data *data, t_mlx *mlx)
+void	cb_mlx_events_init(t_data *data, t_mlx *mlx)
 {
 	mlx_hook(mlx->win, DestroyNotify, StructureNotifyMask, cb_close, 0);
 	mlx_hook(mlx->win, KeyPress, KeyPressMask, cb_hand_keyp, data);

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:14:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 23:08:47 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:55:24 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	cb_walls(t_data *data, t_ray *ray, t_inf *inf);
 t_data	*cb_get_data(t_data *data);
 void	cb_error(char *error);
 float	cb_dist(float ax, float ay, float bx, float by);
+void	cb_upt_r(float *r, float upt);
 
 //// cb_draw
 int		cb_rgb(int r, int g, int b);

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:12:55 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 12:33:24 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:41:59 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	cb_overwrite(char **tab, t_ray *ray)
 		while (tab[y][++x])
 		{
 			if (tab[y][x] == ' ')
-				continue ;	
+				continue ;
 			ray->layout[y + 1][x + 1] = tab[y][x] - '0';
 		}
 	}

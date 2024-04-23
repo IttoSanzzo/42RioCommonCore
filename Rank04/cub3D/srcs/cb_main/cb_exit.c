@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:16:43 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/22 19:25:24 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:37:36 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	cb_free_all(t_data *data)
 	ft_nfreestr(&(data->tx.ea_t));
 	ft_nfreestr(&(data->tx.so_t));
 	ft_nfreestr(&(data->tx.we_t));
-	cb_free_mlx(&data->ray.assets ,&data->mlx, &data->img);
+	cb_free_mlx(&data->ray.assets, &data->mlx, &data->img);
 }
 
 void	cb_exit(int exit_value)

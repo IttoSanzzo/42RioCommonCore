@@ -6,13 +6,13 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:52:21 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 12:10:58 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:59:20 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void cb_horir_find(t_ray *ray, t_inf *inf)
+static void	cb_horir_find(t_ray *ray, t_inf *inf)
 {
 	inf->disth = DS_DEF;
 	inf->hx = ray->pvx;
@@ -39,7 +39,7 @@ static void cb_horir_find(t_ray *ray, t_inf *inf)
 	}
 }
 
- void	cb_hori_ray(t_data *data, t_ray *ray, t_inf *inf)
+static void	cb_hori_ray(t_data *data, t_ray *ray, t_inf *inf)
 {
 	inf->dof = 0;
 	inf->atan = -1 / tan(inf->ra);
@@ -68,7 +68,7 @@ static void cb_horir_find(t_ray *ray, t_inf *inf)
 	cb_horir_find(ray, inf);
 }
 
-static void cb_vertr_find(t_ray *ray, t_inf *inf)
+static void	cb_vertr_find(t_ray *ray, t_inf *inf)
 {
 	inf->distv = DS_DEF;
 	inf->vx = ray->pvx;
@@ -95,7 +95,7 @@ static void cb_vertr_find(t_ray *ray, t_inf *inf)
 	}
 }
 
-void	cb_vert_ray(t_data *data, t_ray *ray, t_inf *inf)
+static void	cb_vert_ray(t_data *data, t_ray *ray, t_inf *inf)
 {
 	inf->dof = 0;
 	inf->ntan = -tan(inf->ra);
@@ -126,11 +126,7 @@ void	cb_vert_ray(t_data *data, t_ray *ray, t_inf *inf)
 
 void	cb_calc_rays(t_data *data)
 {
-	data->ray.inf.ra = data->ray.pva - DR * (RAYS / 2);
-	if (data->ray.inf.ra < 0)
-		data->ray.inf.ra += 2 * PI;
-	if (data->ray.inf.ra > 2 * PI)
-		data->ray.inf.ra -= 2 * PI;
+	cb_upt_r(&data->ray.inf.ra, data->ray.pva - DR * (RAYS / 2));
 	data->ray.inf.r = -1;
 	while (++data->ray.inf.r < RAYS)
 	{
@@ -148,13 +144,9 @@ void	cb_calc_rays(t_data *data)
 			data->ray.inf.text = data->ray.inf.vtex;
 			data->ray.inf.dist = data->ray.inf.distv;
 		}
-		cbd_line(cb_rgb(255, 0, 0), 2, (int[2]){data->ray.pvx, data->ray.pvy},
-		(int[2]){data->ray.inf.rx, data->ray.inf.ry});
+		cbd_line(cb_rgb(255, 0, 0), 2, (int [2]){data->ray.pvx, data->ray.pvy},
+			(int [2]){data->ray.inf.rx, data->ray.inf.ry});
 		cb_walls(data, &data->ray, &data->ray.inf);
-		data->ray.inf.ra += DR;
-		if (data->ray.inf.ra < 0)
-			data->ray.inf.ra += 2 * PI;
-		if (data->ray.inf.ra > 2 * PI)
-			data->ray.inf.ra -= 2 * PI;
+		cb_upt_r(&data->ray.inf.ra, data->ray.inf.ra + DR);
 	}
 }

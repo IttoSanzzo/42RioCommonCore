@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/22 23:05:23 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/23 12:55:31 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ N_PARS	=	cb_arguments.c		\
 			cb_layout_to_map.c
 N_UTIL	=	cb_get_data.c		\
 			cb_error.c			\
-			cb_dist.c
+			cb_dist.c			\
+			cb_upt_r.c
 N_DRAW	=	cb_ipp.c			\
 			cb_rgb.c			\
 			cbd_clrc.c			\

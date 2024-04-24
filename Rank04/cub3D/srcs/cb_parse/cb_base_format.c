@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 23:01:31 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/19 19:25:15 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 09:52:07 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ static void	cb_part_elements(t_data *data, int y)
 
 	hold = data->parse.import[y];
 	data->parse.import[y] = NULL;
-	if (data->parse.import[0])
-		data->parse.elements = ft_tabdup(data->parse.import);
+	data->parse.elements = ft_tabdup(data->parse.import);
 	data->parse.import[y] = hold;
 }
 

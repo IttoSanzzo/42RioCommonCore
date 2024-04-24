@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:14:04 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/24 09:40:34 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:57:37 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void	cb_def_textures(t_data *data)
 		data->tx.so_t = ft_strdup(DEF_TX_SO);
 	if (data->tx.we_t == NULL)
 		data->tx.we_t = ft_strdup(DEF_TX_WE);
-	if (data->tx.c_lock == 0)
+	if (data->tx.f_lock == 0)
 	{
 		data->tx.f_cl[0] = DEF_F_R;
 		data->tx.f_cl[1] = DEF_F_G;
 		data->tx.f_cl[2] = DEF_F_B;
 	}
-	if (data->tx.f_lock == 0)
+	if (data->tx.c_lock == 0)
 	{
 		data->tx.c_cl[0] = DEF_C_R;
 		data->tx.c_cl[1] = DEF_C_G;

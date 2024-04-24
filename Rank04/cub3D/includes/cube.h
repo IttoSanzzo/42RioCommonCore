@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:14:14 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 17:24:59 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:51:16 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "/home/Itto/.includes/mlx.h"
+# include "mlx.h"
 
 //// cb_main
 int		main(int ac, char *av[]);

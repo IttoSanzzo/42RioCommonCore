@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:52:21 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/24 12:17:36 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 19:27:39 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	cb_hori_ray(t_data *data, t_ray *ray, t_inf *inf)
 		inf->rx = (ray->pvy - inf->ry) * inf->atan + ray->pvx;
 		inf->yo = -MAP_S;
 		inf->xo = -inf->yo * inf->atan;
-		inf->htex = &data->ray.assets.no_t;
+		inf->htex = &data->ray.assets.so_t;
 	}
 	if (inf->ra < PI)
 	{
@@ -63,7 +63,7 @@ static void	cb_hori_ray(t_data *data, t_ray *ray, t_inf *inf)
 		inf->rx = (ray->pvy - inf->ry) * inf->atan + ray->pvx;
 		inf->yo = MAP_S;
 		inf->xo = -inf->yo * inf->atan;
-		inf->htex = &data->ray.assets.so_t;
+		inf->htex = &data->ray.assets.no_t;
 	}
 	cb_horir_find(ray, inf);
 }
@@ -111,7 +111,7 @@ static void	cb_vert_ray(t_data *data, t_ray *ray, t_inf *inf)
 		inf->ry = (ray->pvx - inf->rx) * inf->ntan + ray->pvy;
 		inf->xo = -MAP_S;
 		inf->yo = -inf->xo * inf->ntan;
-		inf->vtex = &data->ray.assets.we_t;
+		inf->vtex = &data->ray.assets.ea_t;
 	}
 	if (inf->ra < PL || inf->ra > PR)
 	{
@@ -119,7 +119,7 @@ static void	cb_vert_ray(t_data *data, t_ray *ray, t_inf *inf)
 		inf->ry = (ray->pvx - inf->rx) * inf->ntan + ray->pvy;
 		inf->xo = MAP_S;
 		inf->yo = -inf->xo * inf->ntan;
-		inf->vtex = &data->ray.assets.ea_t;
+		inf->vtex = &data->ray.assets.we_t;
 	}
 	cb_vertr_find(ray, inf);
 }

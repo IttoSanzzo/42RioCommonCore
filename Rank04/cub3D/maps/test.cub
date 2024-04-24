@@ -1,6 +1,4 @@
 NO ./assets/alice_tx.xpm
-EA ./assets/alice_tx.xpm
-SO ./assets/alice_tx.xpm
 WE ./assets/komi_tx.xpm
 
 F 50, 50, 50

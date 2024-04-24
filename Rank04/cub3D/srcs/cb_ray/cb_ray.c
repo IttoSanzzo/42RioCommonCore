@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:52:21 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 18:24:51 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:17:36 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	cb_calc_rays(t_data *data)
 {
 	cb_upt_r(&data->ray.inf.ra, data->ray.pva - DR / 2 * (RAYS / 2));
 	data->ray.inf.r = -1;
+	data->ray.inf.index = -1;
 	while (++data->ray.inf.r < RAYS)
 	{
 		cb_hori_ray(data, &data->ray, &data->ray.inf);
@@ -135,15 +136,17 @@ void	cb_calc_rays(t_data *data)
 		if (data->ray.inf.disth < data->ray.inf.distv)
 		{
 			data->ray.inf.dist = data->ray.inf.disth;
+			data->ray.inf.text = data->ray.inf.htex;
 			data->ray.inf.rx = data->ray.inf.hx;
 			data->ray.inf.ry = data->ray.inf.hy;
-			data->ray.inf.text = data->ray.inf.htex;
 		}
 		else
 		{
-			data->ray.inf.text = data->ray.inf.vtex;
 			data->ray.inf.dist = data->ray.inf.distv;
+			data->ray.inf.text = data->ray.inf.vtex;
 		}
+		if (++data->ray.inf.index == RAYS / 2)
+			data->ray.inf.distl = data->ray.inf.dist;
 		cb_walls(&data->ray, &data->ray.inf, &data->ray.wall);
 		cb_upt_r(&data->ray.inf.ra, data->ray.inf.ra + DR / 2);
 	}

@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:18:57 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 17:24:06 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:17:34 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_inf
 	t_img	*vtex;
 	t_img	*htex;
 	int		color;
+	int		index;
 	int		r;
 	int		mx;
 	int		my;
@@ -105,6 +106,7 @@ typedef struct s_inf
 	float	disth;
 	float	distv;
 	float	dist;
+	float	distl;
 }	t_inf;
 
 typedef struct s_wall

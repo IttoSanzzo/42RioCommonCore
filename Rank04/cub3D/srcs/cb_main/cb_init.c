@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:47 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 13:40:09 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:08:27 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	cb_ray_init(t_data *data)
 	data->ray.pdy = 0;
 	data->ray.pva = -1;
 	data->ray.inf.color = ICOL;
+	data->ray.inf.distl = 0;
 }
 
 static void	cb_parse_init(t_data *data)

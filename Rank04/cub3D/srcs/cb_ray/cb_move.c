@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:49:00 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 12:10:31 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:46:45 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,22 @@ static void	cb_move(t_ray *ray, int vd, int hd)
 	int		yo;
 
 	angle = ray->pva + PI;
-	fx = vd * K_MS * cos(angle) + hd * K_MS * sin(angle);
-	fy = vd * K_MS * sin(angle) - hd * K_MS * cos(angle);
-	xo = M_WO * (fx > 0) + -M_WO * (fx < 0);
-	yo = M_WO * (fy > 0) + -M_WO * (fy < 0);
+	if (ray->inf.distl < T_MLD)
+	{
+		fx = vd * M_MSL * cos(angle) + hd * M_MSL * sin(angle);
+		fy = vd * M_MSL * sin(angle) - hd * M_MSL * cos(angle);
+	}
+	else
+	{
+		fx = vd * K_MSN * cos(angle) + hd * K_MSN * sin(angle);
+		fy = vd * K_MSN * sin(angle) - hd * K_MSN * cos(angle);
+	}
+	xo = 1 * (fx > 0) + -1 * (fx < 0);
+	yo = 1 * (fy > 0) + -1 * (fy < 0);
 	if (ray->umap[(int)(ray->pvy / MAP_S) * ray->mlx
-		+ (int)(ray->pvx + xo) / MAP_S] == 0)
+		+ (int)(ray->pvx + xo * M_WO) / MAP_S] == 0)
 		ray->pvx += fx;
-	if (ray->umap[(int)(ray->pvy + yo) / MAP_S * ray->mlx
+	if (ray->umap[(int)(ray->pvy + yo * M_WO) / MAP_S * ray->mlx
 		+ (int)(ray->pvx / MAP_S)] == 0)
 		ray->pvy += fy;
 }
@@ -37,7 +45,7 @@ void	cb_check_moves(t_ray *ray)
 {
 	if (ray->keys.k_r == 1)
 	{
-		ray->pva += K_LS;
+		ray->pva += K_LSN + (K_LSL * (ray->inf.distl < T_LLD));
 		if (ray->pva > 2 * PI)
 			ray->pva -= 2 * PI;
 		ray->pdx = cos(ray->pva) * 5;
@@ -45,7 +53,7 @@ void	cb_check_moves(t_ray *ray)
 	}
 	if (ray->keys.k_l == 1)
 	{
-		ray->pva -= K_LS;
+		ray->pva -= K_LSN + (K_LSL * (ray->inf.distl < T_LLD));
 		if (ray->pva < 0)
 			ray->pva += 2 * PI;
 		ray->pdx = cos(ray->pva) * 5;

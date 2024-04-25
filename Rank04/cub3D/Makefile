@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/23 16:42:47 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/25 15:12:36 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ C_REMO	= rm -rf
 C_MDIR	= mkdir -p
 C_PUTS	= printf
 C_LIBX	= -lX11 -lXext -lmlx -lm
+MKBONUS	= -C bonus
 
 # Dirs
 
@@ -123,6 +124,9 @@ $(F_LBFT)	:
 	@clear
 	@$(MAKE) all --no-print-directory -C $(D_LBFT)
 
+bonus		: $(NAME)
+	@$(C_PUTS) "$(P_GREEN)Bonus Done!$(P_WHITE)\n"
+
 #confmlx	:
 #@$(MAKE) all --no-print-directory -C ./minilibx-linux/
 
@@ -165,4 +169,4 @@ rmvlib	:
 
 # Phony
 
-.PHONY: all clean fclean re val uplibft setlib rmvlib confmlx
+.PHONY: all clean fclean re val uplibft setlib rmvlib confmlx bonus

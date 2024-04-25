@@ -6,7 +6,7 @@
 /*   By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 11:40:55 by marcosv2          #+#    #+#             */
-/*   Updated: 2024/04/23 00:07:40 by marcosv2         ###   ########.fr       */
+/*   Updated: 2024/04/25 12:22:29 by marcosv2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static void	cb_fc_split(char ***parse)
 	}
 	*parse = ft_split(temp[0], ',');
 	ft_nfreetab(&temp);
+	if (ft_tablen(parse[0]) < 3)
+		cb_error(ERR_MSS_IEL);
 }
 
 static void	cb_set_fc_rgb(int rgb[3], int *lock, char ***parse)

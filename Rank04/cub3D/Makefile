@@ -6,7 +6,7 @@
 #    By: marcosv2 <marcosv2@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 21:52:16 by marcosv2          #+#    #+#              #
-#    Updated: 2024/04/25 15:12:36 by marcosv2         ###   ########.fr        #
+#    Updated: 2024/04/25 15:19:59 by marcosv2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ C_REMO	= rm -rf
 C_MDIR	= mkdir -p
 C_PUTS	= printf
 C_LIBX	= -lX11 -lXext -lmlx -lm
-MKBONUS	= -C bonus
 
 # Dirs
 

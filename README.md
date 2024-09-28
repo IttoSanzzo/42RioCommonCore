@@ -15,8 +15,8 @@
 ## Rank 1
 
     > Ft_printf		| Evaluated
-    > Get_next_line	| Evaluated
-    > Born2beroot	| Evaluated
+    > Get_next_line		| Evaluated
+    > Born2beroot		| Evaluated
 
 ## Rank 2
 
@@ -27,7 +27,7 @@
 ## Rank 3
 
     > Minishell		| Evaluated
-    > Philosophers	| Evaluated
+    > Philosophers		| Evaluated
 
 ## Rank 4
 
@@ -36,7 +36,7 @@
     > CPP02			| Evaluated
     > CPP03			| Evaluated
     > CPP04			| Evaluated
-    > NetPractice 	| Evaluated
+    > NetPractice	 	| Evaluated
     > Cub3D
 
 ## Rank 5
@@ -46,7 +46,7 @@
 
 ## Rank 6
 
-    > Transcendence	| Not done yet
+    > Transcendence		| Not done yet
 
 ## Exams
 
@@ -58,5 +58,5 @@
 
 ## Extras
 
-    > sastantua		| Done
+    > sastantua	| Done
     > ten_queens	| Done
